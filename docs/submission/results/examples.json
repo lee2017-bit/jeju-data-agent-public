@@ -1,0 +1,1288 @@
+{
+ "run_date": "2026-11-15",
+ "note": "센터 데이터는 가상(체험), 공개 데이터는 실제 값",
+ "examples": [
+  {
+   "question": "카페 하려는데 애월이랑 한림 중 어디가 좋을까?",
+   "purpose": "사업계획서·창업",
+   "understood": {
+    "regions": [
+     "애월읍",
+     "한림읍"
+    ],
+    "city": [],
+    "business": [
+     "비알콜 음료점업"
+    ],
+    "segment": "",
+    "views": [
+     "rank",
+     "compare"
+    ]
+   },
+   "center_tables": [
+    "1-08",
+    "1-12",
+    "1-14"
+   ],
+   "steps": {
+    "total": 15,
+    "center": 6,
+    "public": 9,
+    "done": 15,
+    "skipped": 0
+   },
+   "tools": [
+    "region_compare@1-08",
+    "compare_share@1-08",
+    "trend@1-08",
+    "top_n@1-08",
+    "pattern@1-12",
+    "pattern@1-14",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 13,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 2.32,
+    "analyze": 0.54
+   },
+   "answer_demo": {
+    "headline": "[체험] 애월읍 카페는 관광객 몫이 60.3%로 한림읍(54.6%)보다 5.7%p 높습니다.",
+    "core": "관광객 손님을 노린다면 애월읍, 도민 단골을 노린다면 한림읍 쪽이 맞습니다. 시장은 애월읍이 더 큽니다.",
+    "kpis": [
+     [
+      "애월읍 관광객 몫",
+      "60%"
+     ],
+     [
+      "한림읍 관광객 몫",
+      "55%"
+     ]
+    ],
+    "actions": [
+     "쉬는 날을 정한다면 매출이 가장 적은 수요일·화요일(12.2%·12.4%)의 손실이 가장 작습니다. 일손은 금·토·일에 모으세요.",
+     "관광객이 줄어드는 비수기에도 버틸 도민 단골 상품(평일 할인, 동네 정기권 등)을 함께 계획해 보세요."
+    ],
+    "badges": [
+     "주말형",
+     "점심 집중형",
+     "경쟁: 가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)"
+    ],
+    "cards": [
+     {
+      "key": "regions",
+      "title": "애월읍 카페는 관광객 몫이 60.3%로 한림읍(54.6%)보다 5.7%p 높습니다",
+      "grade": "관광객 몫 차이 5.7%p",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "애월읍·한림읍 카페 매출은 제주 전체의 3.6% — 애월읍 4위·한림읍 6위(71곳 중)",
+      "grade": "큰 시장",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "customers",
+      "title": "애월읍·한림읍 카페 손님 돈의 57.6%는 관광객 지갑에서 나옵니다",
+      "grade": "관광객 장사",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 8월이 가장 한산한 2월의 1.5배입니다",
+      "grade": "사계절 고른 편",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "week",
+      "title": "금·토·일 사흘에 매출의 49.2%가 몰립니다 — 토요일이 가장 많음(17.6%)",
+      "grade": "주말형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "time",
+      "title": "점심(11~14시)에 매출이 가장 몰립니다(28.7%)",
+      "grade": "점심 집중형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "애월읍·한림읍의 카페는 모두 364곳 — 애월읍 221곳(1위)·한림읍 143곳(6위)",
+      "grade": "가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": false,
+    "report_sentences": [],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "제주시 읍면 지역 식음료는 관광객이 대부분이고 계절을 많이 타는 장사입니다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "65%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "2.0배"
+     ],
+     [
+      "카페 가게 수",
+      "364곳"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "제주시 읍면 지역 식음료 손님 돈의 65.0%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "뚜렷한 관광객 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2018년 8월이 가장 한산한 2017년 1월의 2.0배입니다",
+      "grade": "계절 영향 큼",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "애월읍·한림읍의 카페는 모두 364곳 — 애월읍 221곳(1위)·한림읍 143곳(6위)",
+      "grade": "가게가 손꼽히게 많은 동네",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 제주시 읍면 지역 식음료 매출의 65.0%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  },
+  {
+   "question": "성산읍 흑돼지 식당, 관광객 비중은?",
+   "purpose": "가게·회사 운영",
+   "understood": {
+    "regions": [
+     "성산읍"
+    ],
+    "city": [],
+    "business": [
+     "한식 음식점업"
+    ],
+    "segment": "관광객(개별+단체)",
+    "views": [
+     "share"
+    ]
+   },
+   "center_tables": [
+    "1-08",
+    "1-12",
+    "1-14"
+   ],
+   "steps": {
+    "total": 14,
+    "center": 5,
+    "public": 9,
+    "done": 14,
+    "skipped": 0
+   },
+   "tools": [
+    "compare_share@1-08",
+    "trend@1-08",
+    "top_n@1-08",
+    "pattern@1-12",
+    "pattern@1-14",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 12,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 2.31,
+    "analyze": 0.33
+   },
+   "answer_demo": {
+    "headline": "[체험] 성산읍 한식당은 관광객이 더 많고, 계절을 조금 타며, 주말·저녁에 몰리는 장사입니다.",
+    "core": "핵심은 도민 단골로 비수기를 보완하는 것입니다.",
+    "kpis": [
+     [
+      "관광객 손님 몫",
+      "60%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.5배"
+     ],
+     [
+      "한식당 매출 순위",
+      "6위"
+     ]
+    ],
+    "actions": [
+     "한산한 2월 전후에는 인력·재료를 줄이고, 8월 전에 미리 늘리는 계획을 세워 두세요.",
+     "쉬는 날을 정한다면 매출이 가장 적은 화요일(12.0%)의 손실이 가장 작습니다. 일손은 금·토·일에 모으세요.",
+     "관광객이 줄어드는 비수기에도 버틸 도민 단골 상품(평일 할인, 동네 정기권 등)을 함께 계획해 보세요."
+    ],
+    "badges": [
+     "주말형",
+     "저녁 집중형",
+     "경쟁: 가게가 많은 동네 · 가게가 많은 편(경쟁 셈)"
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "성산읍 한식당 손님 돈의 60.0%는 관광객 지갑에서 나옵니다",
+      "grade": "관광객 장사",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 8월이 가장 한산한 2월의 1.5배입니다",
+      "grade": "계절 영향 있음",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "week",
+      "title": "금·토·일 사흘에 매출의 49.0%가 몰립니다 — 토요일이 가장 많음(17.5%)",
+      "grade": "주말형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "time",
+      "title": "저녁(18~22시)에 매출이 가장 몰립니다(43.5%)",
+      "grade": "저녁 집중형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "성산읍은 제주 한식당 매출 6위 동네입니다(72곳 중)",
+      "grade": "큰 시장",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "성산읍에는 한식당이 369곳 — 제주 73개 동네 중 8번째로 많습니다",
+      "grade": "가게가 많은 동네 · 가게가 많은 편(경쟁 셈)",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": false,
+    "report_sentences": [],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "서귀포시 읍면 지역 식음료는 관광객이 더 많은 편이고 계절을 조금 타는 장사입니다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "65%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.6배"
+     ],
+     [
+      "한식당 가게 수",
+      "369곳"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "서귀포시 읍면 지역 식음료 손님 돈의 64.6%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "관광객 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2017년 8월이 가장 한산한 2018년 2월의 1.6배입니다",
+      "grade": "계절 영향 있음",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "성산읍에는 한식당이 369곳 — 제주 73개 동네 중 8번째로 많습니다",
+      "grade": "가게가 많은 동네",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 서귀포시 읍면 지역 식음료 매출의 64.6%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  },
+  {
+   "question": "노형동 한식당 창업, 요일·시간대별 매출은?",
+   "purpose": "사업계획서·창업",
+   "understood": {
+    "regions": [
+     "노형동"
+    ],
+    "city": [],
+    "business": [
+     "한식 음식점업"
+    ],
+    "segment": "",
+    "views": [
+     "weekday",
+     "timeslot"
+    ]
+   },
+   "center_tables": [
+    "1-08",
+    "1-12",
+    "1-14"
+   ],
+   "steps": {
+    "total": 14,
+    "center": 5,
+    "public": 9,
+    "done": 14,
+    "skipped": 0
+   },
+   "tools": [
+    "compare_share@1-08",
+    "trend@1-08",
+    "top_n@1-08",
+    "pattern@1-12",
+    "pattern@1-14",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 12,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 2.29,
+    "analyze": 0.23
+   },
+   "answer_demo": {
+    "headline": "[체험] 노형동 한식당은 주말·저녁에 몰리고, 관광객과 도민이 반반이며, 사계절 고른 장사입니다.",
+    "core": "핵심은 금·토·일 저녁 일손 배치입니다.",
+    "kpis": [
+     [
+      "관광객 손님 몫",
+      "46%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.3배"
+     ],
+     [
+      "한식당 매출 순위",
+      "19위"
+     ]
+    ],
+    "actions": [
+     "쉬는 날을 정한다면 매출이 가장 적은 수요일·화요일(12.3%·12.4%)의 손실이 가장 작습니다. 일손은 금·토·일에 모으세요.",
+     "관광객과 도민을 함께 겨냥한 메뉴·가격을 검토해 보세요(평일 도민, 주말·성수기 관광객).",
+     "중간 규모 시장입니다. 임대료·가게 수와 함께 비교해 보세요."
+    ],
+    "badges": [
+     "저녁 집중형",
+     "경쟁: 가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)"
+    ],
+    "cards": [
+     {
+      "key": "week",
+      "title": "금·토·일 사흘에 매출의 49.4%가 몰립니다 — 토요일이 가장 많음(18.0%)",
+      "grade": "주말형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "time",
+      "title": "저녁(18~22시)에 매출이 가장 몰립니다(43.9%)",
+      "grade": "저녁 집중형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "customers",
+      "title": "노형동 한식당 손님 돈의 45.9%는 관광객 지갑에서 나옵니다",
+      "grade": "관광객·도민 반반",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 7월이 가장 한산한 12월의 1.3배입니다",
+      "grade": "사계절 고른 편",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "노형동은 제주 한식당 매출 19위 동네입니다(72곳 중)",
+      "grade": "중간 시장",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "노형동에는 한식당이 524곳 — 제주 73개 동네 중 2번째로 많습니다",
+      "grade": "가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'상업지' 지구는 저녁에 가장 많이 쓰고(33.4%), 토·일 몫은 30.5%입니다",
+      "grade": "요일 고른 편 · 저녁 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": false,
+    "report_sentences": [],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "제주시 도심 지역 식음료는 도민이 대부분이고 사계절 고른 장사입니다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "29%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.3배"
+     ],
+     [
+      "한식당 가게 수",
+      "524곳"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "제주시 도심 지역 식음료 손님 돈의 29.3%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "뚜렷한 도민 단골 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2018년 8월이 가장 한산한 2018년 2월의 1.3배입니다",
+      "grade": "사계절 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "노형동에는 한식당이 524곳 — 제주 73개 동네 중 2번째로 많습니다",
+      "grade": "가게가 손꼽히게 많은 동네",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'상업지' 지구는 저녁에 가장 많이 쓰고(33.4%), 토·일 몫은 30.5%입니다",
+      "grade": "요일 고른 편 · 저녁 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 제주시 도심 지역 식음료 매출의 29.3%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  },
+  {
+   "question": "중문동 호텔 중국인 손님 비중",
+   "purpose": "현황자료·보고서",
+   "understood": {
+    "regions": [
+     "중문동"
+    ],
+    "city": [],
+    "business": [
+     "호텔업"
+    ],
+    "segment": "중국인",
+    "views": [
+     "share"
+    ]
+   },
+   "center_tables": [
+    "1-08",
+    "1-12",
+    "1-14"
+   ],
+   "steps": {
+    "total": 14,
+    "center": 5,
+    "public": 9,
+    "done": 14,
+    "skipped": 0
+   },
+   "tools": [
+    "compare_share@1-08",
+    "trend@1-08",
+    "top_n@1-08",
+    "pattern@1-12",
+    "pattern@1-14",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 12,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 2.31,
+    "analyze": 0.2
+   },
+   "answer_demo": {
+    "headline": "[체험] 중문동 호텔 카드 매출 중 중국인 결제 비중은 5.6%로, 제주 전체 호텔 평균(2.7%)의 2.1배다.",
+    "core": "",
+    "kpis": [
+     [
+      "중국인 손님 몫",
+      "5.6%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.3배"
+     ],
+     [
+      "호텔 매출 순위",
+      "1위"
+     ]
+    ],
+    "actions": [],
+    "badges": [
+     "주말형",
+     "오후 집중형",
+     "경쟁: 가게가 적은 동네 · 가게 수에 비해 손님 넉넉"
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "중문동 호텔 매출 중 중국인 손님 몫은 5.6%입니다",
+      "grade": "중국인 손님이 평균의 2.1배",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 8월이 가장 한산한 2월의 1.3배입니다",
+      "grade": "사계절 고른 편",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "week",
+      "title": "금·토·일 사흘에 매출의 49.2%가 몰립니다 — 토요일이 가장 많음(17.3%)",
+      "grade": "주말형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "time",
+      "title": "오후(14~18시)에 매출이 가장 몰립니다(38.1%)",
+      "grade": "오후 집중형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "중문동은 제주 호텔 매출 1위 동네입니다(66곳 중)",
+      "grade": "제주에서 손꼽히는 큰 시장",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "중문동에는 호텔이 1곳 — 제주 41개 동네 중 38번째로, 적은 편입니다",
+      "grade": "가게가 적은 동네 · 가게 수에 비해 손님 넉넉",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": true,
+    "report_sentences": [
+     "중문동 호텔 카드 매출(2025.05~2026.04) 중 중국인 결제 비중은 5.6%로, 제주 전체 호텔 평균(2.7%)의 2.1배다.",
+     "월별 카드 매출(평소=100)은 8월 114, 2월 86으로 최고 달이 최저 달의 1.3배다.",
+     "중문동은 호텔 카드 매출이 발생한 제주 66개 읍면동 가운데 1위(제주 전체의 2.2%)다."
+    ],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "서귀포시 도심 지역 숙박 카드 매출 중 내국인 관광객 결제 비중은 86.3%로, 제주 전체 숙박 평균(75.3%)보다 11.0%p 높다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "86%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "2.4배"
+     ],
+     [
+      "호텔 가게 수",
+      "1곳"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "서귀포시 도심 지역 숙박 손님 돈의 86.3%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "뚜렷한 관광객 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2017년 8월이 가장 한산한 2016년 11월의 2.4배입니다",
+      "grade": "계절 영향 큼",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "중문동에는 호텔이 1곳 — 제주 41개 동네 중 38번째로, 적은 편입니다",
+      "grade": "가게가 적은 동네",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 서귀포시 도심 지역 숙박 매출의 86.3%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  },
+  {
+   "question": "서귀포시 숙박업 계절별 매출 흐름",
+   "purpose": "현황자료·보고서",
+   "understood": {
+    "regions": [],
+    "city": [
+     "서귀포시"
+    ],
+    "business": [
+     "호텔업",
+     "여관업",
+     "휴양콘도 운영업"
+    ],
+    "segment": "",
+    "views": [
+     "trend"
+    ]
+   },
+   "center_tables": [
+    "1-08",
+    "1-12",
+    "1-14"
+   ],
+   "steps": {
+    "total": 14,
+    "center": 5,
+    "public": 9,
+    "done": 14,
+    "skipped": 0
+   },
+   "tools": [
+    "compare_share@1-08",
+    "trend@1-08",
+    "top_n@1-08",
+    "pattern@1-12",
+    "pattern@1-14",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 12,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 2.18,
+    "analyze": 0.21
+   },
+   "answer_demo": {
+    "headline": "[체험] 서귀포시 숙박 카드 매출 중 관광객 결제 비중은 48.2%로, 제주 전체 숙박 평균(47.5%)과 비슷하다.",
+    "core": "",
+    "kpis": [
+     [
+      "관광객 손님 몫",
+      "48%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "1.3배"
+     ],
+     [
+      "숙박 매출 1위 동네",
+      "중문동"
+     ]
+    ],
+    "actions": [],
+    "badges": [
+     "주말형",
+     "오후 집중형"
+    ],
+    "cards": [
+     {
+      "key": "season",
+      "title": "가장 잘 되는 8월이 가장 한산한 2월의 1.3배입니다",
+      "grade": "사계절 고른 편",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "customers",
+      "title": "서귀포시 숙박 손님 돈의 48.2%는 관광객 지갑에서 나옵니다",
+      "grade": "관광객·도민 반반",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "week",
+      "title": "금·토·일 사흘에 매출의 49.0%가 몰립니다 — 토요일이 가장 많음(17.6%)",
+      "grade": "주말형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "time",
+      "title": "오후(14~18시)에 매출이 가장 몰립니다(37.4%)",
+      "grade": "오후 집중형",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "제주에서 숙박 매출이 가장 큰 동네는 중문동(2.3%)입니다",
+      "grade": "1위 중문동",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "서귀포시에서 숙박 가게가 가장 많은 동네는 성산읍(449곳)입니다",
+      "grade": "1위 성산읍",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "지구 유형마다 장사 시간이 다릅니다 — 내국인 주요 관광지·중국인 주요 관광지는 낮, 서귀포시 구도심은 저녁(43.3%)",
+      "grade": "지구 유형 비교",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": true,
+    "report_sentences": [
+     "서귀포시 숙박 카드 매출(2025.05~2026.04) 중 관광객 결제 비중은 48.2%로, 제주 전체 숙박 평균(47.5%)과 비슷하다.",
+     "월별 카드 매출(평소=100)은 8월 113, 2월 86으로 최고 달이 최저 달의 1.3배다.",
+     "숙박 카드 매출이 가장 큰 읍면동은 중문동(2.3%), 성산읍(2.2%), 애월읍(2.1%) 순이다."
+    ],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "서귀포시 숙박 카드 매출 중 내국인 관광객 결제 비중은 86.2%로, 제주 전체 숙박 평균(75.3%)보다 10.9%p 높다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "86%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "2.5배"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2018년 8월이 가장 한산한 2017년 3월의 2.5배입니다",
+      "grade": "계절 영향 큼",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "customers",
+      "title": "서귀포시 숙박 손님 돈의 86.2%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "뚜렷한 관광객 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "서귀포시에서 숙박 가게가 가장 많은 동네는 성산읍(449곳)입니다",
+      "grade": "1위 성산읍",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 서귀포시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.35배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "지구 유형마다 장사 시간이 다릅니다 — 내국인 주요 관광지·중국인 주요 관광지는 낮, 서귀포시 구도심은 저녁(43.3%)",
+      "grade": "지구 유형 비교",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 서귀포시 숙박 매출의 86.2%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  },
+  {
+   "question": "구좌읍 카페 매출을 다른 동네와 비교",
+   "purpose": "논문·연구",
+   "understood": {
+    "regions": [
+     "구좌읍"
+    ],
+    "city": [],
+    "business": [
+     "비알콜 음료점업"
+    ],
+    "segment": "",
+    "views": [
+     "compare"
+    ]
+   },
+   "center_tables": [
+    "1-08"
+   ],
+   "steps": {
+    "total": 11,
+    "center": 2,
+    "public": 9,
+    "done": 11,
+    "skipped": 0
+   },
+   "tools": [
+    "compare_share@1-08",
+    "top_n@1-08",
+    "store_rank@공개-상가",
+    "compare_share@허브-597",
+    "trend@허브-597",
+    "share_by@허브-597",
+    "group_share@허브-597",
+    "season_by@허브-597",
+    "trend@공개-방문자",
+    "pattern@공개-방문자",
+    "district_profile@허브-지구"
+   ],
+   "checks_passed": 8,
+   "warnings": [],
+   "export_verdicts": [
+    "반출 가능"
+   ],
+   "seconds": {
+    "load": 0.27,
+    "analyze": 0.29
+   },
+   "answer_demo": {
+    "headline": "[체험] 구좌읍 카페 카드 매출 중 관광객 결제 비중은 57.3%로, 제주 전체 카페 평균(47.6%)보다 9.7%p 높다.",
+    "core": "",
+    "kpis": [
+     [
+      "관광객 손님 몫",
+      "57%"
+     ],
+     [
+      "카페 매출 순위",
+      "8위"
+     ]
+    ],
+    "actions": [],
+    "badges": [
+     "경쟁: 가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)"
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "구좌읍 카페 손님 돈의 57.3%는 관광객 지갑에서 나옵니다",
+      "grade": "관광객 장사",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "location",
+      "title": "구좌읍은 제주 카페 매출 8위 동네입니다(71곳 중)",
+      "grade": "큰 시장",
+      "public": false,
+      "synthetic": true,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "구좌읍에는 카페가 185곳 — 제주 70개 동네 중 2번째로 많습니다",
+      "grade": "가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "neutral": true,
+    "report_sentences": [
+     "구좌읍 카페 카드 매출(2025.05~2026.04) 중 관광객 결제 비중은 57.3%로, 제주 전체 카페 평균(47.6%)보다 9.7%p 높다.",
+     "구좌읍은 카페 카드 매출이 발생한 제주 71개 읍면동 가운데 8위(제주 전체의 1.6%)다.",
+     "소상공인시장진흥공단 상가(상권)정보(2026.09 기준)에 따르면 구좌읍의 카페는 185곳으로 제주 70개 법정동 가운데 2위(제주 전체의 6.2%)다."
+    ],
+    "synthetic": true
+   },
+   "answer_public": {
+    "headline": "제주시 읍면 지역 식음료 카드 매출 중 내국인 관광객 결제 비중은 65.0%로, 제주 전체 식음료 평균(42.3%)보다 22.7%p 높다.",
+    "kpis": [
+     [
+      "내국인 관광객 손님 몫",
+      "65%"
+     ],
+     [
+      "성수기 ÷ 비수기",
+      "2.0배"
+     ],
+     [
+      "카페 가게 수",
+      "185곳"
+     ]
+    ],
+    "cards": [
+     {
+      "key": "customers",
+      "title": "제주시 읍면 지역 식음료 손님 돈의 65.0%는 내국인 관광객 지갑에서 나옵니다",
+      "grade": "뚜렷한 관광객 장사",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "season",
+      "title": "가장 잘 되는 2018년 8월이 가장 한산한 2017년 1월의 2.0배입니다",
+      "grade": "계절 영향 큼",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "stores",
+      "title": "구좌읍에는 카페가 185곳 — 제주 70개 동네 중 2번째로 많습니다",
+      "grade": "가게가 손꼽히게 많은 동네",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "visitors",
+      "title": "최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)",
+      "grade": "사계절 고른 편 · 요일 고른 편",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "district",
+      "title": "'내국인 주요 관광지' 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다",
+      "grade": "주말형 · 오후 중심",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     },
+     {
+      "key": "public",
+      "title": "공개 데이터(실제 값): 제주시 읍면 지역 식음료 매출의 65.0%가 내국인 관광객입니다(2016~2018)",
+      "grade": "실제 공개 데이터",
+      "public": true,
+      "synthetic": false,
+      "hold": false
+     }
+    ],
+    "synthetic": false
+   }
+  }
+ ]
+}

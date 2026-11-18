@@ -1,0 +1,3 @@
+# 개발·검증용(테스트)
+-r requirements.txt
+pytest==9.2.0

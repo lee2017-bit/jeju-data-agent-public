@@ -1,0 +1,1199 @@
+{
+ "run_date": "2026-11-10",
+ "results": [
+  {
+   "mode": "규칙만",
+   "완전 정답": 10,
+   "문항": 15,
+   "동네": 15,
+   "업종": 15,
+   "대상": 13,
+   "관점": 11,
+   "초": 0.0,
+   "AI 비용(USD)": 0.0,
+   "rows": [
+    {
+     "question": "함덕 해수욕장 앞에서 브런치 가게 하려는데 외지인 손님 비율 높을까요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "조천읍"
+     ],
+     "business": [
+      "서양식 음식점업"
+     ],
+     "segment": "관광객(개별+단체)",
+     "views": [
+      "share"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "애월 바닷가 커피숍, 여름 한철 장사인가요?",
+     "ok": false,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": false,
+     "regions": [
+      "애월읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "노형 쪽 고깃집인데 몇 시에 제일 붐벼요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "노형동"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "중문 호텔들 중국 손님 얼마나 돼요",
+     "ok": false,
+     "동네": true,
+     "업종": true,
+     "대상": false,
+     "관점": true,
+     "regions": [
+      "중문동"
+     ],
+     "business": [
+      "호텔업"
+     ],
+     "segment": "",
+     "views": [
+      "share"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "서귀포 시내 술집은 주말에 몰리나요 평일에 몰리나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "서귀동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "성산 일출봉 근처 기념품 가게 매출이 어느 달에 제일 좋아요?",
+     "ok": false,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": false,
+     "regions": [
+      "성산읍"
+     ],
+     "business": [
+      "관광 민예품 및 선물용품 소매업"
+     ],
+     "segment": "",
+     "views": [],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "제주공항 주변 렌트카 업체는 단체 관광객 비중이 어때요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "용담이동"
+     ],
+     "business": [
+      "자동차 임대업"
+     ],
+     "segment": "단체 관광객",
+     "views": [
+      "share"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "연동 편의점 야간 매출 비중",
+     "ok": false,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": false,
+     "regions": [
+      "연동"
+     ],
+     "business": [
+      "체인화 편의점"
+     ],
+     "segment": "",
+     "views": [
+      "share"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "한림 쪽 펜션 비수기가 언제예요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "한림읍"
+     ],
+     "business": [
+      "여관업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "구좌 월정리 카페 중에 어디가 제일 잘 팔려요? 다른 동네랑 비교도",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "구좌읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "rank",
+      "compare"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "표선 해장국집 도민 손님 많나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "표선면"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "도민",
+     "views": [
+      "share"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "이도동 일식집 점심이랑 저녁 중 언제 장사가 더 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "이도이동",
+      "이도일동"
+     ],
+     "business": [
+      "일식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "우도 가게들 일본 사람들 많이 와요?",
+     "ok": false,
+     "동네": true,
+     "업종": true,
+     "대상": false,
+     "관점": false,
+     "regions": [
+      "우도면"
+     ],
+     "business": [],
+     "segment": "",
+     "views": [],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "대정 모슬포항 횟집 계절 타나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "대정읍"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    },
+    {
+     "question": "삼도동 호프집 손님 연령대랑 요일 패턴",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "삼도이동",
+      "삼도일동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "기본 모드(규칙)로 질문을 해석했습니다."
+    }
+   ]
+  },
+  {
+   "mode": "AI(gpt-6-luna) + 규칙",
+   "완전 정답": 15,
+   "문항": 15,
+   "동네": 15,
+   "업종": 15,
+   "대상": 15,
+   "관점": 15,
+   "초": 33.4,
+   "AI 비용(USD)": 0.00145,
+   "rows": [
+    {
+     "question": "함덕 해수욕장 앞에서 브런치 가게 하려는데 외지인 손님 비율 높을까요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "조천읍"
+     ],
+     "business": [
+      "서양식 음식점업"
+     ],
+     "segment": "관광객(개별+단체)",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "애월 바닷가 커피숍, 여름 한철 장사인가요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "애월읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "노형 쪽 고깃집인데 몇 시에 제일 붐벼요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "노형동"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "중문 호텔들 중국 손님 얼마나 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "중문동"
+     ],
+     "business": [
+      "호텔업"
+     ],
+     "segment": "중국인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "서귀포 시내 술집은 주말에 몰리나요 평일에 몰리나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "서귀동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "성산 일출봉 근처 기념품 가게 매출이 어느 달에 제일 좋아요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "성산읍"
+     ],
+     "business": [
+      "관광 민예품 및 선물용품 소매업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "제주공항 주변 렌트카 업체는 단체 관광객 비중이 어때요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "용담이동"
+     ],
+     "business": [
+      "자동차 임대업"
+     ],
+     "segment": "단체 관광객",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "연동 편의점 야간 매출 비중",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "연동"
+     ],
+     "business": [
+      "체인화 편의점"
+     ],
+     "segment": "",
+     "views": [
+      "share",
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "한림 쪽 펜션 비수기가 언제예요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "한림읍"
+     ],
+     "business": [
+      "여관업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "구좌 월정리 카페 중에 어디가 제일 잘 팔려요? 다른 동네랑 비교도",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "구좌읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "rank",
+      "compare"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "표선 해장국집 도민 손님 많나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "표선면"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "도민",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "이도동 일식집 점심이랑 저녁 중 언제 장사가 더 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "이도이동",
+      "이도일동"
+     ],
+     "business": [
+      "일식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "우도 가게들 일본 사람들 많이 와요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "우도면"
+     ],
+     "business": [],
+     "segment": "일본인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인). 확인이 필요한 표현: 가게들"
+    },
+    {
+     "question": "대정 모슬포항 횟집 계절 타나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "대정읍"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "삼도동 호프집 손님 연령대랑 요일 패턴",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "삼도이동",
+      "삼도일동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    }
+   ]
+  },
+  {
+   "mode": "AI(gpt-6-luna) + 규칙",
+   "완전 정답": 15,
+   "문항": 15,
+   "동네": 15,
+   "업종": 15,
+   "대상": 15,
+   "관점": 15,
+   "초": 28.9,
+   "AI 비용(USD)": 0.00147,
+   "rows": [
+    {
+     "question": "함덕 해수욕장 앞에서 브런치 가게 하려는데 외지인 손님 비율 높을까요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "조천읍"
+     ],
+     "business": [
+      "서양식 음식점업"
+     ],
+     "segment": "관광객(개별+단체)",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "애월 바닷가 커피숍, 여름 한철 장사인가요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "애월읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "노형 쪽 고깃집인데 몇 시에 제일 붐벼요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "노형동"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "중문 호텔들 중국 손님 얼마나 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "중문동"
+     ],
+     "business": [
+      "호텔업"
+     ],
+     "segment": "중국인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "서귀포 시내 술집은 주말에 몰리나요 평일에 몰리나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "서귀동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "성산 일출봉 근처 기념품 가게 매출이 어느 달에 제일 좋아요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "성산읍"
+     ],
+     "business": [
+      "관광 민예품 및 선물용품 소매업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "제주공항 주변 렌트카 업체는 단체 관광객 비중이 어때요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "용담이동"
+     ],
+     "business": [
+      "자동차 임대업"
+     ],
+     "segment": "단체 관광객",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "연동 편의점 야간 매출 비중",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "연동"
+     ],
+     "business": [
+      "체인화 편의점"
+     ],
+     "segment": "",
+     "views": [
+      "share",
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "한림 쪽 펜션 비수기가 언제예요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "한림읍"
+     ],
+     "business": [
+      "여관업"
+     ],
+     "segment": "",
+     "views": [
+      "trend",
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "구좌 월정리 카페 중에 어디가 제일 잘 팔려요? 다른 동네랑 비교도",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "구좌읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "rank",
+      "compare"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "표선 해장국집 도민 손님 많나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "표선면"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "도민",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "이도동 일식집 점심이랑 저녁 중 언제 장사가 더 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "이도이동",
+      "이도일동"
+     ],
+     "business": [
+      "일식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "우도 가게들 일본 사람들 많이 와요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "우도면"
+     ],
+     "business": [],
+     "segment": "일본인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인). 확인이 필요한 표현: 가게들"
+    },
+    {
+     "question": "대정 모슬포항 횟집 계절 타나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "대정읍"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "삼도동 호프집 손님 연령대랑 요일 패턴",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "삼도이동",
+      "삼도일동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    }
+   ]
+  },
+  {
+   "mode": "AI(gpt-6-luna) + 규칙",
+   "완전 정답": 15,
+   "문항": 15,
+   "동네": 15,
+   "업종": 15,
+   "대상": 15,
+   "관점": 15,
+   "초": 28.3,
+   "AI 비용(USD)": 0.00141,
+   "rows": [
+    {
+     "question": "함덕 해수욕장 앞에서 브런치 가게 하려는데 외지인 손님 비율 높을까요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "조천읍"
+     ],
+     "business": [
+      "서양식 음식점업"
+     ],
+     "segment": "관광객(개별+단체)",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "애월 바닷가 커피숍, 여름 한철 장사인가요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "애월읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "노형 쪽 고깃집인데 몇 시에 제일 붐벼요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "노형동"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "중문 호텔들 중국 손님 얼마나 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "중문동"
+     ],
+     "business": [
+      "호텔업"
+     ],
+     "segment": "중국인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "서귀포 시내 술집은 주말에 몰리나요 평일에 몰리나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "서귀동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "성산 일출봉 근처 기념품 가게 매출이 어느 달에 제일 좋아요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "성산읍"
+     ],
+     "business": [
+      "관광 민예품 및 선물용품 소매업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "제주공항 주변 렌트카 업체는 단체 관광객 비중이 어때요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "용담이동"
+     ],
+     "business": [
+      "자동차 임대업"
+     ],
+     "segment": "단체 관광객",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "연동 편의점 야간 매출 비중",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "연동"
+     ],
+     "business": [
+      "체인화 편의점"
+     ],
+     "segment": "",
+     "views": [
+      "share",
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "한림 쪽 펜션 비수기가 언제예요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "한림읍"
+     ],
+     "business": [
+      "여관업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "구좌 월정리 카페 중에 어디가 제일 잘 팔려요? 다른 동네랑 비교도",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "구좌읍"
+     ],
+     "business": [
+      "비알콜 음료점업"
+     ],
+     "segment": "",
+     "views": [
+      "rank",
+      "compare"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "표선 해장국집 도민 손님 많나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "표선면"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "도민",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "이도동 일식집 점심이랑 저녁 중 언제 장사가 더 돼요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "이도이동",
+      "이도일동"
+     ],
+     "business": [
+      "일식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "timeslot"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "우도 가게들 일본 사람들 많이 와요?",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "우도면"
+     ],
+     "business": [],
+     "segment": "일본인",
+     "views": [
+      "share"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인). 확인이 필요한 표현: 가게들"
+    },
+    {
+     "question": "대정 모슬포항 횟집 계절 타나요",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "대정읍"
+     ],
+     "business": [
+      "한식 음식점업"
+     ],
+     "segment": "",
+     "views": [
+      "trend"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    },
+    {
+     "question": "삼도동 호프집 손님 연령대랑 요일 패턴",
+     "ok": true,
+     "동네": true,
+     "업종": true,
+     "대상": true,
+     "관점": true,
+     "regions": [
+      "삼도이동",
+      "삼도일동"
+     ],
+     "business": [
+      "기타 주점업"
+     ],
+     "segment": "",
+     "views": [
+      "weekday"
+     ],
+     "note": "AI(gpt-6-luna)가 질문 해석을 도왔습니다(질문 문장만 전송, 지역·업종 대응은 내장 사전으로 확인)."
+    }
+   ]
+  }
+ ]
+}

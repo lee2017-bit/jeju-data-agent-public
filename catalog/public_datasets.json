@@ -1,0 +1,368 @@
+{
+ "_설명": "제주데이터허브 공개 데이터(필수 데이터로 인정, 운영진 답변 2026-11-02). 센터 표와 같은 구조로 등록해 같은 분석 도구를 쓴다.",
+ "tables": [
+  {
+   "id": "허브-597",
+   "sheet": "",
+   "name": "내국인 관광객 지역·업종·성별·연령대별 카드 이용 데이터",
+   "category": "공개(제주데이터허브)",
+   "provider": "제주데이터허브",
+   "raw_export_allowed": true,
+   "export_raw": "공개 데이터",
+   "registered": "2021-09-15",
+   "period": "2016년 9월 ~ 2018년 12월(월 단위, 2026-11 확인한 Open API 제공 범위)",
+   "description": "월간 내국인관광객·제주도민 카드 사용 정보(시군구·도심구분·업종 9종·성별·연령대). 제주데이터허브 Open API로 제공.",
+   "source_url": "https://jejudatahub.net/data/view/data/597",
+   "api": {
+    "base": "https://open.jejudatahub.net/api/proxy/",
+    "api_id": "5D5a577taba7tbb71at1b1bt9tatata9",
+    "required": [
+     "startDate",
+     "endDate"
+    ],
+    "page_param": "number",
+    "limit_param": "limit",
+    "max_limit": 100
+   },
+   "license": "이용허락범위 제한 없음, 무료(공공데이터포털 15094857 표기, 제공기관 제주특별자치도)",
+   "value_map": {
+    "ageGroup": {
+     "20 미만": "20대 미만",
+     "20대미만": "20대 미만"
+    }
+   },
+   "total_values": {
+    "marketType": [
+     "전체"
+    ]
+   },
+   "columns": [
+    {
+     "name": "sido",
+     "label": "시도",
+     "dtype": "STRING",
+     "example": "제주도",
+     "note": ""
+    },
+    {
+     "name": "sigungu",
+     "label": "시군구",
+     "dtype": "STRING",
+     "example": "제주시",
+     "note": "제주시, 서귀포시"
+    },
+    {
+     "name": "cityGubun",
+     "label": "도심구분",
+     "dtype": "STRING",
+     "example": "도심",
+     "note": "도심, 읍면"
+    },
+    {
+     "name": "marketType",
+     "label": "업종",
+     "dtype": "STRING",
+     "example": "식음료",
+     "note": "식음료, 쇼핑, 소매, 문화/레져, 교통, 숙박, 유흥, 기타 (API 가이드 예시의 '전체'는 합계 행 — 불러올 때 뺌)"
+    },
+    {
+     "name": "userType",
+     "label": "관광객구분",
+     "dtype": "STRING",
+     "example": "내국인관광객",
+     "note": "내국인관광객, 제주도민"
+    },
+    {
+     "name": "ageGroup",
+     "label": "연령대",
+     "dtype": "STRING",
+     "example": "40대",
+     "note": "20대 미만, 20대, 30대, 40대, 50대, 60대이상 (원자료 표기가 2017.11까지 '20 미만', 2017.12부터 '20대미만' → '20대 미만'으로 통일)"
+    },
+    {
+     "name": "gender",
+     "label": "성별",
+     "dtype": "STRING",
+     "example": "여",
+     "note": "남, 여"
+    },
+    {
+     "name": "dtYearMonth",
+     "label": "년월",
+     "dtype": "STRING",
+     "example": "201812",
+     "note": "YYYYMM"
+    },
+    {
+     "name": "userCount",
+     "label": "이용자수",
+     "dtype": "INT",
+     "example": "1390",
+     "note": ""
+    },
+    {
+     "name": "useCount",
+     "label": "이용건수",
+     "dtype": "INT",
+     "example": "1712",
+     "note": ""
+    },
+    {
+     "name": "useCost",
+     "label": "이용금액",
+     "dtype": "BIGINT",
+     "example": "149290960",
+     "note": "원"
+    }
+   ],
+   "references": []
+  },
+  {
+   "id": "공개-상가",
+   "sheet": "",
+   "name": "소상공인 상가(상권)정보 — 제주 동네·업종별 가게 수",
+   "category": "공개(공공데이터포털)",
+   "provider": "소상공인시장진흥공단",
+   "raw_export_allowed": true,
+   "export_raw": "공개 데이터",
+   "registered": "",
+   "period": "2026년 9월 말 기준(분기마다 갱신)",
+   "description": "상가(상권)정보 제주 원본(59,101곳)을 법정동 × 상권업종(대·중·소분류)별 가게 수로 줄인 것. 카드 업종(1-08)과 이어 보도록 card_biz 열을 붙였다.",
+   "source_url": "https://www.data.go.kr/data/15083033/fileData.do",
+   "license": "이용허락범위 제한 없음(공공데이터포털 표기)",
+   "columns": [
+    {
+     "name": "base_year_month",
+     "label": "기준연월",
+     "dtype": "STRING",
+     "example": "202609",
+     "note": "상가정보 기준 시점"
+    },
+    {
+     "name": "sigungu",
+     "label": "시군구",
+     "dtype": "STRING",
+     "example": "제주시",
+     "note": "제주시, 서귀포시"
+    },
+    {
+     "name": "bjd",
+     "label": "법정동",
+     "dtype": "STRING",
+     "example": "애월읍",
+     "note": "센터 1-08과 같은 73개 법정동"
+    },
+    {
+     "name": "big",
+     "label": "업종 대분류",
+     "dtype": "STRING",
+     "example": "음식",
+     "note": ""
+    },
+    {
+     "name": "mid",
+     "label": "업종 중분류",
+     "dtype": "STRING",
+     "example": "비알코올",
+     "note": ""
+    },
+    {
+     "name": "small",
+     "label": "업종 소분류",
+     "dtype": "STRING",
+     "example": "카페",
+     "note": ""
+    },
+    {
+     "name": "card_biz",
+     "label": "카드 업종",
+     "dtype": "STRING",
+     "example": "비알콜 음료점업",
+     "note": "센터 카드 업종과 대응(없으면 빈칸)"
+    },
+    {
+     "name": "store_cnt",
+     "label": "가게 수",
+     "dtype": "NUMBER",
+     "example": "222",
+     "note": ""
+    }
+   ],
+   "references": [],
+   "source_name": "소상공인시장진흥공단 상가(상권)정보"
+  },
+  {
+   "id": "공개-방문자",
+   "sheet": "",
+   "name": "한국관광공사 지역별 방문자 수 — 제주시·서귀포시 일별",
+   "category": "공개(공공데이터포털)",
+   "provider": "한국관광공사",
+   "source_name": "한국관광공사 빅데이터 지역별 방문자 수(이동통신 기반)",
+   "raw_export_allowed": true,
+   "export_raw": "공개 데이터",
+   "registered": "",
+   "period": "최근 12개월(지난달 말까지, 일별)",
+   "description": "KT(내국인)·SKT(외국인) 이동통신 데이터 기반 시군구별 일별 방문자 수. '방문자'는 일상생활권을 벗어나 머문 사람으로 관광객과 같은 뜻은 아님.",
+   "source_url": "https://www.data.go.kr/data/15101972/openapi.do",
+   "license": "이용허락범위 제한 없음(공공데이터포털 15101972 표기)",
+   "columns": [
+    {
+     "name": "base_ymd",
+     "label": "기준일",
+     "dtype": "STRING",
+     "example": "20251001",
+     "note": ""
+    },
+    {
+     "name": "base_year_month",
+     "label": "기준연월",
+     "dtype": "STRING",
+     "example": "202510",
+     "note": ""
+    },
+    {
+     "name": "sigungu",
+     "label": "시군구",
+     "dtype": "STRING",
+     "example": "제주시",
+     "note": "제주시, 서귀포시"
+    },
+    {
+     "name": "daywk",
+     "label": "요일",
+     "dtype": "STRING",
+     "example": "수요일",
+     "note": ""
+    },
+    {
+     "name": "tou_div",
+     "label": "방문자 구분",
+     "dtype": "STRING",
+     "example": "외지인",
+     "note": "현지인, 외지인, 외국인"
+    },
+    {
+     "name": "tou_num",
+     "label": "방문자 수",
+     "dtype": "NUMBER",
+     "example": "143496.5",
+     "note": "추정치"
+    }
+   ],
+   "references": []
+  },
+  {
+   "id": "공개-인구",
+   "sheet": "",
+   "name": "행정안전부 법정동별 주민등록 인구 — 제주",
+   "category": "공개(공공데이터포털)",
+   "provider": "행정안전부",
+   "source_name": "행정안전부 법정동별 주민등록 인구 및 세대현황",
+   "raw_export_allowed": true,
+   "export_raw": "공개 데이터",
+   "registered": "",
+   "period": "가장 최근 달(월말 기준)",
+   "description": "법정동(리) 단위 주민등록 인구를 법정동으로 더한 것. 센터 1-08과 같은 73개 법정동.",
+   "source_url": "https://www.data.go.kr/data/15108071/openapi.do",
+   "license": "이용허락범위 제한 없음(공공데이터포털 15108071 표기)",
+   "columns": [
+    {
+     "name": "base_year_month",
+     "label": "기준연월",
+     "dtype": "STRING",
+     "example": "202609",
+     "note": ""
+    },
+    {
+     "name": "sigungu",
+     "label": "시군구",
+     "dtype": "STRING",
+     "example": "제주시",
+     "note": ""
+    },
+    {
+     "name": "bjd",
+     "label": "법정동",
+     "dtype": "STRING",
+     "example": "애월읍",
+     "note": ""
+    },
+    {
+     "name": "pop",
+     "label": "주민등록 인구",
+     "dtype": "NUMBER",
+     "example": "38382",
+     "note": ""
+    },
+    {
+     "name": "hh",
+     "label": "세대 수",
+     "dtype": "NUMBER",
+     "example": "17000",
+     "note": ""
+    }
+   ],
+   "references": []
+  },
+  {
+   "id": "허브-지구",
+   "sheet": "",
+   "name": "관광지 및 상업지구 요일별·시간대별·이용자 유형별 카드 데이터",
+   "category": "공개(제주데이터허브)",
+   "provider": "제주데이터허브",
+   "source_name": "관광지 및 상업지구 요일별·시간대별·이용자 유형별 카드 데이터",
+   "raw_export_allowed": true,
+   "export_raw": "공개 데이터",
+   "registered": "",
+   "period": "2016년 9월 ~ 2017년 11월(15개월, 2026-11-04 Open API로 받은 범위)",
+   "description": "지구 5종(상업지·내국인 주요 관광지·중국인 주요 관광지·제주시 구도심·서귀포시 구도심)별 카드 이용. 요일·시간대는 내국인·중국인 관광객, 이용자 유형은 법인·도민·내국인·중국인 관광객. 앱이 세 파일을 한 표로 합친 것.",
+   "source_url": "https://www.data.go.kr/data/15094893/openapi.do",
+   "license": "이용허락범위 제한 없음, 무료(공공데이터포털 15094893·15094892·15094889 표기, 제공기관 제주특별자치도)",
+   "columns": [
+    {
+     "name": "districtType",
+     "label": "지구",
+     "dtype": "STRING",
+     "example": "상업지",
+     "note": ""
+    },
+    {
+     "name": "dim",
+     "label": "구분",
+     "dtype": "STRING",
+     "example": "요일",
+     "note": "요일, 시간대, 이용자"
+    },
+    {
+     "name": "cat",
+     "label": "값",
+     "dtype": "STRING",
+     "example": "토",
+     "note": ""
+    },
+    {
+     "name": "userType",
+     "label": "이용자 구분",
+     "dtype": "STRING",
+     "example": "내국인관광객",
+     "note": ""
+    },
+    {
+     "name": "dtYearMonth",
+     "label": "기준연월",
+     "dtype": "STRING",
+     "example": "201709",
+     "note": ""
+    },
+    {
+     "name": "useCost",
+     "label": "이용금액",
+     "dtype": "NUMBER",
+     "example": "1072164080",
+     "note": ""
+    }
+   ],
+   "references": []
+  }
+ ]
+}

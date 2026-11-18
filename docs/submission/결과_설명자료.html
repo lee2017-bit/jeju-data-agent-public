@@ -1,0 +1,592 @@
+<!doctype html><html lang='ko'><head><meta charset='utf-8'><title>결과 설명자료 — 제주 사장님 상권비서</title><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css'><style>/* 그림 중심 문서 공용 스타일 — 기획서와 같은 글자 체계(40·24·15·13·11·9pt), 글꼴 Pretendard 하나 */
+@page { size: A4; margin: 15mm; }
+:root { --ink:#0F172A; --muted:#55606F; --line:#D9DFE7; --blue:#1D4ED8; --blue-soft:#EEF3FE; --orange:#C2410C;
+        --orange-soft:#FDF0E7; --green:#047857; --green-soft:#E8F6EF; --bg:#F6F7F9; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+       color: var(--ink); font-size: 11pt; line-height: 1.5; word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.3; }
+.page { break-after: page; }
+.pg { break-before: page; }
+.b-real { background: var(--green-soft); color: var(--green); }
+.b-center { background: var(--blue-soft); color: var(--blue); }
+.b-demo { background: #FEF3C7; color: #8A4B0B; }
+  /* ══ v5: 본문(1~11쪽) 글자 체계 — 크기는 여섯 가지만: 40 · 24 · 15 · 13 · 11 · 9pt, 글꼴은 Pretendard 하나 ══ */
+  .m { --t0: 40pt; --t1: 24pt; --t2: 15pt; --t3: 13pt; --t4: 11pt; --t5: 9pt;
+       font-size: var(--t4); line-height: 1.5; font-weight: 500; color: var(--ink); }
+  .m * { font-size: inherit; line-height: inherit; font-family: inherit; }
+  .m p { margin: 0; }
+  .m ul { margin: 0; padding-left: 13pt; }
+  .m li { margin: 1pt 0; }
+  .m figure { margin: 0; }
+  .m .ico { font-size: var(--t1); line-height: 1.2; display: block; }   /* 그림 문자(이모지)는 아이콘 크기 하나 */
+
+  /* 쪽 머리: 분류표 → 제목 → (한 줄 설명) */
+  .m .hdr { margin-bottom: 8mm; }
+  .m .kk { display: inline-block; font-size: var(--t5); font-weight: 700; color: var(--blue); background: var(--blue-soft);
+           padding: 1pt 8pt; border-radius: 99pt; letter-spacing: .02em; }
+  .m .t1 { font-size: var(--t1); font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; margin: 5pt 0 0; border: 0; padding: 0; }
+  .m .ld { font-size: var(--t3); font-weight: 600; color: #475569; margin-top: 3mm; }
+  .m .hd { font-size: var(--t3); font-weight: 800; margin: 0 0 3mm; line-height: 1.35; }
+  .m .hd span { font-weight: 600; color: var(--muted); }
+  .m .cap { font-size: var(--t5); color: var(--muted); font-weight: 500; background: none; border: 0; border-radius: 0; padding: 0; align-self: auto; }
+  .m .stmt { font-size: var(--t2); font-weight: 800; line-height: 1.5; text-align: center; }
+  .m .stmt em { font-style: normal; color: var(--orange); }
+  .m .stmt .blue { color: var(--blue); }
+  .m .stmt .del { color: #94A3B8; text-decoration: line-through; text-decoration-thickness: 2px; }
+  .m .mt3 { margin-top: 3mm; } .m .mt6 { margin-top: 6mm; } .m .mt9 { margin-top: 9mm; } .m .mt12 { margin-top: 12mm; }
+
+  /* 실제 화면 */
+  .m .sh { border: 1px solid var(--line); border-radius: 6pt; overflow: hidden; background: #fff; box-shadow: 0 1.5pt 5pt rgba(15,23,42,.08); }
+  .m .sh img { display: block; width: 100%; border: 0; border-radius: 0; }
+  .m .w160 { width: 160mm; margin-left: auto; margin-right: auto; }
+  .m .badge { font-size: var(--t5); font-weight: 700; padding: 0 6pt; border-radius: 99pt; }
+
+  /* 표지 */
+  .mcover { display: flex; flex-direction: column; height: 262mm; }
+  .mcover .meta { font-size: var(--t5); color: var(--muted); font-weight: 600; }
+  .mcover h1 { font-size: var(--t0); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin: 22mm 0 5mm; }
+  .mcover .sub { font-size: var(--t2); font-weight: 600; color: #334155; line-height: 1.55; }
+  .mcover .chips { display: flex; gap: 3mm; margin-top: 6mm; flex-wrap: wrap; }
+  .mcover .chips span { font-size: var(--t4); font-weight: 700; color: #1E3A8A; background: var(--blue-soft); border-radius: 99pt; padding: 3pt 11pt; }
+  .mcover .hero { margin-top: 12mm; }
+  .mcover .foot { margin-top: auto; display: flex; gap: 5mm; align-items: center; border-top: 1px solid var(--line); padding-top: 5mm; }
+  .mcover .foot img { width: 24mm; height: 24mm; border: 0; }
+  .mcover .foot b { display: block; font-size: var(--t3); }
+  .mcover .foot span { font-size: var(--t3); font-weight: 800; color: var(--orange); }
+
+  /* 2쪽 개념도 */
+  .cpt { display: grid; grid-template-columns: 1fr 9mm 1.15fr 9mm 1fr; align-items: stretch; }
+  .cpt .col { border-radius: 10pt; padding: 12pt 10pt; display: flex; flex-direction: column; gap: 8pt; align-items: center; text-align: center; }
+  .cpt .col .hd { margin: 0; }
+  .cpt .u { background: #F8FAFC; border: 1.5px solid var(--line); }
+  .cpt .g { background: var(--blue-soft); border: 1.5px solid #C9D7FB; }
+  .cpt .o { background: var(--orange-soft); border: 1.5px solid #F6CDB1; }
+  .cpt .ar { display: flex; align-items: center; justify-content: center; font-size: var(--t2); font-weight: 800; color: var(--blue); }
+  .cpt svg.char { width: 34mm; height: 41mm; }
+  .cpt svg.bot { width: 26mm; height: 26mm; }
+  .cpt .q { font-weight: 600; background: #fff; border: 1.5px solid var(--ink); border-radius: 10pt; padding: 6pt 9pt; }
+  .cpt .st, .cpt .it { width: 100%; background: #fff; border-radius: 7pt; padding: 7pt 6pt; font-weight: 700; }
+  .cpt .st { color: #1E3A8A; } .cpt .it { color: #9A3412; }
+  .fx { display: flex; align-items: center; gap: 4pt; }
+  .fx .t { flex: 1; text-align: center; border-radius: 8pt; padding: 10pt 4pt; background: var(--blue-soft); }
+  .fx .t b { display: block; font-size: var(--t3); font-weight: 800; color: var(--blue); }
+  .fx .t span { font-size: var(--t5); color: var(--muted); }
+  .fx .x { font-size: var(--t3); font-weight: 800; color: var(--muted); }
+  .who4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+  .who4 div { border-radius: 9pt; background: var(--bg); padding: 8pt; text-align: center; }
+  .who4 b { display: block; font-weight: 800; margin-top: 2pt; }
+  .who4 span { color: var(--blue); font-weight: 700; }
+
+  /* 3쪽 벽 셋 */
+  .walls { display: grid; grid-template-columns: 54mm 1fr 1fr; gap: 4.5mm 4mm; }
+  .walls .wh { font-size: var(--t3); font-weight: 800; text-align: center; padding: 7pt 0; border-radius: 8pt; }
+  .walls .wh.x { background: #E2E8F0; color: #475569; }
+  .walls .wh.v { background: var(--blue); color: #fff; }
+  .walls .w { background: var(--orange-soft); border-left: 6pt solid var(--orange); border-radius: 9pt; padding: 10pt 11pt; min-height: 42mm; }
+  .walls .w .no { font-size: var(--t5); font-weight: 800; color: var(--orange); }
+  .walls .w b { display: block; font-size: var(--t3); font-weight: 800; margin: 2pt 0 4pt; }
+  .walls .w p { color: #9A3412; }
+  .walls .c { position: relative; border-radius: 9pt; padding: 11pt 11pt 10pt 34pt; }
+  .walls .c b { display: block; font-size: var(--t3); font-weight: 800; line-height: 1.4; }
+  .walls .c p { margin-top: 5pt; color: var(--muted); }
+  .walls .c.x { background: #F1F5F9; } .walls .c.x b { color: #64748B; }
+  .walls .c.v { background: var(--blue-soft); border: 1.5px solid #C9D7FB; } .walls .c.v b { color: #1E3A8A; }
+  .walls .c::before { position: absolute; left: 10pt; top: 11pt; width: 17pt; height: 17pt; border-radius: 50%; color: #fff;
+       font-size: var(--t5); font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .walls .c.x::before { content: "✕"; background: #DC2626; }
+  .walls .c.v::before { content: "✓"; background: var(--green); }
+
+  /* 4쪽 네 컷 */
+  .cm { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .cm .pn { border: 1.8px solid var(--ink); border-radius: 10pt; padding: 8pt 9pt 10pt; height: 104mm; display: flex; flex-direction: column; gap: 6pt; }
+  .cm .lab { align-self: flex-start; font-size: var(--t5); font-weight: 800; background: #FDE68A; border: 1.2px solid var(--ink); border-radius: 5pt; padding: 0 6pt; }
+  .cm .scene { display: flex; align-items: center; gap: 6pt; }
+  .cm svg.char { width: 25mm; height: 30mm; flex: none; }
+  .cm .bub { font-size: var(--t3); font-weight: 700; background: #fff; border: 1.5px solid var(--ink); border-radius: 11pt; padding: 6pt 10pt; line-height: 1.4; }
+  .cm .ag { display: flex; align-items: center; gap: 5pt; }
+  .cm .ag svg { width: 9mm; height: 9mm; flex: none; }
+  .cm .ag div { font-weight: 600; color: #1E3A8A; background: var(--blue-soft); border: 1.5px solid #9DB5F5; border-radius: 11pt; padding: 4pt 9pt; }
+  .cm .mock { margin-top: auto; border-radius: 8pt; background: #F8FAFC; border: 1px solid var(--line); padding: 7pt; }
+  .cm .tb { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }
+  .cm .tb div { background: #fff; border: 1px solid var(--line); border-radius: 5pt; padding: 3pt 6pt; font-size: var(--t5); color: var(--muted); line-height: 1.35; }
+  .cm .tb div b { display: block; color: var(--ink); font-weight: 700; }
+  .cm .tb .more { grid-column: 1 / -1; text-align: center; border: 0; background: transparent; color: var(--orange); font-weight: 800; }
+  .cm .row { display: flex; align-items: center; gap: 6pt; background: #fff; border: 1px solid var(--line); border-radius: 6pt; padding: 5pt 8pt; font-weight: 700; }
+  .cm .row + .row { margin-top: 4pt; }
+  .cm .row i { font-style: normal; color: var(--blue); font-weight: 800; }
+  .cm .ans { background: var(--blue-soft); border-color: #C9D7FB; }
+  .cm .ans .k { font-size: var(--t5); font-weight: 800; color: var(--blue); }
+  .cm .ans b { display: block; font-weight: 800; margin: 2pt 0 5pt; }
+  .cm .ans span { font-size: var(--t5); font-weight: 700; color: #1E3A8A; background: #fff; border-radius: 99pt; padding: 1pt 7pt; margin-right: 3pt; }
+
+  /* 5~7쪽 단계 표시 */
+  .prog { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 7mm; }
+  .prog span { text-align: center; font-weight: 700; padding: 5pt 0; border-radius: 7pt; background: #F1F5F9; color: #94A3B8; }
+  .prog span.on { background: var(--blue); color: #fff; }
+  .stp { display: flex; align-items: baseline; gap: 7pt; margin: 0 0 3mm; }
+  .stp .n { flex: none; align-self: center; width: 9mm; height: 9mm; border-radius: 50%; background: var(--blue); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: var(--t3); font-weight: 800; }
+  .stp .hd { margin: 0; }
+  .stp p { color: var(--muted); }
+
+  /* 6쪽 결론 화면 표시 */
+  .anno { position: relative; }
+  .anno .pin { position: absolute; transform: translate(-50%, -50%); width: 20pt; height: 20pt; border-radius: 50%; background: var(--orange);
+               color: #fff; font-size: var(--t4); font-weight: 800; display: flex; align-items: center; justify-content: center;
+               box-shadow: 0 0 0 2.5pt #fff; }
+  .lg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .lg > div { display: flex; gap: 6pt; align-items: flex-start; }
+  .lg .pin { flex: none; width: 18pt; height: 18pt; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800;
+             display: flex; align-items: center; justify-content: center; }
+  .lg b { display: block; font-weight: 800; }
+  .lg span { color: var(--muted); }
+
+  /* 7쪽 묶음 내용 */
+  .zipl { display: flex; flex-wrap: wrap; gap: 3mm; align-items: center; }
+  .zipl span { background: var(--orange-soft); border: 1px solid #F6CDB1; border-radius: 6pt; padding: 3pt 9pt; font-weight: 700; }
+  .zipl em { font-style: normal; color: var(--muted); font-weight: 600; }
+  .side { display: grid; grid-template-columns: 46mm 1fr; gap: 6mm; align-items: center; }
+  .side p { color: var(--muted); margin-top: 2pt; }
+
+  /* 8쪽 Agent */
+  .pipe6 { display: grid; grid-template-columns: repeat(6, 1fr); }
+  .pipe6 div { position: relative; background: var(--blue); color: #fff; font-weight: 800; padding: 9pt 6pt 9pt 14pt; min-height: 16mm;
+               display: flex; align-items: center; clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%, 9pt 50%); }
+  .pipe6 div:first-child { clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%); padding-left: 8pt; }
+  .pipe6 div:nth-child(even) { background: #2E5BE3; }
+  .act3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .act3 > div { border-radius: 10pt; padding: 10pt 11pt; }
+  .act3 b { display: block; font-size: var(--t3); font-weight: 800; margin-bottom: 3pt; }
+  .nogo { background: #FEE2E2; border-radius: 10pt; padding: 10pt 12pt; }
+  .nogo ul { columns: 2; }
+
+  /* 9쪽 데이터 */
+  .d3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .d3 .g { border-radius: 10pt; padding: 10pt 11pt; border: 1px solid var(--line); border-top: 6pt solid; background: #fff; display: flex; flex-direction: column; }
+  .d3 .g.c { border-top-color: var(--blue); } .d3 .g.h { border-top-color: var(--green); } .d3 .g.p { border-top-color: #94A3B8; }
+  .d3 .g .hd { margin: 0; }
+  .d3 .g ul { margin-top: 6pt; }
+  .d3 .g .to { margin-top: auto; padding-top: 7pt; border-top: 1px dashed var(--line); font-weight: 800; color: var(--blue); }
+  .d3 .g .ul-wrap { margin-bottom: 8pt; }
+
+  /* 공통 메모 상자 둘 */
+  .n2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .n2 > div { border-radius: 9pt; background: var(--bg); padding: 10pt 12pt; }
+  .n2 b { display: block; font-size: var(--t3); font-weight: 800; margin-bottom: 2pt; }
+  .n2 p { color: var(--muted); }
+
+  /* 10쪽 큰 숫자 */
+  .b3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+  .b3 div { text-align: center; border-radius: 12pt; background: var(--blue-soft); padding: 13mm 6pt 11mm; }
+  .b3 b { display: block; font-size: var(--t0); font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -0.03em; }
+  .b3 span { display: block; margin-top: 4mm; font-size: var(--t3); font-weight: 800; color: #1E3A8A; }
+  .b3 small { display: block; margin-top: 2pt; font-size: var(--t5); color: var(--muted); }
+
+  /* 11쪽 설치 */
+  .ins { display: grid; grid-template-columns: 1fr 7mm 1fr 7mm 1fr; align-items: stretch; }
+  .ins .s { border: 1.5px solid var(--blue); border-radius: 9pt; padding: 9pt 10pt; text-align: center; }
+  .ins .s b { display: block; font-size: var(--t3); font-weight: 800; margin: 2pt 0; }
+  .ins .s code { font-family: inherit; font-weight: 800; color: var(--blue); }
+  .ins .s p { color: var(--muted); }
+  .ins .ar { display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); }
+  .ops { display: grid; grid-template-columns: 98mm 1fr; gap: 6mm; align-items: center; }
+  .ops .v3 { display: grid; gap: 3mm; }
+  .ops .v3 div { border-radius: 9pt; background: var(--bg); padding: 8pt 10pt; }
+  .ops .v3 b { display: block; font-weight: 800; }
+  .ops .v3 span { color: var(--muted); }
+  .qr2 { display: grid; grid-template-columns: 32mm 1fr; gap: 6mm; align-items: center; border: 1.5px solid var(--orange); border-radius: 10pt;
+         padding: 10pt 14pt; background: var(--orange-soft); }
+  .qr2 img { width: 32mm; height: 32mm; border: 0; }
+  .qr2 b { display: block; font-size: var(--t3); font-weight: 800; }
+  .qr2 .url { font-size: var(--t3); font-weight: 800; color: var(--orange); }
+  .qr2 p { color: var(--muted); margin-top: 2pt; }
+
+
+  .arow { display: grid; grid-template-columns: 1fr 40mm; gap: 6mm; }
+  .arow .anno { padding-left: 7mm; }
+  .lgv { position: relative; }
+  .lgv > div { position: absolute; left: 0; right: 0; transform: translateY(-50%); display: flex; gap: 6pt; align-items: flex-start; }
+  .lgv .pin { flex: none; width: 18pt; height: 18pt; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800;
+              display: flex; align-items: center; justify-content: center; }
+  .lgv b { display: block; font-weight: 800; }
+  .lgv span { color: var(--muted); }
+
+  /* ══ 결과 설명자료 전용 ══ */
+  .m .toc { display: grid; gap: 2.5mm; }
+  .m .toc div { display: grid; grid-template-columns: 9mm 1fr auto; align-items: center; gap: 4mm; padding: 5pt 10pt; border-radius: 8pt; background: var(--bg); }
+  .m .toc i { font-style: normal; width: 7mm; height: 7mm; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800;
+              display: flex; align-items: center; justify-content: center; }
+  .m .toc b { font-weight: 800; } .m .toc b span { font-weight: 500; color: var(--muted); }
+  .m .toc em { font-style: normal; font-weight: 800; color: var(--blue); }
+  .m .read2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .m .read2 > div { border-radius: 9pt; padding: 8pt 11pt; background: #fff; border: 1px solid var(--line); }
+  .m .read2 p { color: var(--muted); margin-top: 2pt; }
+  .m .bg { display: inline-block; font-size: var(--t5); font-weight: 800; padding: 1pt 8pt; border-radius: 99pt; vertical-align: middle; }
+
+  /* 벽 셋(가로) */
+  .m .w3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .m .w3 > div { background: var(--orange-soft); border-top: 6pt solid var(--orange); border-radius: 9pt; padding: 10pt 11pt; }
+  .m .w3 .no { font-size: var(--t5); font-weight: 800; color: var(--orange); }
+  .m .w3 b { display: block; font-size: var(--t3); font-weight: 800; margin: 2pt 0 4pt; }
+  .m .w3 p { color: #9A3412; }
+
+  /* Agent 구조도 */
+  .m .arch { position: relative; }
+  .m .arch .ext { width: 92mm; margin: 0 0 0 4mm; border: 1.5px solid #94A3B8; border-radius: 10pt; padding: 8pt 11pt; background: #F8FAFC; }
+  .m .arch .ext b { display: block; font-size: var(--t3); font-weight: 800; }
+  .m .arch .ext .ok { color: var(--ink); }
+  .m .arch .ext .no { color: #B91C1C; font-weight: 700; }
+  .m .arch .link { margin-left: 18mm; height: 11mm; border-left: 2.5px solid var(--blue); padding-left: 8pt; display: flex; align-items: center;
+                   font-weight: 800; color: var(--blue); }
+  .m .arch .pc { border: 2px dashed var(--blue); border-radius: 12pt; padding: 22pt 10pt 10pt; position: relative; background: #FAFCFF; }
+  .m .arch .pclab { position: absolute; top: -9pt; left: 12pt; background: var(--blue); color: #fff; font-weight: 800; padding: 1pt 10pt; border-radius: 99pt; }
+  .m .flow6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2.5mm; }
+  .m .flow6 > div { position: relative; background: #fff; border: 1.5px solid #C9D7FB; border-radius: 8pt; padding: 7pt 6pt; text-align: center; }
+  .m .flow6 > div + div::before { content: "→"; position: absolute; left: -2.6mm; top: 50%; transform: translate(-50%, -50%); color: var(--blue); font-weight: 800; }
+  .m .flow6 i { font-style: normal; display: inline-flex; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--blue); color: #fff;
+                font-weight: 800; align-items: center; justify-content: center; }
+  .m .flow6 b { display: block; font-weight: 800; margin: 3pt 0 2pt; }
+  .m .flow6 span { display: block; font-size: var(--t5); color: var(--muted); line-height: 1.35; }
+  .m .flow6 .ai { border-color: var(--orange); background: var(--orange-soft); }
+  .m .arch .io { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+  .m .arch .io div { border-radius: 8pt; background: var(--bg); padding: 6pt 10pt; }
+  .m .arch .io b { font-weight: 800; }
+
+  /* 기능 여섯 */
+  .m .f6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .m .f6 > div { border-radius: 10pt; background: var(--bg); padding: 10pt 11pt; }
+  .m .f6 b { display: block; font-size: var(--t3); font-weight: 800; margin: 4pt 0 3pt; }
+  .m .f6 p { color: var(--muted); }
+  .m .f6 em { font-style: normal; display: block; margin-top: 4pt; font-size: var(--t5); font-weight: 800; color: var(--blue); }
+
+  /* 답의 층 */
+  .m .layer { display: flex; align-items: center; gap: 6pt; margin-bottom: 3mm; }
+  .m .layer b { font-size: var(--t3); font-weight: 800; }
+  .m .layer span.d { color: var(--muted); }
+
+  /* 근거 카드 아홉 */
+  .m .c9 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .m .c9 > div { border: 1px solid var(--line); border-radius: 9pt; padding: 8pt 10pt; background: #fff; display: flex; flex-direction: column; gap: 3pt; }
+  .m .c9 .top { display: flex; justify-content: space-between; align-items: center; gap: 4pt; }
+  .m .c9 .top b { font-size: var(--t3); font-weight: 800; }
+  .m .c9 .gr { align-self: flex-start; font-size: var(--t5); font-weight: 800; color: #1E3A8A; background: var(--blue-soft); border-radius: 5pt; padding: 0 6pt; }
+  .m .c9 .gr.hold { color: #8A4B0B; background: #FEF3C7; }
+  .m .c9 .src { margin-top: auto; font-size: var(--t5); color: var(--muted); }
+
+  /* 질문 여섯 */
+  .m .q6 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .m .q6 > div { border: 1px solid var(--line); border-radius: 10pt; padding: 9pt 11pt; background: #fff; display: flex; flex-direction: column; gap: 4pt; }
+  .m .q6 .pp { align-self: flex-start; font-size: var(--t5); font-weight: 800; color: var(--orange); background: var(--orange-soft); border-radius: 5pt; padding: 0 6pt; }
+  .m .q6 .qq { font-size: var(--t3); font-weight: 800; line-height: 1.35; }
+  .m .q6 .ch span { display: inline-block; font-size: var(--t5); font-weight: 700; color: #334155; background: var(--bg); border-radius: 5pt; padding: 0 6pt; margin: 0 3pt 3pt 0; }
+  .m .q6 .st { font-size: var(--t5); color: var(--green); font-weight: 700; }
+  .m .q6 .an { border-top: 1px dashed var(--line); padding-top: 5pt; }
+  .m .q6 .an p + p { margin-top: 3pt; }
+  .m .q6 .an .pub { font-size: var(--t5); color: var(--muted); }
+
+  /* 목적별 출력 */
+  .m .p2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .m .p2 > div { border-radius: 10pt; padding: 10pt 12pt; }
+  .m .p2 .hd { margin-bottom: 1mm; }
+  .m .p2 .to { font-weight: 800; color: var(--blue); margin-bottom: 3mm; }
+  .m .p2 ol { margin: 0; padding-left: 14pt; }
+  .m .p2 li { margin: 2pt 0; }
+  .m .p2 blockquote { margin: 0 0 3mm; padding: 6pt 9pt; background: #fff; border-left: 4pt solid var(--blue); border-radius: 0 6pt 6pt 0; }
+  .m .files4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .m .files4 > div { border-radius: 9pt; background: var(--orange-soft); border: 1px solid #F6CDB1; padding: 8pt 9pt; }
+  .m .files4 b { display: block; font-weight: 800; margin: 3pt 0 1pt; }
+  .m .files4 p { font-size: var(--t5); color: #9A3412; }
+
+  /* 정확도 */
+  .m .vs { display: grid; grid-template-columns: 1fr 12mm 1fr; align-items: center; }
+  .m .vs > div { text-align: center; border-radius: 12pt; padding: 8mm 4mm 6mm; }
+  .m .vs .a { background: #F1F5F9; } .m .vs .b { background: var(--blue-soft); }
+  .m .vs b { display: block; font-size: var(--t0); font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+  .m .vs .a b { color: #64748B; } .m .vs .b b { color: var(--blue); }
+  .m .vs span { display: block; margin-top: 3mm; font-size: var(--t3); font-weight: 800; }
+  .m .vs small { display: block; margin-top: 1pt; font-size: var(--t5); color: var(--muted); }
+  .m .vs .arr { font-size: var(--t2); font-weight: 800; color: var(--blue); text-align: center; }
+  .m .bars { display: grid; grid-template-columns: 22mm 1fr; gap: 2.5mm 4mm; align-items: center; }
+  .m .bars .lab { font-weight: 800; }
+  .m .bars .two { display: grid; gap: 1.5mm; }
+  .m .bars .bar { position: relative; height: 6mm; background: #F1F5F9; border-radius: 4pt; overflow: hidden; }
+  .m .bars .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4pt; }
+  .m .bars .bar.r i { background: #94A3B8; } .m .bars .bar.ai i { background: var(--blue); }
+  .m .bars .bar span { position: absolute; right: 6pt; top: 50%; transform: translateY(-50%); font-size: var(--t5); font-weight: 800; color: #fff; }
+  .m .key { display: flex; gap: 6mm; font-size: var(--t5); color: var(--muted); }
+  .m .key i { display: inline-block; width: 9pt; height: 9pt; border-radius: 2pt; vertical-align: -1pt; margin-right: 3pt; }
+  .m .fun { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .m .fun > div { text-align: center; padding: 8pt 6pt; color: #fff; clip-path: polygon(0 0, calc(100% - 10pt) 0, 100% 50%, calc(100% - 10pt) 100%, 0 100%, 10pt 50%); }
+  .m .fun > div:first-child { clip-path: polygon(0 0, calc(100% - 10pt) 0, 100% 50%, calc(100% - 10pt) 100%, 0 100%); }
+  .m .fun b { display: block; font-size: var(--t2); font-weight: 800; }
+  .m .fun span { font-size: var(--t5); font-weight: 700; }
+
+  /* 신뢰 장치·한계 */
+  .m .t6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .m .t6 > div { border-radius: 10pt; background: var(--green-soft); padding: 10pt 11pt; }
+  .m .t6 b { display: block; font-size: var(--t3); font-weight: 800; margin: 3pt 0 2pt; }
+  .m .t6 p { color: #335; }
+  .m .t6 code { font-family: inherit; font-size: var(--t5); font-weight: 700; background: #fff; border-radius: 3pt; padding: 0 3pt; }
+  .m .lim { display: grid; gap: 3mm; }
+  .m .lim > div { display: grid; grid-template-columns: 8mm 1fr; gap: 3mm; align-items: start; border-radius: 9pt; background: #FFF7ED; padding: 8pt 11pt; }
+  .m .lim b { font-weight: 800; }
+  .m .lim p { color: var(--muted); }
+
+  /* 센터 활용 흐름 */
+  .m .use4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .m .use4 > div { border-radius: 10pt; border: 1.5px solid #C9D7FB; background: #fff; padding: 9pt 10pt; position: relative; }
+  .m .use4 > div + div::before { content: "→"; position: absolute; left: -3mm; top: 13mm; transform: translateX(-50%); color: var(--blue); font-weight: 800; }
+  .m .use4 .when { display: inline-block; font-size: var(--t5); font-weight: 800; color: #fff; background: var(--blue); border-radius: 99pt; padding: 0 8pt; }
+  .m .use4 b { display: block; font-size: var(--t3); font-weight: 800; margin: 5pt 0 3pt; }
+  .m .use4 p { color: var(--muted); }
+  .m .use4 .who { margin-top: 5pt; font-size: var(--t5); font-weight: 700; color: var(--orange); }
+  .m .next3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .m .next3 > div { border-radius: 9pt; background: var(--bg); padding: 9pt 11pt; }
+  .m .next3 b { display: block; font-weight: 800; }
+  .m .next3 p { color: var(--muted); margin-top: 2pt; }
+
+  /* 부록 표 */
+  .m table.ax { width: 100%; border-collapse: collapse; font-size: var(--t5); line-height: 1.4; margin: 0 0 5mm; }
+  .m table.ax th, .m table.ax td { border: 1px solid var(--line); padding: 3pt 5pt; text-align: left; vertical-align: top; }
+  .m table.ax th { background: var(--bg); font-weight: 800; }
+  .m table.ax tr { break-inside: avoid; }
+  .m .axh { font-size: var(--t4); font-weight: 800; margin: 0 0 2mm; }
+  .mcover .b3 div { padding: 7mm 4pt 6mm; }
+  .mcover .b3 span { margin-top: 3mm; }
+  .mcover .foot p.cap { margin-top: 1pt; }
+  .m .c9 > div { padding: 6pt 9pt; gap: 2pt; }
+  .m table.ax { font-size: 7.6pt; }
+  .m .bg, .m .badge { white-space: nowrap; }
+  .mcover .b3 div { padding: 6mm 4pt 5mm; }
+  .mcover .toc div { padding: 3pt 10pt; }
+  .m .bars .bar i { font-style: normal; }
+
+  /* ══ 사용자 매뉴얼 전용 ══ */
+  .m .roles { display: grid; gap: 3mm; }
+  .m .roles > div { display: grid; grid-template-columns: 12mm 1fr auto; gap: 4mm; align-items: center; border-radius: 10pt; padding: 8pt 12pt; background: var(--bg); }
+  .m .roles b { display: block; font-size: var(--t3); font-weight: 800; }
+  .m .roles p { color: var(--muted); }
+  .m .roles em { font-style: normal; font-weight: 800; color: var(--blue); white-space: nowrap; }
+  .m .need4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .m .need4 > div { border-radius: 9pt; background: var(--bg); padding: 8pt 10pt; }
+  .m .need4 b { display: block; font-weight: 800; margin: 3pt 0 2pt; }
+  .m .need4 p { font-size: var(--t5); color: var(--muted); }
+  .m ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 3mm; }
+  .m ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 9mm 1fr; gap: 3mm; align-items: start; margin: 0; }
+  .m ol.steps > li::before { content: counter(s); width: 8mm; height: 8mm; border-radius: 50%; background: var(--blue); color: #fff;
+       font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .m ol.steps > li > div { padding-top: 1mm; }
+  .m ol.steps small { display: block; font-size: var(--t5); color: var(--muted); margin-top: 1pt; }
+  .m .btn { display: inline-block; border: 1px solid #CBD5E1; border-radius: 5pt; padding: 0 5pt; background: #fff; font-weight: 700; white-space: nowrap; }
+  .m .btn.p { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .m code.k { font-family: inherit; font-weight: 800; color: var(--blue); }
+  .m .tip, .m .warn { border-radius: 9pt; padding: 7pt 11pt; display: grid; grid-template-columns: 7mm 1fr; gap: 2mm; align-items: start; }
+  .m .tip { background: var(--blue-soft); } .m .warn { background: #FFF7ED; }
+  .m .time { display: inline-block; font-size: var(--t5); font-weight: 800; color: var(--green); background: var(--green-soft); border-radius: 99pt; padding: 1pt 8pt; margin-left: 4pt; vertical-align: middle; }
+  .m .setg { display: grid; grid-template-columns: 1fr; gap: 2.5mm; }
+  .m .setg > div { border-radius: 8pt; background: var(--bg); padding: 6pt 9pt; }
+  .m .setg b { display: block; font-weight: 800; }
+  .m .setg p { font-size: var(--t5); color: var(--muted); line-height: 1.45; }
+  .m .adm { display: grid; grid-template-columns: 92mm 1fr; gap: 6mm; align-items: start; }
+  .m .blk { border-radius: 10pt; border: 1.5px solid var(--line); padding: 10pt 12pt; }
+  .m .blk > .hd { margin-bottom: 4mm; }
+  .m .in4 { display: flex; flex-wrap: wrap; gap: 2.5mm; }
+  .m .in4 span { border-radius: 6pt; padding: 3pt 9pt; font-weight: 700; background: var(--orange-soft); border: 1px solid #F6CDB1; }
+  .m .in4 span.no { background: #F1F5F9; border-color: var(--line); color: var(--muted); text-decoration: line-through; }
+  .m .lg7 { display: grid; gap: 2.5mm; }
+  .m .lg7 > div { display: grid; grid-template-columns: 30mm 1fr; gap: 4mm; align-items: start; border-bottom: 1px solid var(--line); padding-bottom: 2.5mm; }
+  .m .lg7 > div:last-child { border-bottom: 0; }
+  .m .lg7 .k { font-weight: 800; }
+  .m .lg7 p { color: var(--muted); }
+  .m .fx2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .m .fx2 > div { border-radius: 9pt; background: var(--bg); padding: 7pt 10pt; }
+  .m .fx2 b { display: block; font-weight: 800; }
+  .m .fx2 p { margin-top: 2pt; color: var(--muted); }
+  .m .fx2 p::before { content: "→ "; color: var(--blue); font-weight: 800; }
+  .m ul.lim7 { margin: 0; padding-left: 14pt; }
+  .m ul.lim7 li { margin: 0 0 2.5mm; }
+  .m .setg.two { grid-template-columns: 1fr 1fr; }
+  .m .tip, .m .warn { grid-template-columns: 8mm 1fr; }
+  .m .tip .ico, .m .warn .ico { font-size: var(--t3); line-height: 1.5; }
+</style></head><body>
+<div class='page m mcover'>
+  <div class='meta'>제주 AI·빅데이터 활용 AI Agent 개발 챌린지 · 결과 설명자료 · 팀 치킨암살단-제주</div>
+  <h1 style='margin-top:12mm'>결과 설명자료</h1>
+  <p class='sub'>제주 사장님 상권비서가 실제로 내놓는 결과와,<br>직접 재 본 기록</p>
+  <div class='b3 mt9'>
+    <div><b>6/6</b><span>질문 끝까지 실행</span><small>서로 다른 질문 6개</small></div>
+    <div><b>15/15</b><span>질문 해석 정답</span><small>AI + 규칙, 3회 모두</small></div>
+    <div><b>0.54초</b><span>분석 시간</span><small>질문 6개 모두 1초 안(그림 제외)</small></div>
+  </div>
+  <div class='read2 mt9'>
+    <div><span class='bg b-real'>실제</span><p>제주데이터허브·공공데이터포털에서 받은 실제 값</p></div>
+    <div><span class='bg b-demo'>체험</span><p>센터 데이터 자리에 넣은 가상 데이터 — 명세서 형식 그대로, 수치에 의미 없음</p></div>
+  </div>
+  <div class='toc mt9'><div><i>1</i><b>문제 정의 <span>· 누가 오고, 어디서 막히나</span></b><em>2쪽</em></div><div><i>2</i><b>Agent 구조 <span>· 판단은 규칙, 말은 AI</span></b><em>3쪽</em></div><div><i>3</i><b>주요 기능 <span>· 여섯 가지</span></b><em>4쪽</em></div><div><i>4</i><b>실행 결과 <span>· 대표 질문 · 근거 카드 · 질문 6개 · 목적별 출력</span></b><em>5~8쪽</em></div><div><i>5</i><b>검증 방법 · 한계 <span>· 정확도 실측 · 신뢰 장치</span></b><em>9~10쪽</em></div><div><i>6</i><b>센터 활용 방안 <span>· 방문 전부터 반출 심사까지</span></b><em>11쪽</em></div></div>
+  <div class='foot'><img src='../proposal/img/demo-qr.svg' alt='공개 데모 QR'><div><b>같은 결과를 설치 없이 보기</b><span>jeju-data-agent.streamlit.app</span><small style='display:block;font-size:10pt;font-weight:600;color:#475569;margin-top:1mm'>시연 영상(3분) youtu.be/sO9QfRvw-D8</small>
+    <p class='cap'>숫자는 2026-11-15 실행 기록(docs/submission/results/*.json)에서 그대로 옮겼습니다</p></div></div>
+</div>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>1 · 문제 정의</span><h2 class='t1'>센터 데이터는 귀하지만,<br>쓰기까지 벽이 셋 있습니다</h2></div>
+  <h3 class='hd'>누가, 무엇을 하러 오나 <span>· 운영진 답변: 방문자 대다수는 기관·기업, 목적은 논문·현황자료·사업계획서</span></h3>
+  <div class='who4'>
+    <div><span class='ico'>🧑‍🍳</span><b>예비창업자</b><span>사업계획서</span></div>
+    <div><span class='ico'>🏢</span><b>기관·기업</b><span>현황 보고서</span></div>
+    <div><span class='ico'>🎓</span><b>연구자</b><span>논문·과제</span></div>
+    <div><span class='ico'>🧑‍💼</span><b>센터 직원</b><span>상담·반출 심사</span></div>
+  </div>
+  <h3 class='hd mt12'>어디서 막히나</h3>
+  <div class='w3'>
+    <div><span class='no'>벽 1</span><b>무엇을 받아야 하나</b><p>표 71종 중에서 골라 기간·조건을 정해 내려받기. 컬럼은 영문</p></div>
+    <div><span class='no'>벽 2</span><b>AI에 보내면 안 됨</b><p>센터 데이터 원본·조회 결과는 외부 AI 전송 금지</p></div>
+    <div><span class='no'>벽 3</span><b>들고 나갈 수 있나</b><p>10 미만 수치·엑셀 표는 원칙적으로 반출 불가, 그림은 PNG·JPG만</p></div>
+  </div>
+  <p class='stmt mt12'>목표: 질문 한 줄에서 <em>들고 나갈 수 있는 결과</em>까지,<br>방문 한 번에</p>
+  <div class='n2 mt12'>
+    <div><b>방문자에게</b><p>코딩 없이 평소 말로 묻고, 사업계획서·보고서에 바로 넣을 근거를 받습니다</p></div>
+    <div><b>센터에게</b><p>직원 1:1 지원 없이도 분석이 끝나고, 반출 신청이 규정에 맞춰 들어옵니다</p></div>
+  </div>
+  <p class='cap mt9'>근거: 대회 게시판 운영진 답변(2026.10~11) · 센터 데이터 반출 정책(2026.9) · 센터 데이터 명세서(2026.1)</p>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>2 · Agent 구조</span><h2 class='t1'>판단은 규칙이, 말은 AI가</h2></div>
+  <div class='arch'>
+    <div class='ext'><b>☁️ 외부 AI (gpt-6-luna)</b><p class='ok'>받는 것: 질문 문장, 지원사업 공고문</p><p class='no'>센터 데이터는 받지 않음</p></div>
+    <div class='link'>↕ 질문 문장만 오감</div>
+    <div class='pc'><span class='pclab'>🔒 센터 PC 안</span>
+      <div class='flow6'>
+        <div class='ai'><i>1</i><b>질문 해석</b><span>규칙 + AI<br>동네·업종·대상·관점</span></div>
+        <div><i>2</i><b>분석 계획</b><span>받을 표·기간<br>쓸 도구</span></div>
+        <div><i>3</i><b>도구 실행</b><span>검증된 도구 10개<br>비중·순위·지수 등</span></div>
+        <div><i>4</i><b>자동 검산</b><span>합계·기간 누락<br>표본 부족</span></div>
+        <div><i>5</i><b>반출 점검</b><span>응용집계·PNG<br>10 미만 가림</span></div>
+        <div><i>6</i><b>결론 정리</b><span>공개 규칙표로<br>등급·할 일</span></div>
+      </div>
+      <div class='io'>
+        <div><b>들어오는 것</b> · 센터에서 받은 CSV, 공개 데이터(앱에 동봉)</div>
+        <div><b>나가는 것</b> · 결론·근거 카드, 보고서·근거팩, 반출 신청 묶음</div>
+      </div>
+    </div>
+  </div>
+  <figure class='mt9'><div class='sh'><img src='../proposal/img/c-agentlog.jpg' alt='Agent 작업 기록'></div>
+    <figcaption class='cap mt3'>실제 화면에 남는 작업 기록 — 단계마다 한 일, 걸린 시간, 같은 질문·데이터면 같은 재현 번호</figcaption></figure>
+  <div class='act3 mt9'>
+    <div style='background:var(--orange-soft)'><b>🤖 AI</b><ul><li>질문 문장에서 표현 뽑기</li><li>공고문과 자격 대조</li></ul></div>
+    <div style='background:var(--green-soft)'><b>📐 규칙(코드)</b><ul><li>계산 · 검산 · 판정</li><li>문서 · 반출 묶음 만들기</li></ul></div>
+    <div style='background:#FEF3C7'><b>🙋 사람</b><ul><li>이해한 내용 확인 · 고치기</li><li>데이터 받기 · 반출 신청</li></ul></div>
+  </div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>3 · 주요 기능</span><h2 class='t1'>여섯 가지 기능</h2></div>
+  <div class='f6'><div><span class='ico'>💬</span><b>평소 말로 질문</b><p>동네·업종·대상·관점을 알아듣고 확인받음</p><em>→ 정확도 9쪽</em></div><div><span class='ico'>📥</span><b>받을 데이터 안내</b><p>표 번호·기간·조건을 알려 주고, 받은 CSV는 알아서 인식</p><em>→ 화면 아래</em></div><div><span class='ico'>🧭</span><b>결론 먼저 + 근거 카드</b><p>한 문장 결론, 핵심 숫자 3개, 카드마다 그림·해설·출처</p><em>→ 5~6쪽</em></div><div><span class='ico'>🎯</span><b>목적별 출력</b><p>사업계획서면 할 일, 보고서·논문이면 옮겨 쓸 문장</p><em>→ 8쪽</em></div><div><span class='ico'>🏷️</span><b>지원사업 거르기</b><p>모집 중 공고를 조건으로 거르고 AI가 자격 대조</p><em>→ 9쪽</em></div><div><span class='ico'>📦</span><b>반출 신청 묶음</b><p>보고서·근거팩·그림·신청 문구를 한 번에</p><em>→ 8쪽</em></div></div>
+  <h3 class='hd mt12'>실제 화면: 받을 데이터 안내 <span>· 표 번호·기간·조건을 알려 주고, 받으면 자동으로 넘어감</span></h3>
+  <div class='sh w160'><img src='../proposal/img/s-data.jpg' alt='데이터 준비 화면'></div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>4 · 실행 결과 ① 대표 질문</span><h2 class='t1'>“카페 하려는데 애월이랑<br>한림 중 어디가 좋을까?”</h2></div>
+  <div class='layer'><span class='bg b-real'>실제</span><b>맨 위: 공개 데이터 실제 값으로 먼저 답</b></div>
+  <div class='sh w160'><img src='../proposal/img/s-real.jpg' alt='실제 공개 데이터 답'></div>
+  <div class='layer mt9'><span class='bg b-demo'>체험</span><b>그 아래: 센터 데이터로 본 결론</b><span class='d'>· 센터 PC에서는 실제 값</span></div>
+  <div class='sh w160'><img src='../proposal/img/s-answer-top.jpg' alt='센터 데이터 결론'></div>
+  <p class='cap mt6'>분석 0.2~0.54초(도구 실행·판정, 그림 제외) · 자동 검산 8~13건 통과 · 반출 점검 '반출 가능'</p>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>4 · 실행 결과 ② 근거 카드</span><h2 class='t1'>근거 카드 9장 — 등급은 규칙표가 정합니다</h2></div>
+  <div class='c9'><div><div class='top'><b>동네 비교</b><span class='bg b-demo'>체험</span></div><span class='gr'>관광객 몫 차이 5.7%p</span><p>애월읍 카페는 관광객 몫이 60.3%로 한림읍(54.6%)보다 5.7%p 높습니다</p><span class='src'>센터 1-08</span></div><div><div class='top'><b>시장 크기</b><span class='bg b-demo'>체험</span></div><span class='gr'>큰 시장</span><p>애월읍·한림읍 카페 매출은 제주 전체의 3.6% — 애월읍 4위·한림읍 6위(71곳 중)</p><span class='src'>센터 1-08</span></div><div><div class='top'><b>손님 구성</b><span class='bg b-demo'>체험</span></div><span class='gr'>관광객 장사</span><p>애월읍·한림읍 카페 손님 돈의 57.6%는 관광객 지갑에서 나옵니다</p><span class='src'>센터 1-08</span></div><div><div class='top'><b>월별 흐름</b><span class='bg b-demo'>체험</span></div><span class='gr'>사계절 고른 편</span><p>가장 잘 되는 8월이 가장 한산한 2월의 1.5배입니다</p><span class='src'>센터 1-08</span></div><div><div class='top'><b>요일</b><span class='bg b-demo'>체험</span></div><span class='gr'>주말형</span><p>금·토·일 사흘에 매출의 49.2%가 몰립니다 — 토요일이 가장 많음(17.6%)</p><span class='src'>센터 1-12</span></div><div><div class='top'><b>시간대</b><span class='bg b-demo'>체험</span></div><span class='gr'>점심 집중형</span><p>점심(11~14시)에 매출이 가장 몰립니다(28.7%)</p><span class='src'>센터 1-14</span></div><div><div class='top'><b>경쟁(가게 수)</b><span class='bg b-real'>실제</span></div><span class='gr'>가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)</span><p>애월읍·한림읍의 카페는 모두 364곳 — 애월읍 221곳(1위)·한림읍 143곳(6위)</p><span class='src'>상가정보 + 행안부 인구</span></div><div><div class='top'><b>최근 방문객</b><span class='bg b-real'>실제</span></div><span class='gr'>사계절 고른 편 · 요일 고른 편</span><p>최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)</p><span class='src'>관광공사 방문자 수</span></div><div><div class='top'><b>지구 유형</b><span class='bg b-real'>실제</span></div><span class='gr'>주말형 · 오후 중심</span><p>&#x27;내국인 주요 관광지&#x27; 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다</p><span class='src'>데이터허브 관광지 및 상업지구</span></div></div>
+  <div class='sh mt9' style='width:130mm;margin-left:auto;margin-right:auto'><img src='../proposal/img/s-card.jpg' alt='근거 카드'></div>
+  <p class='cap mt3' style='text-align:center'>카드 한 장: 그림 · 쉬운 해설 · 출처 — AI는 등급을 정하지 않습니다(판정 규칙은 화면 [판정 기준 보기]와 기획서 부록에 공개)</p>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>4 · 실행 결과 ③ 질문 6개</span><h2 class='t1'>서로 다른 질문 6개, 모두 끝까지</h2></div>
+  <div class='q6'><div><span class='pp'>가게 열기·사업계획서</span><p class='qq'>카페 하려는데 애월이랑 한림 중 어디가 좋을까?</p><p class='ch'><span>애월읍/한림읍</span><span>비알콜 음료점업</span></p><p class='st'>✓ 도구 15/15 · 검산 13건 · 분석 0.54초</p><div class='an'><p><span class='bg b-demo'>체험</span> 애월읍 카페는 관광객 몫이 60.3%로 한림읍(54.6%)보다 5.7%p 높습니다.</p><p class='pub'><span class='bg b-real'>실제</span> 제주시 읍면 지역 식음료는 관광객이 대부분이고 계절을 많이 타는 장사입니다.</p></div></div><div><span class='pp'>가게 운영</span><p class='qq'>성산읍 흑돼지 식당, 관광객 비중은?</p><p class='ch'><span>성산읍</span><span>한식 음식점업</span><span>관광객(개별+단체)</span></p><p class='st'>✓ 도구 14/14 · 검산 12건 · 분석 0.33초</p><div class='an'><p><span class='bg b-demo'>체험</span> 성산읍 한식당은 관광객이 더 많고, 계절을 조금 타며, 주말·저녁에 몰리는 장사입니다.</p><p class='pub'><span class='bg b-real'>실제</span> 서귀포시 읍면 지역 식음료는 관광객이 더 많은 편이고 계절을 조금 타는 장사입니다.</p></div></div><div><span class='pp'>가게 열기·사업계획서</span><p class='qq'>노형동 한식당 창업, 요일·시간대별 매출은?</p><p class='ch'><span>노형동</span><span>한식 음식점업</span></p><p class='st'>✓ 도구 14/14 · 검산 12건 · 분석 0.23초</p><div class='an'><p><span class='bg b-demo'>체험</span> 노형동 한식당은 주말·저녁에 몰리고, 관광객과 도민이 반반이며, 사계절 고른 장사입니다.</p><p class='pub'><span class='bg b-real'>실제</span> 제주시 도심 지역 식음료는 도민이 대부분이고 사계절 고른 장사입니다.</p></div></div><div><span class='pp'>현황자료·보고서</span><p class='qq'>중문동 호텔 중국인 손님 비중</p><p class='ch'><span>중문동</span><span>호텔업</span><span>중국인</span></p><p class='st'>✓ 도구 14/14 · 검산 12건 · 분석 0.2초</p><div class='an'><p><span class='bg b-demo'>체험</span> 중문동 호텔 카드 매출 중 중국인 결제 비중은 5.6%로, 제주 전체 호텔 평균(2.7%)의 2.1배다.</p><p class='pub'><span class='bg b-real'>실제</span> 서귀포시 도심 지역 숙박 카드 매출 중 내국인 관광객 결제 비중은 86.3%로, 제주 전체 숙박 평균(75.3%)보다 11.0%p 높다.</p></div></div><div><span class='pp'>현황자료·보고서</span><p class='qq'>서귀포시 숙박업 계절별 매출 흐름</p><p class='ch'><span>서귀포시</span><span>호텔업/여관업</span></p><p class='st'>✓ 도구 14/14 · 검산 12건 · 분석 0.21초</p><div class='an'><p><span class='bg b-demo'>체험</span> 서귀포시 숙박 카드 매출 중 관광객 결제 비중은 48.2%로, 제주 전체 숙박 평균(47.5%)과 비슷하다.</p><p class='pub'><span class='bg b-real'>실제</span> 서귀포시 숙박 카드 매출 중 내국인 관광객 결제 비중은 86.2%로, 제주 전체 숙박 평균(75.3%)보다 10.9%p 높다.</p></div></div><div><span class='pp'>논문·연구</span><p class='qq'>구좌읍 카페 매출을 다른 동네와 비교</p><p class='ch'><span>구좌읍</span><span>비알콜 음료점업</span></p><p class='st'>✓ 도구 11/11 · 검산 8건 · 분석 0.29초</p><div class='an'><p><span class='bg b-demo'>체험</span> 구좌읍 카페 카드 매출 중 관광객 결제 비중은 57.3%로, 제주 전체 카페 평균(47.6%)보다 9.7%p 높다.</p><p class='pub'><span class='bg b-real'>실제</span> 제주시 읍면 지역 식음료 카드 매출 중 내국인 관광객 결제 비중은 65.0%로, 제주 전체 식음료 평균(42.3%)보다 22.7%p 높다.</p></div></div></div>
+  <p class='cap mt6'>목적·동네·업종·대상·관점을 바꿔 화면과 같은 순서로 실행(tools/bench_examples.py, 질문 해석은 규칙만 써서 키 없이 재현)</p>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>4 · 실행 결과 ④ 목적별 출력</span><h2 class='t1'>목적에 맞춰 바뀌는 결과물</h2></div>
+  <div class='p2'>
+    <div style='background:var(--orange-soft)'><h3 class='hd'>🧑‍🍳 가게 열기 · 운영</h3><p class='to'>→ 등급 + 그래서 할 일</p>
+      <ol><li>쉬는 날을 정한다면 매출이 가장 적은 수요일·화요일(12.2%·12.4%)의 손실이 가장 작습니다. 일손은 금·토·일에 모으세요.</li><li>관광객이 줄어드는 비수기에도 버틸 도민 단골 상품(평일 할인, 동네 정기권 등)을 함께 계획해 보세요.</li></ol></div>
+    <div style='background:var(--blue-soft)'><h3 class='hd'>🎓 현황자료 · 논문</h3><p class='to'>→ 보고서에 그대로 옮길 문장 + 인용 표기</p><blockquote>중문동 호텔 카드 매출(2025.05~2026.04) 중 중국인 결제 비중은 5.6%로, 제주 전체 호텔 평균(2.7%)의 2.1배다.</blockquote><blockquote>서귀포시 숙박 카드 매출(2025.05~2026.04) 중 관광객 결제 비중은 48.2%로, 제주 전체 숙박 평균(47.5%)과 비슷하다.</blockquote></div>
+  </div>
+  <h3 class='hd mt12'>가져가는 파일 <span>· 반출 신청 묶음 하나에 모두(원본·조회 결과는 넣지 않음)</span></h3>
+  <div class='files4'>
+    <div><span class='ico'>📄</span><b>분석 보고서</b><p>결론·근거·출처·판정 규칙·한계 (DOCX, 약 13쪽)</p></div>
+    <div><span class='ico'>📄</span><b>사업계획서 근거팩</b><p>문제인식·실현가능성·성장전략 순서 (DOCX, 약 9쪽)</p></div>
+    <div><span class='ico'>🖼️</span><b>근거 그림</b><p>PNG만, 그림 속 숫자도 비율·지수</p></div>
+    <div><span class='ico'>📝</span><b>반출 신청 문구</b><p>파일마다 출처·표 번호·기간·사유</p></div>
+  </div>
+  <div class='sh w160 mt6'><img src='../proposal/img/s-bundle.jpg' alt='반출 신청 묶음'></div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>5 · 검증 방법 ① 정확도 실측</span><h2 class='t1'>직접 재 본 정확도</h2></div>
+  <h3 class='hd'>질문 해석 <span>· 돌려 말한 일상 표현 15문항, 네 항목을 모두 맞혀야 정답</span></h3>
+  <div class='vs'>
+    <div class='a'><b>10/15</b><span>규칙만</span><small>키 없이도 동작</small></div>
+    <div class='arr'>→</div>
+    <div class='b'><b>15/15</b><span>AI + 규칙</span><small>3회 모두 · 평균 30초 · $0.0014</small></div>
+  </div>
+  <div class='bars mt6'><div class='lab'>동네</div><div class='two'><div class='bar r'><i style='width:100.0%'><span>15</span></i></div><div class='bar ai'><i style='width:100.0%'><span>15</span></i></div></div><div class='lab'>업종</div><div class='two'><div class='bar r'><i style='width:100.0%'><span>15</span></i></div><div class='bar ai'><i style='width:100.0%'><span>15</span></i></div></div><div class='lab'>대상</div><div class='two'><div class='bar r'><i style='width:86.7%'><span>13</span></i></div><div class='bar ai'><i style='width:100.0%'><span>15</span></i></div></div><div class='lab'>관점</div><div class='two'><div class='bar r'><i style='width:73.3%'><span>11</span></i></div><div class='bar ai'><i style='width:100.0%'><span>15</span></i></div></div></div>
+  <p class='key mt3'><span><i style='background:#94A3B8'></i>규칙만</span><span><i style='background:var(--blue)'></i>AI + 규칙</span><span>(15문항 중 맞힌 수)</span></p>
+  <p class='cap mt3'>규칙만으로 놓쳤던 5문항(예: “애월 바닷가 커피숍, 여름 한철 장사인가요?”)을 AI가 모두 바로잡았습니다. AI는 질문 문장만 받고, 법정동·업종 대응은 내장 사전이 합니다.</p>
+  <h3 class='hd mt12'>지원사업 자격 판정 <span>· 화면 실행 기록(2026-11-10)</span></h3>
+  <div class='fun'>
+    <div style='background:#94A3B8'><b>1,589건</b><span>모집 중 공고</span></div>
+    <div style='background:#5B7FE8'><b>17건</b><span>조건으로 거른 뒤 판정</span></div>
+    <div style='background:var(--blue)'><b>5건</b><span>'지금 신청할 수 있어요'</span></div>
+  </div>
+  <div class='n2 mt6'>
+    <div><b>모델 고른 근거</b><p>같은 36건을 상위 모델(단가 20배)과 비교해 30건 일치, 갈린 건 대부분은 상위 모델이 '확인 필요'로 더 조심스러웠을 뿐</p></div>
+    <div><b>판정은 추정</b><p>화면·근거팩에 '공고문을 꼭 확인하세요'를 붙이고, 거른 이유를 공개합니다</p></div>
+  </div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>5 · 검증 방법 ② 신뢰 장치와 한계</span><h2 class='t1'>같은 데이터면 같은 결론</h2></div>
+  <div class='t6'>
+    <div><span class='ico'>🔁</span><b>재현 번호</b><p>질문·조건·표·기간으로 만든 번호. 같으면 같은 결론</p></div>
+    <div><span class='ico'>🧮</span><b>자동 검산</b><p>합계, 기간 누락·중복, 공휴일 중복, 표본 부족은 판정 보류</p></div>
+    <div><span class='ico'>🏷️</span><b>실제 / 체험 구분</b><p>카드·그림·문서 모두에 표시, 가상 결과는 제목에 [가상]</p></div>
+    <div><span class='ico'>↔️</span><b>교차 확인</b><p>센터 결과와 공개 데이터 597이 같은 방향인지, 다르면 이유까지</p></div>
+    <div><span class='ico'>✅</span><b>자동 테스트 117개</b><p>해석·검산·판정·반출·문서·지원사업·화면 흐름</p></div>
+    <div><span class='ico'>▶️</span><b>다시 돌리기</b><p><code>pytest</code> · <code>tools/bench_examples.py</code> · <code>tools/bench_parse.py</code></p></div>
+  </div>
+  <h3 class='hd mt12'>한계</h3>
+  <div class='lim'>
+    <div><span class='ico'>⚠️</span><div><b>실제 센터 CSV로는 아직 못 돌렸습니다</b><p>센터 숫자는 모두 체험(가상)이라, 실제 데이터로 돌리면 결론이 달라집니다</p></div></div>
+    <div><span class='ico'>⚠️</span><div><b>판정 기준점은 잠정치입니다</b><p>공개 데이터 597(2016~2018)로 잡았고, 센터 실데이터로 다시 맞출 예정입니다</p></div></div>
+    <div><span class='ico'>⚠️</span><div><b>공개 데이터는 단위·기간이 다릅니다</b><p>시·지구 단위, 과거 기간이거나 매출이 아닌 방문자 수 — 카드마다 단위·기간을 적습니다</p></div></div>
+    <div><span class='ico'>⚠️</span><div><b>해석 15문항은 개발자가 만든 문항입니다</b><p>실제 방문자 질문으로 넓혀 다시 재야 합니다</p></div></div>
+  </div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>6 · 센터 활용 방안</span><h2 class='t1'>센터에서는 이렇게 씁니다</h2></div>
+  <div class='use4'>
+    <div><span class='when'>방문 전</span><b>상담 · 미리 받기</b><p>직원이 상담 때 질문을 넣으면 받을 표·기간이 나오고, 미리 받아 두면 방문자는 데이터 단계를 건너뜀</p><p class='who'>센터 직원</p></div>
+    <div><span class='when'>방문 중</span><b>스스로 분석</b><p>질문 → 데이터 받기 → 결론·근거 → 근거팩까지 1:1 지원 없이</p><p class='who'>방문자</p></div>
+    <div><span class='when'>퇴실 전</span><b>작업 지우기</b><p>버튼 하나로 내려받은 CSV와 결과 파일을 지움</p><p class='who'>방문자</p></div>
+    <div><span class='when'>반출 심사</span><b>규정대로 접수</b><p>비율·순위와 PNG 위주, 파일마다 출처·기간·사유가 적힌 신청 문구</p><p class='who'>반출 심사자</p></div>
+  </div>
+  <p class='stmt mt12'>결과 카드마다 <em>'센터에서만 나오는 수치'</em>를 표시해,<br>센터에 올 이유를 결과로 보여 줍니다</p>
+  <div class='n2 mt12'>
+    <div><b>🧰 운영 부담은 작게</b><p>설치 3단계(install.bat → PIN → run.bat), 센터 PC 사양(GPU 불필요)에서 동작</p></div>
+    <div><b>💰 비용은 정해진 만큼</b><p>AI는 월 $10 한도, 방문자 화면엔 %만 · 키가 없어도 규칙으로 끝까지</p></div>
+  </div>
+  <h3 class='hd mt12'>다음 단계</h3>
+  <div class='next3'>
+    <div><b>실제 데이터로 기준 맞추기</b><p>센터 CSV로 판정 기준점과 문장을 다시 점검</p></div>
+    <div><b>실제 질문으로 넓히기</b><p>방문자 질문을 모아 해석 문항과 사전을 늘림</p></div>
+    <div><b>표 늘리기</b><p>외식업 POS 등 다른 센터 표에 도구를 붙임</p></div>
+  </div>
+</section>
+<section class='pg m'>
+  <div class='hdr'><span class='kk'>부록</span><h2 class='t1'>실행 기록 표</h2></div>
+  <p class='axh'>대표 질문의 근거 카드(결론 문장은 화면 그대로)</p>
+  <table class='ax'><tr><th style='width:15%'>카드</th><th style='width:7%'>값</th><th>결론 문장</th><th style='width:17%'>등급</th><th style='width:17%'>데이터</th></tr><tr><td>동네 비교</td><td><span class='bg b-demo'>체험</span></td><td>애월읍 카페는 관광객 몫이 60.3%로 한림읍(54.6%)보다 5.7%p 높습니다</td><td>관광객 몫 차이 5.7%p</td><td>센터 1-08</td></tr><tr><td>시장 크기</td><td><span class='bg b-demo'>체험</span></td><td>애월읍·한림읍 카페 매출은 제주 전체의 3.6% — 애월읍 4위·한림읍 6위(71곳 중)</td><td>큰 시장</td><td>센터 1-08</td></tr><tr><td>손님 구성</td><td><span class='bg b-demo'>체험</span></td><td>애월읍·한림읍 카페 손님 돈의 57.6%는 관광객 지갑에서 나옵니다</td><td>관광객 장사</td><td>센터 1-08</td></tr><tr><td>월별 흐름</td><td><span class='bg b-demo'>체험</span></td><td>가장 잘 되는 8월이 가장 한산한 2월의 1.5배입니다</td><td>사계절 고른 편</td><td>센터 1-08</td></tr><tr><td>요일</td><td><span class='bg b-demo'>체험</span></td><td>금·토·일 사흘에 매출의 49.2%가 몰립니다 — 토요일이 가장 많음(17.6%)</td><td>주말형</td><td>센터 1-12</td></tr><tr><td>시간대</td><td><span class='bg b-demo'>체험</span></td><td>점심(11~14시)에 매출이 가장 몰립니다(28.7%)</td><td>점심 집중형</td><td>센터 1-14</td></tr><tr><td>경쟁(가게 수)</td><td><span class='bg b-real'>실제</span></td><td>애월읍·한림읍의 카페는 모두 364곳 — 애월읍 221곳(1위)·한림읍 143곳(6위)</td><td>가게가 손꼽히게 많은 동네 · 가게가 많은 편(경쟁 셈)</td><td>상가정보 + 행안부 인구</td></tr><tr><td>최근 방문객</td><td><span class='bg b-real'>실제</span></td><td>최근 1년 제주시 외지인 방문자는 25년 10월이 가장 많고 26년 2월이 가장 적습니다(1.32배)</td><td>사계절 고른 편 · 요일 고른 편</td><td>관광공사 방문자 수</td></tr><tr><td>지구 유형</td><td><span class='bg b-real'>실제</span></td><td>&#x27;내국인 주요 관광지&#x27; 지구는 오후에 가장 많이 쓰고(33.5%), 토·일 몫은 33.3%입니다</td><td>주말형 · 오후 중심</td><td>데이터허브 관광지 및 상업지구</td></tr><tr><td>공개 데이터 교차 확인</td><td><span class='bg b-real'>실제</span></td><td>공개 데이터(실제 값): 제주시 읍면 지역 식음료 매출의 65.0%가 내국인 관광객입니다(2016~2018)</td><td>실제 공개 데이터</td><td>데이터허브 597</td></tr></table>
+  <p class='axh'>질문 해석 15문항(tools/bench_parse.py)</p>
+  <table class='ax'><tr><th style='width:24%'>방식</th><th style='width:10%'>완전 정답</th><th style='width:8%'>동네</th><th style='width:8%'>업종</th><th style='width:8%'>대상</th><th style='width:8%'>관점</th><th style='width:11%'>걸린 시간</th><th>AI 비용</th></tr><tr><td>규칙만</td><td><b>10/15</b></td><td>15</td><td>15</td><td>13</td><td>11</td><td>0.0초</td><td>$0.0</td></tr><tr><td>AI(gpt-6-luna) + 규칙 (1회차)</td><td><b>15/15</b></td><td>15</td><td>15</td><td>15</td><td>15</td><td>33.4초</td><td>$0.00145</td></tr><tr><td>AI(gpt-6-luna) + 규칙 (2회차)</td><td><b>15/15</b></td><td>15</td><td>15</td><td>15</td><td>15</td><td>28.9초</td><td>$0.00147</td></tr><tr><td>AI(gpt-6-luna) + 규칙 (3회차)</td><td><b>15/15</b></td><td>15</td><td>15</td><td>15</td><td>15</td><td>28.3초</td><td>$0.00141</td></tr></table>
+  <p class='axh'>규칙만으로 놓친 문항과 AI를 더한 해석</p>
+  <table class='ax'><tr><th style='width:46%'>질문</th><th style='width:16%'>규칙이 놓친 항목</th><th>AI를 더한 해석</th></tr><tr><td>애월 바닷가 커피숍, 여름 한철 장사인가요?</td><td>관점</td><td>대상 &#x27;-&#x27; · 관점 trend</td></tr><tr><td>중문 호텔들 중국 손님 얼마나 돼요</td><td>대상</td><td>대상 &#x27;중국인&#x27; · 관점 share</td></tr><tr><td>성산 일출봉 근처 기념품 가게 매출이 어느 달에 제일 좋아요?</td><td>관점</td><td>대상 &#x27;-&#x27; · 관점 trend</td></tr><tr><td>연동 편의점 야간 매출 비중</td><td>관점</td><td>대상 &#x27;-&#x27; · 관점 share, timeslot</td></tr><tr><td>우도 가게들 일본 사람들 많이 와요?</td><td>대상·관점</td><td>대상 &#x27;일본인&#x27; · 관점 share</td></tr></table>
+  <p class='cap'>원자료: docs/submission/results/examples.json · parse_bench.json(실행일 2026-11-15). 개발 중(2026-11-03)에는 AI 13/15였고, 해석 규칙을 다듬은 뒤 3회 모두 15/15. AI 답은 실행마다 조금 다를 수 있습니다.</p>
+</section>
+</body></html>

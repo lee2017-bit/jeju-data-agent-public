@@ -1,0 +1,23 @@
+[server]
+maxUploadSize = 2000
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "viewer"
+showErrorDetails = "none"
+showSidebarNavigation = false
+
+[theme]
+base = "light"
+primaryColor = "#1D4ED8"
+backgroundColor = "#F6F7F9"
+secondaryBackgroundColor = "#EEF1F5"
+textColor = "#0F172A"
+borderColor = "#E2E8F0"
+font = "Pretendard, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Noto Sans CJK KR', NanumGothic, sans-serif"
+baseFontSize = 17
+baseRadius = "12px"
+buttonRadius = "10px"

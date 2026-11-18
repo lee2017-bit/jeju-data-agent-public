@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>제주 사장님 상권비서 — AI Agent 기획서</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  @page { size: A4; margin: 15mm 15mm 16mm 15mm; }
+  :root { --ink:#0F172A; --muted:#55606F; --line:#D9DFE7; --blue:#1D4ED8; --blue-soft:#EEF3FE; --orange:#C2410C;
+          --orange-soft:#FDF0E7; --green:#047857; --green-soft:#E8F6EF; --bg:#F6F7F9; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+         color: var(--ink); font-size: 10pt; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+  h1, h2, h3, h4 { margin: 0; line-height: 1.3; break-after: avoid; }
+  p { margin: 0 0 5pt; }
+  .page { break-after: page; }
+  .page:last-child { break-after: auto; }
+  section.chapter { break-before: page; }
+  .kicker { font-size: 8.5pt; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  h2 { font-size: 17pt; font-weight: 800; letter-spacing: -0.01em; margin: 2pt 0 8pt; padding-bottom: 5pt; border-bottom: 2px solid var(--ink); }
+  h2 .num { color: var(--blue); margin-right: 6pt; }
+  h3 { font-size: 12pt; font-weight: 700; margin: 11pt 0 5pt; }
+  h3 .tag { font-size: 8pt; font-weight: 600; color: var(--muted); margin-left: 6pt; }
+  h4 { font-size: 10.5pt; font-weight: 700; margin: 8pt 0 3pt; }
+  ul, ol { margin: 0 0 5pt; padding-left: 14pt; }
+  li { margin: 1.5pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 8pt; font-size: 8.8pt; line-height: 1.45; break-inside: auto; }
+  th, td { border: 1px solid var(--line); padding: 3pt 5pt; text-align: left; vertical-align: top; }
+  th { background: var(--bg); font-weight: 700; }
+  tr { break-inside: avoid; }
+  table.dense { font-size: 8.2pt; line-height: 1.38; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.5pt; }
+  .box { border: 1px solid var(--line); border-radius: 6pt; padding: 7pt 9pt; margin: 5pt 0 8pt; break-inside: avoid; }
+  .box.blue { background: var(--blue-soft); border-color: #C9D7FB; }
+  .box.orange { background: var(--orange-soft); border-color: #F6CDB1; }
+  .box.green { background: var(--green-soft); border-color: #BFE6D2; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 9pt; }
+  .two > * { min-width: 0; }
+  .three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7pt; }
+  figure { margin: 4pt 0 8pt; break-inside: avoid; }
+  figure img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 4pt; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 2pt; }
+  .kpi { border: 1px solid var(--line); border-radius: 6pt; padding: 6pt 8pt; background: #fff; }
+  .kpi b { display: block; font-size: 15pt; font-weight: 800; color: var(--blue); }
+  .kpi span { font-size: 8.3pt; color: var(--muted); }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 6pt 0 8pt; }
+  .flow > div { border: 1px solid var(--line); padding: 6pt 7pt; position: relative; background: #fff; min-height: 70pt; }
+  .flow > div + div { border-left: none; }
+  .flow b { display: block; color: var(--blue); font-size: 10pt; }
+  .flow .who { font-size: 7.8pt; color: var(--orange); font-weight: 600; }
+  .pipe { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4pt; margin: 6pt 0 4pt; }
+  .pipe > div { background: var(--blue-soft); border-radius: 5pt; padding: 5pt 6pt; font-size: 8.3pt; line-height: 1.4; }
+  .pipe > div b { display: block; font-size: 9pt; color: var(--blue); }
+  .badge { display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 0 5pt; border-radius: 8pt; }
+  .b-real { background: var(--green-soft); color: var(--green); }
+  .b-center { background: var(--blue-soft); color: var(--blue); }
+  .b-demo { background: #FEF3C7; color: #8A4B0B; }
+  /* 표지 */
+  .cover { display: flex; flex-direction: column; gap: 9pt; }
+  .cover .kicker { margin-top: 4pt; }
+  .cover h1 { font-size: 26pt; font-weight: 800; letter-spacing: -0.02em; }
+  .cover .sub { font-size: 12.5pt; color: var(--muted); font-weight: 500; }
+  .cover .meta { font-size: 9pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6pt; }
+  .toc { columns: 2; font-size: 9pt; margin: 2pt 0; }
+  .toc div { break-inside: avoid; }
+
+  /* ── 시각 중심 본문(2026-11-15) ── */
+  .pg { break-before: page; }
+  .pg .kicker { display: inline-block; font-size: 8.5pt; font-weight: 700; color: var(--blue); background: var(--blue-soft);
+                padding: 1.5pt 7pt; border-radius: 8pt; letter-spacing: 0; }
+  .pg h2.big { font-size: 20pt; font-weight: 800; letter-spacing: -0.02em; border: none; margin: 5pt 0 3pt; padding: 0; line-height: 1.25; }
+  .pg .lead { font-size: 11pt; color: var(--muted); margin: 0 0 9pt; }
+  .hl { color: var(--orange); }
+  .shot { border: 1px solid var(--line); border-radius: 6pt; overflow: hidden; background: #fff; box-shadow: 0 2pt 6pt rgba(15,23,42,.08); }
+  .shot img { width: 100%; display: block; border: none; border-radius: 0; }
+
+  /* 4컷 만화 */
+  .comic { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .panel { border: 2.2px solid var(--ink); border-radius: 7pt; padding: 7pt 8pt 8pt; background: #fff; display: flex; flex-direction: column;
+           gap: 6pt; height: 99mm; overflow: hidden; }
+  .cap { align-self: flex-start; background: #FDE68A; border: 1.5px solid var(--ink); border-radius: 4pt; font-size: 8.5pt; font-weight: 800;
+         padding: 1pt 6pt; }
+  .scene { display: flex; gap: 6pt; align-items: flex-end; min-height: 33mm; }
+  .scene svg.char { width: 25mm; height: 30mm; flex: none; }
+  .bub { position: relative; border: 1.8px solid var(--ink); border-radius: 12pt; padding: 5pt 8pt; font-size: 10pt; line-height: 1.4;
+         font-weight: 600; background: #fff; margin-bottom: 14mm; }
+  .bub::after { content: ""; position: absolute; left: -9px; bottom: 9px; border: 7px solid transparent; border-right-color: var(--ink); border-left: 0; }
+  .bub.ag { background: var(--blue-soft); border-color: var(--blue); color: #1E3A8A; margin: 0; font-weight: 600; font-size: 9.2pt; }
+  .bub.ag::after { display: none; }
+  .agent-row { display: flex; gap: 5pt; align-items: flex-start; }
+  .agent-row svg { width: 9mm; height: 9mm; flex: none; }
+  .panel .shot { flex: 1; min-height: 0; }
+  .panel .shot img { object-fit: cover; object-position: left top; height: 100%; }
+  .tables71 { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt; padding: 4pt; background: var(--bg); flex: 1; }
+  .tables71 div { background: #fff; border: 1px solid var(--line); border-radius: 3pt; padding: 2pt 4pt; font-size: 6.6pt; line-height: 1.3; color: var(--muted); }
+  .tables71 div b { color: var(--ink); font-size: 7pt; display: block; }
+  .tables71 .more { grid-column: 1 / -1; text-align: center; font-weight: 800; color: var(--orange); font-size: 9pt; background: none; border: none; }
+  .result-strip { margin-top: 5mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4pt; }
+  .result-strip div { border-radius: 6pt; background: var(--bg); padding: 6pt 8pt; }
+  .result-strip b { display: block; font-size: 16pt; font-weight: 800; color: var(--blue); line-height: 1.1; }
+  .result-strip span { font-size: 8.5pt; color: var(--muted); }
+
+  /* 큰 숫자 */
+  .stats { display: grid; gap: 4mm; }
+  .stat { border-radius: 7pt; background: var(--bg); padding: 8pt 10pt; }
+  .stat > b { display: block; font-size: 23pt; font-weight: 800; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; }
+  .stat > b small { font-size: 11pt; font-weight: 700; color: var(--muted); }
+  .stat span { font-size: 9pt; color: var(--muted); }
+  .stat.o > b { color: var(--orange); } .stat.b > b { color: var(--blue); } .stat.g > b { color: var(--green); }
+  .stat span strong { color: var(--ink); }
+
+  /* 분석 주제 블록 */
+  .formula { display: flex; align-items: center; gap: 4pt; margin: 4pt 0 6pt; }
+  .formula .t { flex: 1; text-align: center; border-radius: 7pt; padding: 8pt 4pt; background: var(--blue-soft); }
+  .formula .t b { display: block; font-size: 14pt; color: var(--blue); }
+  .formula .t span { font-size: 8.3pt; color: var(--muted); }
+  .formula .x { font-size: 16pt; font-weight: 800; color: var(--muted); }
+  .goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .goal { border: 1px solid var(--line); border-radius: 7pt; padding: 7pt 9pt; }
+  .goal .n { display: inline-flex; width: 16pt; height: 16pt; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800;
+             font-size: 9pt; align-items: center; justify-content: center; margin-right: 4pt; }
+  .goal b { font-size: 10.5pt; }
+  .goal p { font-size: 8.8pt; color: var(--muted); margin: 3pt 0 0; line-height: 1.45; }
+
+  /* 흐름(타임라인) */
+  .flowv { display: flex; flex-direction: column; gap: 4mm; }
+  .stepv { display: grid; grid-template-columns: 17mm 1fr 88mm; gap: 5mm; align-items: center; border: 1px solid var(--line);
+           border-radius: 8pt; padding: 6pt 8pt; background: #fff; }
+  .stepv .num { width: 15mm; height: 15mm; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center;
+                justify-content: center; font-size: 17pt; font-weight: 800; }
+  .stepv h3 { margin: 0 0 2pt; font-size: 13pt; }
+  .stepv .meta { font-size: 8.3pt; font-weight: 700; color: var(--orange); }
+  .stepv ul { margin: 3pt 0 0; font-size: 9.2pt; padding-left: 12pt; }
+  .stepv .shot img { max-height: 48mm; object-fit: cover; object-position: top; }
+
+  /* 번호 설명이 붙은 화면 */
+  .anno { position: relative; overflow: visible !important; }
+  .anno img { border-radius: 6pt; }
+  .mk { position: absolute; width: 17pt; height: 17pt; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800;
+        font-size: 10pt; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2.5pt #fff; transform: translate(-50%, -50%); }
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; margin-top: 4mm; }
+  .legend > div { display: flex; gap: 6pt; align-items: flex-start; font-size: 9.3pt; line-height: 1.45; }
+  .legend .mk { position: static; transform: none; flex: none; box-shadow: none; margin-top: 1pt; }
+  .legend b { display: block; font-size: 10pt; }
+
+  /* 전후 비교 */
+  .ba { display: grid; grid-template-columns: 1fr 9mm 1fr; gap: 0; align-items: stretch; }
+  .ba .h { font-weight: 800; font-size: 11pt; padding: 0 0 4pt; }
+  .ba .b, .ba .a { border-radius: 6pt; padding: 6pt 9pt; margin-bottom: 3mm; font-size: 9.6pt; line-height: 1.45; }
+  .ba .b { background: #F1F5F9; color: #334155; }
+  .ba .a { background: var(--blue-soft); color: #1E3A8A; }
+  .ba .b b, .ba .a b { display: block; font-size: 10.5pt; color: var(--ink); }
+  .ba .arr { display: flex; align-items: center; justify-content: center; color: var(--blue); font-weight: 800; font-size: 14pt; margin-bottom: 3mm; }
+
+  /* 파이프라인 */
+  .pipe2 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin: 4pt 0 2pt; }
+  .pipe2 > div { position: relative; background: var(--blue); color: #fff; padding: 7pt 6pt 7pt 12pt; font-size: 8.5pt; line-height: 1.35;
+                 clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%, 9pt 50%); min-height: 21mm; }
+  .pipe2 > div:first-child { clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%); padding-left: 7pt; }
+  .pipe2 > div:nth-child(even) { background: #2E5BE3; }
+  .pipe2 b { display: block; font-size: 10pt; }
+  .who3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .who3 > div { border: 1px solid var(--line); border-radius: 7pt; padding: 6pt 8pt; font-size: 8.8pt; line-height: 1.4; }
+  .who3 b { display: block; font-size: 10.5pt; }
+  .lights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .lights > div { border-radius: 7pt; padding: 7pt 9pt; font-size: 8.9pt; line-height: 1.45; }
+  .lights b { display: block; font-size: 10.5pt; margin-bottom: 2pt; }
+  .lights .g { background: var(--green-soft); } .lights .y { background: #FEF3C7; } .lights .r { background: #FEE2E2; }
+  .lights ul { margin: 0; padding-left: 11pt; }
+  .chips { display: flex; flex-wrap: wrap; gap: 3pt; }
+  .chip { font-size: 8.4pt; border-radius: 10pt; padding: 1.5pt 7pt; background: var(--bg); border: 1px solid var(--line); }
+  .chip b { color: var(--blue); }
+
+  /* 데이터 지도 */
+  .dmap { display: grid; grid-template-columns: 74mm 10mm 1fr; row-gap: 2.6mm; align-items: center; }
+  .dmap .src { border-radius: 6pt; padding: 5pt 8pt; font-size: 9pt; line-height: 1.35; border-left: 5pt solid; background: #fff;
+               border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .dmap .src b { font-size: 9.8pt; display: block; }
+  .dmap .src small { color: var(--muted); font-size: 7.8pt; }
+  .dmap .src.c { border-left-color: var(--blue); } .dmap .src.h { border-left-color: var(--green); } .dmap .src.p { border-left-color: #94A3B8; }
+  .dmap .ar { text-align: center; color: var(--muted); font-size: 13pt; }
+  .dmap .to { display: flex; flex-wrap: wrap; gap: 3pt; }
+  .dmap .to span { font-size: 8.8pt; font-weight: 700; padding: 2pt 7pt; border-radius: 8pt; background: var(--bg); }
+  .dmap .grp { grid-column: 1 / -1; font-size: 8.5pt; font-weight: 800; color: var(--muted); margin-top: 1.5mm; }
+  .lock { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin-top: 4mm; }
+  .lock > div { border-radius: 7pt; padding: 7pt 9pt; font-size: 9pt; line-height: 1.45; background: var(--bg); }
+  .lock b { display: block; font-size: 10.5pt; }
+
+  /* 설치 */
+  .install { display: grid; grid-template-columns: 1fr 7mm 1fr 7mm 1fr; align-items: stretch; }
+  .install .s { border: 1.5px solid var(--blue); border-radius: 8pt; padding: 8pt 10pt; text-align: center; }
+  .install .s b { display: block; font-size: 13pt; margin: 2pt 0; }
+  .install .s code { font-size: 10pt; font-weight: 700; color: var(--blue); }
+  .install .s span { font-size: 8.6pt; color: var(--muted); display: block; line-height: 1.4; }
+  .install .ar { display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 14pt; font-weight: 800; }
+  .qr { display: grid; grid-template-columns: 30mm 1fr; gap: 5mm; align-items: center; border: 1.5px solid var(--orange); border-radius: 9pt;
+        padding: 7pt 10pt; background: var(--orange-soft); }
+  .qr img { width: 30mm; height: 30mm; border: none; }
+  .qr b { font-size: 13pt; display: block; }
+  .qr .url { font-size: 12pt; font-weight: 800; color: var(--orange); }
+  .apx h2 { font-size: 13pt; margin: 6pt 0 3pt; padding-bottom: 2pt; border-bottom: 1.5px solid var(--ink); }
+  .apx table { font-size: 8pt; line-height: 1.38; margin: 2pt 0 5pt; }
+  .apx th, .apx td { padding: 2.2pt 4pt; }
+
+  /* ── v3: 개념 먼저, 글자·숫자 최소 ── */
+  .cover3 { display: flex; flex-direction: column; height: 262mm; }
+  .cover3 .kicker { font-size: 9pt; color: var(--muted); font-weight: 600; }
+  .cover3 h1 { font-size: 34pt; font-weight: 800; letter-spacing: -0.03em; margin: 26mm 0 6mm; }
+  .cover3 .sub { font-size: 15pt; line-height: 1.55; color: #334155; font-weight: 500; }
+  .cover3 .hero { margin-top: 14mm; }
+  .cover3 .note { font-size: 8.5pt; color: var(--muted); margin-top: 3pt; }
+  .cover3 .foot { margin-top: auto; display: flex; align-items: center; gap: 5mm; border-top: 1px solid var(--line); padding-top: 5mm; }
+  .cover3 .foot img { width: 22mm; height: 22mm; border: none; }
+  .cover3 .foot b { display: block; font-size: 11pt; }
+  .cover3 .foot span { font-size: 13pt; font-weight: 800; color: var(--orange); }
+  .pg h2.big { font-size: 22pt; margin: 6pt 0 10mm; }
+  .pg .lead2 { font-size: 11.5pt; color: var(--muted); margin: -7mm 0 9mm; }
+
+  /* 개념도 */
+  .concept { display: grid; grid-template-columns: 1fr 9mm 1.15fr 9mm 1fr; align-items: stretch; }
+  .concept .col { border-radius: 10pt; padding: 9pt 10pt; display: flex; flex-direction: column; gap: 6pt; align-items: center; text-align: center; }
+  .concept .col h4 { margin: 0; font-size: 12.5pt; }
+  .concept .u { background: #F8FAFC; border: 1.5px solid var(--line); }
+  .concept .g { background: var(--blue-soft); border: 1.5px solid #C9D7FB; }
+  .concept .o { background: var(--orange-soft); border: 1.5px solid #F6CDB1; }
+  .concept .ar { display: flex; align-items: center; justify-content: center; font-size: 18pt; font-weight: 800; color: var(--blue); }
+  .concept svg.char { width: 26mm; height: 31mm; }
+  .concept svg.botbig { width: 20mm; height: 20mm; }
+  .concept .q { font-size: 10pt; font-weight: 600; background: #fff; border: 1.5px solid var(--ink); border-radius: 10pt; padding: 5pt 8pt; line-height: 1.45; }
+  .concept .st { width: 100%; background: #fff; border-radius: 7pt; padding: 5pt 6pt; font-size: 10pt; font-weight: 700; color: #1E3A8A; }
+  .concept .it { width: 100%; background: #fff; border-radius: 7pt; padding: 5pt 6pt; font-size: 10pt; font-weight: 700; color: #9A3412; }
+  .tagline { text-align: center; font-size: 15pt; font-weight: 800; margin: 12mm 0 6mm; line-height: 1.5; }
+  .tagline em { font-style: normal; color: var(--orange); }
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 10mm; }
+  .values div { text-align: center; padding: 8pt 6pt; border-radius: 10pt; background: var(--bg); }
+  .values .ic { font-size: 20pt; display: block; }
+  .values b { display: block; font-size: 13pt; margin: 3pt 0 2pt; }
+  .values span { font-size: 9.5pt; color: var(--muted); }
+
+  /* 만화(간결) */
+  .comic .panel { height: 112mm; }
+  .bub { font-size: 10.5pt; }
+  .bub.ag { font-size: 10pt; }
+
+  /* 4단계(크게) */
+  .steps4 { display: flex; flex-direction: column; gap: 6mm; }
+  .step4 { display: grid; grid-template-columns: 52mm 1fr; gap: 6mm; align-items: center; }
+  .step4 .t { display: flex; gap: 8pt; align-items: flex-start; }
+  .step4 .n { flex: none; width: 13mm; height: 13mm; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center;
+              justify-content: center; font-size: 16pt; font-weight: 800; }
+  .step4 h3 { margin: 1pt 0 3pt; font-size: 14pt; }
+  .step4 p { margin: 0; font-size: 10.5pt; color: var(--muted); line-height: 1.45; }
+  .step4 .shot img { max-height: 50mm; object-fit: cover; object-position: left top; }
+
+  /* 세 가지 가져가기 */
+  .take3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .take3 .shot img { height: 92mm; object-fit: cover; object-position: left top; }
+  .take3 h3 { font-size: 13pt; margin: 4pt 0 1pt; }
+  .take3 p { font-size: 9.8pt; color: var(--muted); margin: 0; }
+  .users4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 3mm; }
+  .users4 div { border-radius: 9pt; background: var(--bg); padding: 8pt 8pt; text-align: center; }
+  .users4 .ic { font-size: 18pt; display: block; }
+  .users4 b { display: block; font-size: 11pt; margin-top: 2pt; }
+  .users4 span { font-size: 9.5pt; color: var(--blue); font-weight: 700; }
+
+  /* 전후 4쌍 */
+  .pairs { display: flex; flex-direction: column; gap: 4mm; }
+  .pair { display: grid; grid-template-columns: 1fr 12mm 1fr; align-items: center; }
+  .pair .x, .pair .v { border-radius: 9pt; padding: 9pt 12pt; font-size: 12pt; font-weight: 700; }
+  .pair .x { background: #F1F5F9; color: #475569; }
+  .pair .v { background: var(--blue-soft); color: #1E3A8A; }
+  .pair .ar { text-align: center; font-size: 18pt; font-weight: 800; color: var(--blue); }
+
+  /* 세 주체 */
+  .actors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .actors div { border-radius: 10pt; padding: 9pt 11pt; }
+  .actors b { display: block; font-size: 12.5pt; margin-bottom: 3pt; }
+  .actors ul { margin: 0; padding-left: 13pt; font-size: 10.5pt; line-height: 1.6; }
+  .pipe2 > div { font-size: 11pt; font-weight: 800; display: flex; align-items: center; min-height: 15mm; }
+
+  /* 데이터 3묶음 */
+  .data3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .data3 .grp { border-radius: 10pt; padding: 9pt 11pt; border-top: 6pt solid; background: #fff; border-left: 1px solid var(--line);
+                border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .data3 .grp.c { border-top-color: var(--blue); } .data3 .grp.h { border-top-color: var(--green); } .data3 .grp.p { border-top-color: #94A3B8; }
+  .data3 h3 { margin: 0 0 1pt; font-size: 12.5pt; }
+  .data3 .tag2 { font-size: 8.5pt; font-weight: 700; color: var(--muted); }
+  .data3 ul { margin: 6pt 0 0; padding-left: 13pt; font-size: 10.5pt; line-height: 1.6; }
+  .data3 .to { margin-top: 7pt; padding-top: 6pt; border-top: 1px dashed var(--line); font-size: 10pt; font-weight: 700; color: var(--blue); }
+
+  /* 큰 숫자 3개 */
+  .big3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+  .big3 div { text-align: center; border-radius: 12pt; background: var(--blue-soft); padding: 12mm 6pt; }
+  .big3 b { display: block; font-size: 38pt; font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -0.03em; }
+  .big3 span { display: block; margin-top: 4mm; font-size: 11pt; font-weight: 700; color: #1E3A8A; }
+  .big3 small { display: block; margin-top: 2pt; font-size: 9pt; color: var(--muted); font-weight: 500; }
+  .notes2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 8mm; }
+  .notes2 div { border-radius: 9pt; background: var(--bg); padding: 9pt 11pt; font-size: 10.5pt; }
+  .notes2 b { display: block; font-size: 12pt; margin-bottom: 2pt; }
+
+  /* v3 크기 키우기(빈 곳을 글자 대신 크기로) */
+  .pg h2.big { font-size: 25pt; margin-bottom: 12mm; }
+  .concept .col h4 { font-size: 14pt; }
+  .concept .q, .concept .st, .concept .it { font-size: 11.5pt; padding: 7pt 8pt; }
+  .concept svg.char { width: 32mm; height: 38mm; }
+  .concept svg.botbig { width: 26mm; height: 26mm; }
+  .concept .col { gap: 8pt; padding: 12pt 10pt; }
+  .tagline { font-size: 17pt; margin: 16mm 0 8mm; }
+  .formula .t { padding: 12pt 4pt; } .formula .t b { font-size: 16pt; } .formula .t span { font-size: 9.5pt; }
+  .values { margin-top: 14mm; } .values div { padding: 12pt 6pt; } .values .ic { font-size: 26pt; } .values b { font-size: 15pt; } .values span { font-size: 10.5pt; }
+  .pair .x, .pair .v { font-size: 14pt; padding: 13pt 14pt; }
+  .pairs { gap: 5mm; }
+  .pipe2 > div { font-size: 13pt; min-height: 20mm; }
+  .actors b { font-size: 14pt; } .actors ul { font-size: 12pt; line-height: 1.7; } .actors div { padding: 12pt 13pt; }
+  .data3 h3 { font-size: 14pt; } .data3 ul { font-size: 12pt; line-height: 1.7; } .data3 .to { font-size: 11pt; } .data3 .grp { padding: 12pt 12pt; }
+  .notes2 div { font-size: 11.5pt; padding: 12pt 13pt; } .notes2 b { font-size: 13pt; }
+  .big3 b { font-size: 46pt; } .big3 span { font-size: 13pt; } .big3 small { font-size: 10pt; } .big3 div { padding: 16mm 6pt; }
+  .install .s { padding: 14pt 10pt; font-size: 22pt; } .install .s b { font-size: 16pt; } .install .s code { font-size: 12pt; } .install .s span { font-size: 10.5pt; }
+  .qr { grid-template-columns: 38mm 1fr; padding: 12pt 14pt; } .qr img { width: 38mm; height: 38mm; } .qr b { font-size: 15pt; } .qr .url { font-size: 15pt; }
+  .users4 div { padding: 12pt 8pt; } .users4 .ic { font-size: 24pt; } .users4 b { font-size: 12.5pt; } .users4 span { font-size: 10.5pt; }
+  .take3 h3 { font-size: 14pt; } .take3 p { font-size: 10.5pt; }
+
+  .apx table { font-size: 7.6pt; line-height: 1.3; margin: 1.5pt 0 4pt; }
+  .apx th, .apx td { padding: 1.8pt 3.5pt; }
+  .apx h2 { font-size: 12pt; margin: 5pt 0 2pt; }
+  .apx ul { font-size: 8.6pt; margin: 2pt 0 4pt; } .apx li { margin: 0.5pt 0; }
+
+  .zipbox { height: 92mm; border-radius: 6pt; border: 1px solid var(--line); background: var(--orange-soft); padding: 9pt 8pt; display: flex;
+            flex-direction: column; gap: 5pt; box-shadow: 0 2pt 6pt rgba(15,23,42,.08); }
+  .zipbox .zt { font-size: 12pt; font-weight: 800; color: #9A3412; margin-bottom: 3pt; }
+  .zipbox .zf { background: #fff; border-radius: 6pt; padding: 7pt 8pt; font-size: 10.5pt; font-weight: 700; border: 1px solid #F6CDB1; }
+  .zipbox .zn { margin-top: auto; font-size: 9pt; color: #9A3412; text-align: center; }
+
+  /* ── v4: 차별성(ChatGPT와 다른 점) ── */
+  .cover3 .diff { margin-top: 5mm; display: flex; gap: 3mm; flex-wrap: wrap; }
+  .cover3 .diff span { font-size: 10.5pt; font-weight: 700; color: #1E3A8A; background: var(--blue-soft); border-radius: 99pt; padding: 3pt 10pt; }
+  .walls { display: grid; grid-template-columns: 54mm 1fr 1fr; gap: 4.5mm 4mm; margin-top: 2mm; }
+  .walls .wh { font-size: 13pt; font-weight: 800; text-align: center; padding: 8pt 0 !important; border-radius: 8pt; }
+  .walls .wh.x { background: #E2E8F0; color: #475569; }
+  .walls .wh.v { background: var(--blue); color: #fff; }
+  .walls .w { background: var(--orange-soft); border-left: 6pt solid var(--orange); border-radius: 9pt; padding: 11pt 11pt; min-height: 43mm; }
+  .walls .w .no { font-size: 10pt; font-weight: 800; color: var(--orange); }
+  .walls .w b { display: block; font-size: 15.5pt; margin: 2pt 0 5pt; }
+  .walls .w small { display: block; font-size: 10.5pt; color: #9A3412; line-height: 1.45; }
+  .walls .x, .walls .v { position: relative; border-radius: 9pt; padding: 13pt 11pt 11pt 36pt; font-size: 14pt; font-weight: 800; line-height: 1.4; }
+  .walls .x { background: #F1F5F9; color: #64748B; }
+  .walls .v { background: var(--blue-soft); color: #1E3A8A; border: 1.5px solid #C9D7FB; }
+  .walls .x:not(.wh)::before, .walls .v:not(.wh)::before { position: absolute; left: 10pt; top: 13pt; width: 19pt; height: 19pt; border-radius: 50%; color: #fff;
+       font-size: 10pt; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .walls .x:not(.wh)::before { content: "✕"; background: #DC2626; }
+  .walls .v:not(.wh)::before { content: "✓"; background: var(--green); }
+  .walls .x small, .walls .v small { display: block; margin-top: 6pt; font-size: 11pt; font-weight: 500; color: var(--muted); }
+  .punch { margin-top: 14mm; text-align: center; font-size: 18pt; font-weight: 800; line-height: 1.5; }
+  .punch em { font-style: normal; color: var(--blue); }
+  .punch .s { color: #94A3B8; text-decoration: line-through; text-decoration-thickness: 2px; }
+  .src2 { margin-top: 6mm; text-align: center; font-size: 8.5pt; color: var(--muted); }
+
+  .p-concept .concept { margin-top: 6mm; }
+  .p-concept .concept .col { padding: 14pt 12pt; gap: 10pt; }
+  .p-concept .concept .col h4 { font-size: 15pt; }
+  .p-concept .concept svg.char { width: 40mm; height: 48mm; }
+  .p-concept .concept svg.botbig { width: 32mm; height: 32mm; }
+  .p-concept .concept span[style] { font-size: 36pt !important; }
+  .p-concept .concept .q { font-size: 12.5pt; }
+  .p-concept .concept .st, .p-concept .concept .it { font-size: 12.5pt; padding: 10pt 6pt; }
+  .p-concept .tagline { font-size: 18pt; margin: 22mm 0 10mm; }
+  .p-concept .formula .t { padding: 15pt 4pt; } .p-concept .formula .t b { font-size: 18pt; } .p-concept .formula .t span { font-size: 10.5pt; }
+  .lead3 { font-size: 14pt; font-weight: 700; color: #334155; margin: -6mm 0 8mm; }
+
+  /* ══ v5: 본문(1~11쪽) 글자 체계 — 크기는 여섯 가지만: 40 · 24 · 15 · 13 · 11 · 9pt, 글꼴은 Pretendard 하나 ══ */
+  .m { --t0: 40pt; --t1: 24pt; --t2: 15pt; --t3: 13pt; --t4: 11pt; --t5: 9pt;
+       font-size: var(--t4); line-height: 1.5; font-weight: 500; color: var(--ink); }
+  .m * { font-size: inherit; line-height: inherit; font-family: inherit; }
+  .m p { margin: 0; }
+  .m ul { margin: 0; padding-left: 13pt; }
+  .m li { margin: 1pt 0; }
+  .m figure { margin: 0; }
+  .m .ico { font-size: var(--t1); line-height: 1.2; display: block; }   /* 그림 문자(이모지)는 아이콘 크기 하나 */
+
+  /* 쪽 머리: 분류표 → 제목 → (한 줄 설명) */
+  .m .hdr { margin-bottom: 8mm; }
+  .m .kk { display: inline-block; font-size: var(--t5); font-weight: 700; color: var(--blue); background: var(--blue-soft);
+           padding: 1pt 8pt; border-radius: 99pt; letter-spacing: .02em; }
+  .m .t1 { font-size: var(--t1); font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; margin: 5pt 0 0; border: 0; padding: 0; }
+  .m .ld { font-size: var(--t3); font-weight: 600; color: #475569; margin-top: 3mm; }
+  .m .hd { font-size: var(--t3); font-weight: 800; margin: 0 0 3mm; line-height: 1.35; }
+  .m .hd span { font-weight: 600; color: var(--muted); }
+  .m .cap { font-size: var(--t5); color: var(--muted); font-weight: 500; background: none; border: 0; border-radius: 0; padding: 0; align-self: auto; }
+  .m .stmt { font-size: var(--t2); font-weight: 800; line-height: 1.5; text-align: center; }
+  .m .stmt em { font-style: normal; color: var(--orange); }
+  .m .stmt .blue { color: var(--blue); }
+  .m .stmt .del { color: #94A3B8; text-decoration: line-through; text-decoration-thickness: 2px; }
+  .m .mt3 { margin-top: 3mm; } .m .mt6 { margin-top: 6mm; } .m .mt9 { margin-top: 9mm; } .m .mt12 { margin-top: 12mm; }
+
+  /* 실제 화면 */
+  .m .sh { border: 1px solid var(--line); border-radius: 6pt; overflow: hidden; background: #fff; box-shadow: 0 1.5pt 5pt rgba(15,23,42,.08); }
+  .m .sh img { display: block; width: 100%; border: 0; border-radius: 0; }
+  .m .w160 { width: 160mm; margin-left: auto; margin-right: auto; }
+  .m .badge { font-size: var(--t5); font-weight: 700; padding: 0 6pt; border-radius: 99pt; }
+
+  /* 표지 */
+  .mcover { display: flex; flex-direction: column; height: 262mm; }
+  .mcover .meta { font-size: var(--t5); color: var(--muted); font-weight: 600; }
+  .mcover h1 { font-size: var(--t0); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin: 22mm 0 5mm; }
+  .mcover .sub { font-size: var(--t2); font-weight: 600; color: #334155; line-height: 1.55; }
+  .mcover .chips { display: flex; gap: 3mm; margin-top: 6mm; flex-wrap: wrap; }
+  .mcover .chips span { font-size: var(--t4); font-weight: 700; color: #1E3A8A; background: var(--blue-soft); border-radius: 99pt; padding: 3pt 11pt; }
+  .mcover .hero { margin-top: 12mm; }
+  .mcover .foot { margin-top: auto; display: flex; gap: 5mm; align-items: center; border-top: 1px solid var(--line); padding-top: 5mm; }
+  .mcover .foot img { width: 24mm; height: 24mm; border: 0; }
+  .mcover .foot b { display: block; font-size: var(--t3); }
+  .mcover .foot span { font-size: var(--t3); font-weight: 800; color: var(--orange); }
+
+  /* 2쪽 개념도 */
+  .cpt { display: grid; grid-template-columns: 1fr 9mm 1.15fr 9mm 1fr; align-items: stretch; }
+  .cpt .col { border-radius: 10pt; padding: 12pt 10pt; display: flex; flex-direction: column; gap: 8pt; align-items: center; text-align: center; }
+  .cpt .col .hd { margin: 0; }
+  .cpt .u { background: #F8FAFC; border: 1.5px solid var(--line); }
+  .cpt .g { background: var(--blue-soft); border: 1.5px solid #C9D7FB; }
+  .cpt .o { background: var(--orange-soft); border: 1.5px solid #F6CDB1; }
+  .cpt .ar { display: flex; align-items: center; justify-content: center; font-size: var(--t2); font-weight: 800; color: var(--blue); }
+  .cpt svg.char { width: 34mm; height: 41mm; }
+  .cpt svg.bot { width: 26mm; height: 26mm; }
+  .cpt .q { font-weight: 600; background: #fff; border: 1.5px solid var(--ink); border-radius: 10pt; padding: 6pt 9pt; }
+  .cpt .st, .cpt .it { width: 100%; background: #fff; border-radius: 7pt; padding: 7pt 6pt; font-weight: 700; }
+  .cpt .st { color: #1E3A8A; } .cpt .it { color: #9A3412; }
+  .fx { display: flex; align-items: center; gap: 4pt; }
+  .fx .t { flex: 1; text-align: center; border-radius: 8pt; padding: 10pt 4pt; background: var(--blue-soft); }
+  .fx .t b { display: block; font-size: var(--t3); font-weight: 800; color: var(--blue); }
+  .fx .t span { font-size: var(--t5); color: var(--muted); }
+  .fx .x { font-size: var(--t3); font-weight: 800; color: var(--muted); }
+  .who4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+  .who4 div { border-radius: 9pt; background: var(--bg); padding: 8pt; text-align: center; }
+  .who4 b { display: block; font-weight: 800; margin-top: 2pt; }
+  .who4 span { color: var(--blue); font-weight: 700; }
+
+  /* 3쪽 벽 셋 */
+  .walls { display: grid; grid-template-columns: 54mm 1fr 1fr; gap: 4.5mm 4mm; }
+  .walls .wh { font-size: var(--t3); font-weight: 800; text-align: center; padding: 7pt 0; border-radius: 8pt; }
+  .walls .wh.x { background: #E2E8F0; color: #475569; }
+  .walls .wh.v { background: var(--blue); color: #fff; }
+  .walls .w { background: var(--orange-soft); border-left: 6pt solid var(--orange); border-radius: 9pt; padding: 10pt 11pt; min-height: 42mm; }
+  .walls .w .no { font-size: var(--t5); font-weight: 800; color: var(--orange); }
+  .walls .w b { display: block; font-size: var(--t3); font-weight: 800; margin: 2pt 0 4pt; }
+  .walls .w p { color: #9A3412; }
+  .walls .c { position: relative; border-radius: 9pt; padding: 11pt 11pt 10pt 34pt; }
+  .walls .c b { display: block; font-size: var(--t3); font-weight: 800; line-height: 1.4; }
+  .walls .c p { margin-top: 5pt; color: var(--muted); }
+  .walls .c.x { background: #F1F5F9; } .walls .c.x b { color: #64748B; }
+  .walls .c.v { background: var(--blue-soft); border: 1.5px solid #C9D7FB; } .walls .c.v b { color: #1E3A8A; }
+  .walls .c::before { position: absolute; left: 10pt; top: 11pt; width: 17pt; height: 17pt; border-radius: 50%; color: #fff;
+       font-size: var(--t5); font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .walls .c.x::before { content: "✕"; background: #DC2626; }
+  .walls .c.v::before { content: "✓"; background: var(--green); }
+
+  /* 4쪽 네 컷 */
+  .cm { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .cm .pn { border: 1.8px solid var(--ink); border-radius: 10pt; padding: 8pt 9pt 10pt; height: 104mm; display: flex; flex-direction: column; gap: 6pt; }
+  .cm .lab { align-self: flex-start; font-size: var(--t5); font-weight: 800; background: #FDE68A; border: 1.2px solid var(--ink); border-radius: 5pt; padding: 0 6pt; }
+  .cm .scene { display: flex; align-items: center; gap: 6pt; }
+  .cm svg.char { width: 25mm; height: 30mm; flex: none; }
+  .cm .bub { font-size: var(--t3); font-weight: 700; background: #fff; border: 1.5px solid var(--ink); border-radius: 11pt; padding: 6pt 10pt; line-height: 1.4; }
+  .cm .ag { display: flex; align-items: center; gap: 5pt; }
+  .cm .ag svg { width: 9mm; height: 9mm; flex: none; }
+  .cm .ag div { font-weight: 600; color: #1E3A8A; background: var(--blue-soft); border: 1.5px solid #9DB5F5; border-radius: 11pt; padding: 4pt 9pt; }
+  .cm .mock { margin-top: auto; border-radius: 8pt; background: #F8FAFC; border: 1px solid var(--line); padding: 7pt; }
+  .cm .tb { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }
+  .cm .tb div { background: #fff; border: 1px solid var(--line); border-radius: 5pt; padding: 3pt 6pt; font-size: var(--t5); color: var(--muted); line-height: 1.35; }
+  .cm .tb div b { display: block; color: var(--ink); font-weight: 700; }
+  .cm .tb .more { grid-column: 1 / -1; text-align: center; border: 0; background: transparent; color: var(--orange); font-weight: 800; }
+  .cm .row { display: flex; align-items: center; gap: 6pt; background: #fff; border: 1px solid var(--line); border-radius: 6pt; padding: 5pt 8pt; font-weight: 700; }
+  .cm .row + .row { margin-top: 4pt; }
+  .cm .row i { font-style: normal; color: var(--blue); font-weight: 800; }
+  .cm .ans { background: var(--blue-soft); border-color: #C9D7FB; }
+  .cm .ans .k { font-size: var(--t5); font-weight: 800; color: var(--blue); }
+  .cm .ans b { display: block; font-weight: 800; margin: 2pt 0 5pt; }
+  .cm .ans span { font-size: var(--t5); font-weight: 700; color: #1E3A8A; background: #fff; border-radius: 99pt; padding: 1pt 7pt; margin-right: 3pt; }
+
+  /* 5~7쪽 단계 표시 */
+  .prog { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 7mm; }
+  .prog span { text-align: center; font-weight: 700; padding: 5pt 0; border-radius: 7pt; background: #F1F5F9; color: #94A3B8; }
+  .prog span.on { background: var(--blue); color: #fff; }
+  .stp { display: flex; align-items: baseline; gap: 7pt; margin: 0 0 3mm; }
+  .stp .n { flex: none; align-self: center; width: 9mm; height: 9mm; border-radius: 50%; background: var(--blue); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: var(--t3); font-weight: 800; }
+  .stp .hd { margin: 0; }
+  .stp p { color: var(--muted); }
+
+  /* 6쪽 결론 화면 표시 */
+  .anno { position: relative; }
+  .anno .pin { position: absolute; transform: translate(-50%, -50%); width: 20pt; height: 20pt; border-radius: 50%; background: var(--orange);
+               color: #fff; font-size: var(--t4); font-weight: 800; display: flex; align-items: center; justify-content: center;
+               box-shadow: 0 0 0 2.5pt #fff; }
+  .lg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .lg > div { display: flex; gap: 6pt; align-items: flex-start; }
+  .lg .pin { flex: none; width: 18pt; height: 18pt; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800;
+             display: flex; align-items: center; justify-content: center; }
+  .lg b { display: block; font-weight: 800; }
+  .lg span { color: var(--muted); }
+
+  /* 7쪽 묶음 내용 */
+  .zipl { display: flex; flex-wrap: wrap; gap: 3mm; align-items: center; }
+  .zipl span { background: var(--orange-soft); border: 1px solid #F6CDB1; border-radius: 6pt; padding: 3pt 9pt; font-weight: 700; }
+  .zipl em { font-style: normal; color: var(--muted); font-weight: 600; }
+  .side { display: grid; grid-template-columns: 46mm 1fr; gap: 6mm; align-items: center; }
+  .side p { color: var(--muted); margin-top: 2pt; }
+
+  /* 8쪽 Agent */
+  .pipe6 { display: grid; grid-template-columns: repeat(6, 1fr); }
+  .pipe6 div { position: relative; background: var(--blue); color: #fff; font-weight: 800; padding: 9pt 6pt 9pt 14pt; min-height: 16mm;
+               display: flex; align-items: center; clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%, 9pt 50%); }
+  .pipe6 div:first-child { clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%); padding-left: 8pt; }
+  .pipe6 div:nth-child(even) { background: #2E5BE3; }
+  .act3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .act3 > div { border-radius: 10pt; padding: 10pt 11pt; }
+  .act3 b { display: block; font-size: var(--t3); font-weight: 800; margin-bottom: 3pt; }
+  .nogo { background: #FEE2E2; border-radius: 10pt; padding: 10pt 12pt; }
+  .nogo ul { columns: 2; }
+
+  /* 9쪽 데이터 */
+  .d3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .d3 .g { border-radius: 10pt; padding: 10pt 11pt; border: 1px solid var(--line); border-top: 6pt solid; background: #fff; display: flex; flex-direction: column; }
+  .d3 .g.c { border-top-color: var(--blue); } .d3 .g.h { border-top-color: var(--green); } .d3 .g.p { border-top-color: #94A3B8; }
+  .d3 .g .hd { margin: 0; }
+  .d3 .g ul { margin-top: 6pt; }
+  .d3 .g .to { margin-top: auto; padding-top: 7pt; border-top: 1px dashed var(--line); font-weight: 800; color: var(--blue); }
+  .d3 .g .ul-wrap { margin-bottom: 8pt; }
+
+  /* 공통 메모 상자 둘 */
+  .n2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .n2 > div { border-radius: 9pt; background: var(--bg); padding: 10pt 12pt; }
+  .n2 b { display: block; font-size: var(--t3); font-weight: 800; margin-bottom: 2pt; }
+  .n2 p { color: var(--muted); }
+
+  /* 10쪽 큰 숫자 */
+  .b3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+  .b3 div { text-align: center; border-radius: 12pt; background: var(--blue-soft); padding: 13mm 6pt 11mm; }
+  .b3 b { display: block; font-size: var(--t0); font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -0.03em; }
+  .b3 span { display: block; margin-top: 4mm; font-size: var(--t3); font-weight: 800; color: #1E3A8A; }
+  .b3 small { display: block; margin-top: 2pt; font-size: var(--t5); color: var(--muted); }
+
+  /* 11쪽 설치 */
+  .ins { display: grid; grid-template-columns: 1fr 7mm 1fr 7mm 1fr; align-items: stretch; }
+  .ins .s { border: 1.5px solid var(--blue); border-radius: 9pt; padding: 9pt 10pt; text-align: center; }
+  .ins .s b { display: block; font-size: var(--t3); font-weight: 800; margin: 2pt 0; }
+  .ins .s code { font-family: inherit; font-weight: 800; color: var(--blue); }
+  .ins .s p { color: var(--muted); }
+  .ins .ar { display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); }
+  .ops { display: grid; grid-template-columns: 98mm 1fr; gap: 6mm; align-items: center; }
+  .ops .v3 { display: grid; gap: 3mm; }
+  .ops .v3 div { border-radius: 9pt; background: var(--bg); padding: 8pt 10pt; }
+  .ops .v3 b { display: block; font-weight: 800; }
+  .ops .v3 span { color: var(--muted); }
+  .qr2 { display: grid; grid-template-columns: 32mm 1fr; gap: 6mm; align-items: center; border: 1.5px solid var(--orange); border-radius: 10pt;
+         padding: 10pt 14pt; background: var(--orange-soft); }
+  .qr2 img { width: 32mm; height: 32mm; border: 0; }
+  .qr2 b { display: block; font-size: var(--t3); font-weight: 800; }
+  .qr2 .url { font-size: var(--t3); font-weight: 800; color: var(--orange); }
+  .qr2 p { color: var(--muted); margin-top: 2pt; }
+
+  /* 부록: 제목 12pt, 표·본문 7.6pt 두 가지만 */
+  .apx h2 { font-size: 12pt !important; }
+  .apx table, .apx table.dense, .apx th, .apx td, .apx p, .apx li, .apx .small, .apx div { font-size: 7.6pt !important; }
+  .apx .kicker { font-size: 9pt !important; }
+
+  .arow { display: grid; grid-template-columns: 1fr 40mm; gap: 6mm; }
+  .arow .anno { padding-left: 7mm; }
+  .lgv { position: relative; }
+  .lgv > div { position: absolute; left: 0; right: 0; transform: translateY(-50%); display: flex; gap: 6pt; align-items: flex-start; }
+  .lgv .pin { flex: none; width: 18pt; height: 18pt; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800;
+              display: flex; align-items: center; justify-content: center; }
+  .lgv b { display: block; font-weight: 800; }
+  .lgv span { color: var(--muted); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="base">
+      <path d="M20 140 C20 108 38 96 60 96 C82 96 100 108 100 140 Z" fill="#2563EB"/>
+      <path d="M50 97 L60 110 L70 97 Z" fill="#fff"/>
+      <rect x="53" y="82" width="14" height="17" rx="4" fill="#EBB892"/>
+      <path d="M30 60 C26 28 46 15 62 15 C84 15 96 32 92 62 L94 90 C88 96 82 84 82 76 L38 76 C38 84 32 96 26 90 Z" fill="#2B2420"/>
+      <ellipse cx="60" cy="58" rx="25" ry="27" fill="#F8D5B8"/>
+      <path d="M35 53 C34 30 52 24 64 26 C79 28 88 39 86 55 C78 44 66 39 54 41 C46 43 40 47 35 53 Z" fill="#2B2420"/>
+    </g>
+    <symbol id="confused" viewBox="0 0 120 140"><use href="#base"/>
+      <path d="M43 47 L53 51 M77 47 L67 51" stroke="#2B2420" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="49" cy="59" r="2.8" fill="#2B2420"/><circle cx="71" cy="59" r="2.8" fill="#2B2420"/>
+      <path d="M51 74 Q55 70 59 74 T67 74" stroke="#7A2E2E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M96 36 C101 44 101 49 96 51 C91 49 91 44 96 36 Z" fill="#7DD3FC"/>
+      <text x="98" y="26" font-size="24" font-weight="800" fill="#EA580C" font-family="sans-serif">?</text>
+      <text x="8" y="30" font-size="18" font-weight="800" fill="#EA580C" font-family="sans-serif">?</text></symbol>
+    <symbol id="ask" viewBox="0 0 120 140"><use href="#base"/>
+      <path d="M44 49 L53 48 M67 48 L76 49" stroke="#2B2420" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="49" cy="59" r="2.8" fill="#2B2420"/><circle cx="71" cy="59" r="2.8" fill="#2B2420"/>
+      <path d="M53 72 Q60 77 67 72" stroke="#7A2E2E" stroke-width="2.4" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="wow" viewBox="0 0 120 140"><use href="#base"/>
+      <path d="M43 45 L53 43 M67 43 L77 45" stroke="#2B2420" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="49" cy="59" r="4" fill="#2B2420"/><circle cx="71" cy="59" r="4" fill="#2B2420"/>
+      <circle cx="50.5" cy="57.5" r="1.3" fill="#fff"/><circle cx="72.5" cy="57.5" r="1.3" fill="#fff"/>
+      <ellipse cx="60" cy="74" rx="4.2" ry="5" fill="#7A2E2E"/>
+      <path d="M100 22 L103 30 L111 33 L103 36 L100 44 L97 36 L89 33 L97 30 Z" fill="#F59E0B"/></symbol>
+    <symbol id="happy" viewBox="0 0 120 140"><use href="#base"/>
+      <path d="M44 59 Q49 53 54 59 M66 59 Q71 53 76 59" stroke="#2B2420" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <path d="M50 69 Q60 82 70 69 Z" fill="#7A2E2E"/>
+      <ellipse cx="43" cy="67" rx="5" ry="3" fill="#F9A8A8" opacity=".8"/><ellipse cx="77" cy="67" rx="5" ry="3" fill="#F9A8A8" opacity=".8"/>
+      <path d="M8 40 L11 47 L18 50 L11 53 L8 60 L5 53 L-2 50 L5 47 Z" fill="#F59E0B" transform="translate(6 -14)"/>
+      <path d="M100 22 L103 30 L111 33 L103 36 L100 44 L97 36 L89 33 L97 30 Z" fill="#F59E0B"/></symbol>
+    <symbol id="bot" viewBox="0 0 60 60">
+      <line x1="30" y1="4" x2="30" y2="13" stroke="#1D4ED8" stroke-width="3"/><circle cx="30" cy="4" r="3.5" fill="#EA580C"/>
+      <rect x="6" y="13" width="48" height="38" rx="12" fill="#1D4ED8"/>
+      <circle cx="21" cy="31" r="5.5" fill="#fff"/><circle cx="39" cy="31" r="5.5" fill="#fff"/>
+      <circle cx="21" cy="31" r="2.5" fill="#0F172A"/><circle cx="39" cy="31" r="2.5" fill="#0F172A"/>
+      <rect x="22" y="41" width="16" height="3" rx="1.5" fill="#BFDBFE"/></symbol>
+  </defs>
+</svg>
+<!-- ───────────── 표지 ───────────── -->
+<div class="page m mcover">
+  <div class="meta">제주 AI·빅데이터 활용 AI Agent 개발 챌린지 · AI Agent 기획서 · 팀 치킨암살단-제주</div>
+  <h1>제주 사장님 상권비서</h1>
+  <p class="sub">관광객일까 도민일까, 언제 붐빌까 — 제주 사장님의 상권 질문에<br>센터 카드 데이터로 답하고, 사업계획서 자료와 반출 신청까지</p>
+  <div class="chips"><span>🔒 센터 데이터는 AI에 보내지 않음</span><span>✅ 결과는 처음부터 반출 기준대로</span></div>
+  <div class="sh hero"><img src="img/s-answer-top.jpg" alt="결론 화면"></div>
+  <p class="cap mt3">실제 앱 화면 · 센터 수치는 체험용 가상 데이터라 [체험] 표시</p>
+  <div class="foot"><img src="img/demo-qr.svg" alt="공개 데모 QR"><div><b>설치 없이 바로 써 보기</b><span>jeju-data-agent.streamlit.app</span></div></div>
+</div>
+
+<!-- ───────────── 2. 한눈에(개념) ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">① 구현 목표 · 한눈에 보기</span>
+    <h2 class="t1">평소 말로 물으면,<br>센터 데이터로 답해 줍니다</h2></div>
+  <div class="cpt">
+    <div class="col u"><h3 class="hd">방문자</h3><svg class="char"><use href="#ask"/></svg>
+      <div class="q">카페 하려는데 애월이랑<br>한림 중 어디가 좋을까요?</div></div>
+    <div class="ar">→</div>
+    <div class="col g"><h3 class="hd">상권비서(AI Agent)</h3><svg class="bot"><use href="#bot"/></svg>
+      <div class="st">① 필요한 센터 데이터 안내</div><div class="st">② 받은 파일 알아서 분석</div><div class="st">③ 공개 규칙으로 판정</div></div>
+    <div class="ar">→</div>
+    <div class="col o"><h3 class="hd">가져가는 것</h3><span class="ico">📦</span>
+      <div class="it">결론과 근거 그림</div><div class="it">사업계획서 근거팩</div><div class="it">반출 신청 묶음</div></div>
+  </div>
+  <p class="stmt mt12">센터에만 있는 <em>'우리 동네 × 업종 × 관광객'</em> 숫자를,<br>코딩 없이 방문 한 번에.</p>
+  <div class="fx mt6">
+    <div class="t"><b>우리 동네</b><span>읍면동</span></div><div class="x">×</div>
+    <div class="t"><b>업종</b><span>카페·식당·숙박…</span></div><div class="x">×</div>
+    <div class="t"><b>관광객 / 도민</b><span>누가 쓰나</span></div><div class="x">×</div>
+    <div class="t"><b>요일·시간대</b><span>언제 쓰나</span></div>
+  </div>
+  <h3 class="hd mt12">누가 어디에 쓰나</h3>
+  <div class="who4">
+    <div><span class="ico">🧑‍🍳</span><b>예비창업자</b><span>사업계획서</span></div>
+    <div><span class="ico">🏢</span><b>기관·기업</b><span>현황 보고서</span></div>
+    <div><span class="ico">🎓</span><b>연구자</b><span>논문·과제</span></div>
+    <div><span class="ico">🧑‍💼</span><b>센터 직원</b><span>상담·반출 심사</span></div>
+  </div>
+</section>
+
+<!-- ───────────── 3. 차별성 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">① 구현 목표 · 차별성</span>
+    <h2 class="t1">"ChatGPT에 파일 올리면<br>되지 않나요?"</h2>
+    <p class="ld">센터 안에서는 안 됩니다. 벽이 셋 있기 때문입니다.</p></div>
+  <div class="walls">
+    <div></div><div class="wh x">AI에 파일 올려 묻기</div><div class="wh v">제주 사장님 상권비서</div>
+
+    <div class="w"><span class="no">벽 1</span><b>무엇을 받아야 하나</b><p>표를 직접 골라<br>기간·조건까지 정해 내려받기</p></div>
+    <div class="c x"><b>"파일을 올려 주세요"</b><p>고르는 건 방문자 몫</p></div>
+    <div class="c v"><b>질문을 읽고<br>받을 표를 알려 줌</b><p>받은 파일은 알아서 인식</p></div>
+
+    <div class="w"><span class="no">벽 2</span><b>AI에 보내면 안 됨</b><p>센터 데이터 원본·조회 결과는<br>외부 AI 전송 금지</p></div>
+    <div class="c x"><b>표를 통째로 AI에 넣음</b><p>센터 규정 위반</p></div>
+    <div class="c v"><b>센터 숫자는<br>AI에 보내지 않음</b><p>AI는 질문 해석만, 계산은 PC 안 규칙</p></div>
+
+    <div class="w"><span class="no">벽 3</span><b>들고 나갈 수 있나</b><p>10 미만 수치·엑셀 표는<br>원칙적으로 반출 불가</p></div>
+    <div class="c x"><b>분석은 했는데<br>못 들고 나감</b><p>결과가 심사에서 막힘</p></div>
+    <div class="c v"><b>처음부터<br>반출 기준대로 만듦</b><p>비율·순위, 그림, 신청 문구</p></div>
+  </div>
+  <p class="stmt mt12">다른 AI는 <span class="del">분석</span>에서 끝나고,<br>상권비서는 <span class="blue">센터 밖으로 들고 나가는 결과</span>까지 갑니다</p>
+  <p class="cap mt6" style="text-align:center">벽의 근거: 대회 게시판 운영진 답변(2026.10~11) · 센터 데이터 반출 정책(2026.9)</p>
+</section>
+
+<!-- ───────────── 4. 네 컷 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">① 구현 목표 · 사용자 시나리오</span>
+    <h2 class="t1">서윤 씨의 센터 1시간</h2>
+    <p class="ld">애월과 한림 중 카페 자리를 고르는 예비창업자(가상 인물)</p></div>
+  <div class="cm">
+    <div class="pn">
+      <span class="lab">① 센터 도착</span>
+      <div class="scene"><svg class="char"><use href="#confused"/></svg><div class="bub">표가 71종…?<br>뭘 받아야 하죠?</div></div>
+      <div class="mock tb">
+        <div><b>1-01 내국인 카드 이용</b>base_year_month…</div>
+        <div><b>1-08 카드 이용(읍면동)</b>bjd, tour_type…</div>
+        <div><b>1-12 카드 이용(요일별)</b>week, user_cnt…</div>
+        <div><b>1-14 카드 이용(시간대)</b>time, use_amt…</div>
+        <div class="more">… 모두 71종</div>
+      </div>
+    </div>
+    <div class="pn">
+      <span class="lab">② 평소 말로 묻기</span>
+      <div class="scene"><svg class="char"><use href="#ask"/></svg><div class="bub">애월이랑 한림 중<br>카페 어디가 좋을까요?</div></div>
+      <div class="ag"><svg><use href="#bot"/></svg><div>애월읍·한림읍 카페 비교로 이해했어요. 이 3개만 받아 주세요.</div></div>
+      <div class="mock">
+        <div class="row"><i>①</i> 동네·업종별 월 카드 매출</div>
+        <div class="row"><i>②</i> 요일별 카드 매출</div>
+        <div class="row"><i>③</i> 시간대별 카드 매출</div>
+      </div>
+    </div>
+    <div class="pn">
+      <span class="lab">③ 결론부터</span>
+      <div class="scene"><svg class="char"><use href="#wow"/></svg><div class="bub">받기만 했는데<br>결론이 먼저 나와요!</div></div>
+      <div class="ag"><svg><use href="#bot"/></svg><div>근거 그림과 출처도 붙였어요.</div></div>
+      <div class="mock ans"><span class="k">결론</span>
+        <b>관광객 손님은 애월, 도민 단골은 한림 — 시장은 애월이 더 큽니다.</b>
+        <span>동네 비교</span><span>계절</span><span>경쟁</span><span>요일·시간대</span></div>
+    </div>
+    <div class="pn">
+      <span class="lab">④ 가져가기</span>
+      <div class="scene"><svg class="char"><use href="#happy"/></svg><div class="bub">사업계획서 문장까지<br>그대로 쓸 수 있어요!</div></div>
+      <div class="ag"><svg><use href="#bot"/></svg><div>반출 신청 묶음도 만들어 뒀어요.</div></div>
+      <div class="mock">
+        <div class="row">📄 사업계획서 근거팩</div>
+        <div class="row">🖼️ 근거 그림 · 출처</div>
+        <div class="row">📦 반출 신청 묶음</div>
+      </div>
+    </div>
+  </div>
+  <p class="cap mt6">다음 쪽부터 실제 앱 화면입니다.</p>
+</section>
+
+<!-- ───────────── 5. 화면 ①② ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">② 서비스 제안 · 핵심 기능</span>
+    <h2 class="t1">화면은 4단계</h2></div>
+  <div class="prog"><span class="on">① 질문</span><span class="on">② 데이터 준비</span><span>③ 결과</span><span>④ 가져가기</span></div>
+  <div class="stp"><span class="n">1</span><h3 class="hd">질문</h3><p>예시를 누르거나 평소 말로 묻고, 이해한 내용은 칩으로 확인·수정</p></div>
+  <div class="sh" style="width:145mm;margin:0 auto"><img src="img/s-question.jpg" alt="질문 화면"></div>
+  <div class="stp mt9"><span class="n">2</span><h3 class="hd">데이터 준비</h3><p>받을 표와 받는 법을 알려 주고, 받으면 알아서 인식합니다</p></div>
+  <div class="sh" style="width:145mm;margin:0 auto"><img src="img/s-data.jpg" alt="데이터 준비 화면"></div>
+</section>
+
+<!-- ───────────── 6. 화면 ③ 결과 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">② 서비스 제안 · 핵심 기능</span>
+    <h2 class="t1">결론이 먼저, 근거는 카드로</h2></div>
+  <div class="prog"><span>① 질문</span><span>② 데이터 준비</span><span class="on">③ 결과</span><span>④ 가져가기</span></div>
+  <div class="arow">
+    <div class="anno">
+      <div class="sh"><img src="img/s-answer.jpg" alt="결론 화면"></div>
+      <span class="pin" style="left:3mm;top:15%">1</span>
+      <span class="pin" style="left:3mm;top:45%">2</span>
+      <span class="pin" style="left:3mm;top:79%">3</span>
+    </div>
+    <div class="lgv">
+      <div style="top:15%"><span class="pin">1</span><div><b>한 문장 결론</b><span>어디가 맞는지 바로</span></div></div>
+      <div style="top:45%"><span class="pin">2</span><div><b>동네별 핵심 숫자</b><span>관광객 몫 · 매출 순위</span></div></div>
+      <div style="top:79%"><span class="pin">3</span><div><b>그래서 할 일</b><span>바로 할 행동</span></div></div>
+    </div>
+  </div>
+  <h3 class="hd mt9">아래 근거 카드: 그림 · 쉬운 해설 · 출처</h3>
+  <div class="sh w160"><img src="img/s-card.jpg" alt="근거 카드"></div>
+</section>
+
+<!-- ───────────── 7. 화면 ④ 가져가기 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">② 서비스 제안 · 분석데이터 활용 방안</span>
+    <h2 class="t1">가져가는 것: 지원사업 · 근거팩 · 반출 신청</h2></div>
+  <div class="prog"><span>① 질문</span><span>② 데이터 준비</span><span>③ 결과</span><span class="on">④ 가져가기</span></div>
+  <h3 class="hd">버튼 한 번에 반출 신청 묶음 <span>· 활용 사유는 자동, 신청 문구는 복사해 붙이기</span></h3>
+  <div class="sh" style="width:140mm;margin:0 auto"><img src="img/s-take.jpg" alt="가져가기"></div>
+  <h3 class="hd mt6">신청할 지원사업 <span>· 칩을 고르면 바로 다시 찾고, 공고문과 자격을 대조</span></h3>
+  <div class="sh" style="width:140mm;margin:0 auto"><img src="img/s-program.jpg" alt="지원사업"></div>
+  <div class="side mt6">
+    <div><h3 class="hd" style="margin:0">사업계획서 근거팩</h3><p>문제인식 · 실현가능성 · 성장전략 항목별로 문장 예시와 그림, 출처까지</p></div>
+    <div class="sh"><img src="img/c-pack-sentence.jpg" alt="근거팩 문장 예시"></div>
+  </div>
+</section>
+
+<!-- ───────────── 8. Agent 구성 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">③ Agent 개발 구성</span>
+    <h2 class="t1">판단은 규칙이, 말은 AI가</h2></div>
+  <div class="pipe6"><div>질문 해석</div><div>분석 계획</div><div>도구 실행</div><div>자동 검산</div><div>반출 점검</div><div>결론 정리</div></div>
+  <p class="cap mt3" style="text-align:center">결과 단계에서 Agent가 혼자 하는 6단계 · 약 1초</p>
+  <figure class="mt6"><div class="sh"><img src="img/c-agentlog.jpg" alt="Agent 작업 기록"></div>
+    <figcaption class="cap mt3">실제 화면에 남는 작업 기록 — 같은 질문·데이터면 같은 재현 번호</figcaption></figure>
+  <div class="act3 mt9">
+    <div style="background:var(--blue-soft)"><b>🤖 AI (gpt-6-luna)</b><ul><li>질문 문장 해석</li><li>공고문과 자격 대조</li></ul></div>
+    <div style="background:var(--green-soft)"><b>📐 규칙 (코드)</b><ul><li>계산 · 검산</li><li>판정 · 문서 만들기</li></ul></div>
+    <div style="background:#FEF3C7"><b>🙋 사람</b><ul><li>이해한 내용 확인</li><li>데이터 받기 · 반출 신청</li></ul></div>
+  </div>
+  <h3 class="hd mt9">Agent가 하지 않는 일</h3>
+  <div class="nogo"><ul><li>센터 시스템에 직접 접속</li><li>근거 없는 숫자 만들기</li><li>센터 데이터를 외부 AI로 보내기</li><li>원본 데이터 반출</li></ul></div>
+</section>
+
+<!-- ───────────── 9. 데이터 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">④ 데이터 활용 계획</span>
+    <h2 class="t1">어떤 데이터가 어디에 쓰이나</h2></div>
+  <div class="d3">
+    <div class="g c"><h3 class="hd">센터 카드 데이터</h3><span class="cap">필수 · 센터 PC 안에서만</span>
+      <div class="ul-wrap"><ul><li>동네·업종별 매출</li><li>요일별 매출</li><li>시간대별 매출</li></ul></div>
+      <div class="to">→ 손님 구성 · 계절 · 요일 · 시간대</div></div>
+    <div class="g h"><h3 class="hd">제주데이터허브</h3><span class="cap">필수 · 공개 · 동봉</span>
+      <div class="ul-wrap"><ul><li>내국인 관광객 카드 이용</li><li>관광지 및 상업지구 카드</li></ul></div>
+      <div class="to">→ 공개 데이터로 먼저 보기 · 교차 확인</div></div>
+    <div class="g p"><h3 class="hd">공공데이터포털</h3><span class="cap">보조 · 공개 · 동봉</span>
+      <div class="ul-wrap"><ul><li>상가정보 · 인구</li><li>관광공사 방문자 수</li><li>지원사업 공고</li></ul></div>
+      <div class="to">→ 경쟁 가게 수 · 최근 방문객 · 지원사업</div></div>
+  </div>
+  <div class="n2 mt9">
+    <div><b>🔒 센터 데이터는 PC 밖으로 나가지 않음</b><p>외부 AI로도 보내지 않습니다</p></div>
+    <div><b>📤 반출은 규정대로</b><p>비율·순위와 그림(PNG)만, 출처 자동 기재</p></div>
+  </div>
+  <div class="n2 mt6">
+    <div><b>📥 수집은 내려받기만</b><p>센터 조회 화면에서 CSV를 받으면 앱이 표를 알아보고 자동으로 넣습니다</p></div>
+    <div><b>🔁 같은 형식의 가상 데이터로 개발</b><p>센터 명세서와 같은 컬럼으로 만들어 시연하고, 센터에서는 실제 값으로 바뀝니다</p></div>
+  </div>
+  <p class="cap mt9">데이터명·출처·전처리·이용조건은 부록 A와 「데이터 활용 명세서」에 있습니다.</p>
+</section>
+
+<!-- ───────────── 10. 검증 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">③ Agent 개발 구성 · 검증</span>
+    <h2 class="t1">직접 재 봤습니다</h2></div>
+  <div class="b3">
+    <div><b>15/15</b><span>질문 해석 정답</span><small>일상 표현 15문항</small></div>
+    <div><b>6/6</b><span>끝까지 실행</span><small>서로 다른 질문 6개</small></div>
+    <div><b>117</b><span>자동 테스트 통과</span><small>해석·판정·반출·화면</small></div>
+  </div>
+  <div class="n2 mt9">
+    <div><b>같은 데이터면 같은 결론</b><p>판정 규칙 공개 + 재현 번호</p></div>
+    <div><b>실제와 체험을 구분</b><p>가상 값은 화면·문서에 [체험]</p></div>
+  </div>
+  <figure class="mt9"><div class="sh"><img src="img/s-real.jpg" alt="실제 공개 데이터 답"></div>
+    <figcaption class="cap mt3"><span class="badge b-real">실제</span> 센터 데이터가 없어도 맨 위에는 공개 데이터 실제 값으로 먼저 답합니다</figcaption></figure>
+</section>
+
+<!-- ───────────── 11. 설치·운영 ───────────── -->
+<section class="pg m">
+  <div class="hdr"><span class="kk">⑤ 개발·탑재 계획</span>
+    <h2 class="t1">센터 PC에 설치는 3단계</h2></div>
+  <div class="ins">
+    <div class="s"><span class="ico">📦</span><b>설치</b><code>install.bat</code><p>필요한 프로그램 자동 설치</p></div><div class="ar">→</div>
+    <div class="s"><span class="ico">🔒</span><b>운영자 PIN</b><code>6~12자리</code><p>설정 화면 잠금</p></div><div class="ar">→</div>
+    <div class="s"><span class="ico">▶️</span><b>실행</b><code>run.bat</code><p>브라우저로 열림</p></div>
+  </div>
+  <div class="n2 mt6">
+    <div><b>🔑 키 없이도 끝까지</b><p>AI 키가 없으면 규칙으로 동작</p></div>
+    <div><b>💰 AI 비용은 월 $10 한도</b><p>방문자 화면엔 사용량 %만</p></div>
+  </div>
+  <h3 class="hd mt9">센터 직원은 한 번만 설정 <span>· 숨은 운영자 화면</span></h3>
+  <div class="ops">
+    <div class="sh"><img src="../submission/img/admin.jpg" alt="운영자 화면" style="height:50mm;object-fit:cover;object-position:left top"></div>
+    <div class="v3">
+      <div><b>모드 · 폴더 · AI 키</b><span>처음 한 번만</span></div>
+      <div><b>방문 전 준비</b><span>상담 때 받을 데이터 안내</span></div>
+      <div><b>비용은 %로만</b><span>방문자 화면엔 금액 없음</span></div>
+    </div>
+  </div>
+  <div class="qr2 mt9">
+    <img src="img/demo-qr.svg" alt="공개 데모 QR">
+    <div><b>설치 없이 지금 써 보기</b><span class="url">jeju-data-agent.streamlit.app</span>
+      <p>센터 PC 설치본과 같은 프로그램 · [예시 결과 바로 보기]를 누르면 3초 만에 결과<br>시연 영상(3분): youtu.be/sO9QfRvw-D8</p></div>
+  </div>
+</section>
+
+<section class="pg apx">
+  <span class="kicker">부록 — 심사위원용 세부 자료</span>
+  <h2>심사 항목별로 보는 곳</h2>
+  <table class="dense">
+    <tr><th style="width:30%">심사 항목(배점)</th><th>본문(그림)</th><th style="width:30%">부록(세부 표)</th></tr>
+    <tr><td>분석 주제의 타당성과 창의성(15)</td><td>2쪽 개념 · 3쪽 차별성 · 4쪽 네 컷 시나리오</td><td>A-0 센터의 지금 문제·AI 분석 목표</td></tr>
+    <tr><td>필수 데이터 활용 적절성(20)</td><td>9쪽 데이터가 쓰이는 곳</td><td>A-1~3 데이터명·출처·활용 항목·전처리·이용조건</td></tr>
+    <tr><td>AI Agent 기술성 및 완성도(25)</td><td>8쪽 Agent 구성 · 10쪽 검증</td><td>A-0 참여자·자율 범위 · A-4~6 모델·도구·구현 범위</td></tr>
+    <tr><td>편의성 및 실용성(25)</td><td>5~7쪽 실제 화면(질문·데이터 준비·결과·가져가기) · 11쪽 설치·운영자 화면·공개 데모</td><td>A-7~8 사전 설치 목록·PC·외부 서비스</td></tr>
+    <tr><td>결과 신뢰성 및 재현성(15)</td><td>8쪽 판단은 규칙이 · 10쪽 검증</td><td>B 판정 규칙표·한계·AI 활용</td></tr>
+  </table>
+  <h2>A-0. 센터의 지금 문제</h2>
+  <table class="dense">
+    <tr><th style="width:24%">현황(근거)</th><th>내용</th><th style="width:30%">Agent가 답하는 방식</th></tr>
+    <tr><td>이용자 감소</td><td>2023년 965명 → 2024년 1,154명 → 2025년 1~8월 464명(연환산 약 700명). 하루 몇 명 수준(도의회 의안 2795)</td><td>방문할 이유(센터에서만 나오는 수치)를 결과마다 보여 줌</td></tr>
+    <tr><td>직원 1:1 지원의 한계</td><td>직원 분석·컨설팅 연 10~12건, 예산 동결로 교육·경진대회 축소</td><td>질문→데이터 선택→분석→반출까지 셀프서비스</td></tr>
+    <tr><td>대상 확장</td><td>2026.4 '데이터 프리존' 전환, "프로그래밍에 익숙하지 않은 도민도 손쉽게"(제주TP)</td><td>일상어 질문, 결론 먼저, 쉬운 말</td></tr>
+    <tr><td>실제 방문 목적</td><td>방문자 대다수는 기관·기업, 목적은 논문·현황자료·사업계획서(운영진 답변 11/1~2)</td><td>목적별 출력: 사업계획서 근거팩 / 보고서·논문용 문어체 문장과 인용 표기</td></tr>
+    <tr><td>막히는 지점</td><td>표 71종 중 무엇을 받을지 모름, 영문 컬럼 CSV 해석, 반출 규정(단순집계 10 미만 불가, 그림은 PNG/JPG, 승인 최대 5일)</td><td>필요한 표·기간 안내, 자동 인식, 반출 기준을 처음부터 지킨 결과물</td></tr>
+  </table>
+  <h2>A-0. AI를 활용한 데이터 분석 목표(구현 상태)</h2>
+  <table class="dense">
+    <tr><th style="width:26%">목표</th><th>구체 내용</th><th style="width:22%">현재 상태</th></tr>
+    <tr><td>① 질문을 분석 계획으로</td><td>자유 문장에서 동네·업종·대상·관점을 뽑아(규칙 + 선택적 AI) 필요한 센터 표·기간·조건과 분석 단계를 정함</td><td>구현 · 15문항 실측 완전 정답 규칙 10, AI 15</td></tr>
+    <tr><td>② 받은 데이터를 스스로 처리</td><td>내려받기 폴더를 3초마다 확인, 컬럼 일치도로 표 판별, 모두 준비되면 결과로 자동 진행</td><td>구현</td></tr>
+    <tr><td>③ 검증된 도구로 분석·검산</td><td>비중·순위·지수·요일·시간대·가게 수·동네 비교 등 10개 도구, 기간 누락·중복·표본 부족 자동 검산</td><td>구현 · 6단계 약 2초</td></tr>
+    <tr><td>④ 공개 규칙으로 판정</td><td>손님 구성·계절·시장 크기·경쟁·요일·시간대 6개 규칙표로 결론 문장과 할 일 3개(같은 데이터면 같은 결론, 재현 번호)</td><td>구현</td></tr>
+    <tr><td>⑤ 문서에 넣을 형태로</td><td>사업계획서 항목(문제인식·실현가능성·성장전략)별 근거팩, 보고서 DOCX, PNG 그림, 반출 신청 문구</td><td>구현</td></tr>
+    <tr><td>⑥ 공개 데이터로 먼저·교차 확인</td><td>데이터허브·공공데이터포털 실제 값으로 먼저 답하고, 센터 결과와 같은 방향인지 확인</td><td>구현</td></tr>
+  </table>
+  <h2>A-0. 참여자의 역할·목표</h2>
+  <table class="dense">
+    <tr><th style="width:17%">참여자</th><th style="width:30%">목표</th><th>Agent와 하는 일</th></tr>
+    <tr><td>방문자</td><td>문서에 넣을 근거를 방문 1회로</td><td>질문, 이해 확인·고치기, 센터 조회 화면에서 CSV 내려받기, 결과 확인, 공고·활용 사유 선택, 반출 신청</td></tr>
+    <tr><td>Agent</td><td>정확하고 반출 가능한 결과를 쉽게</td><td>질문 해석·분석 계획, 데이터 안내·자동 인식, 도구 실행·검산, 규칙 판정, 문서·반출 묶음 생성, 지원사업 거르기</td></tr>
+    <tr><td>센터 직원(운영자)</td><td>적은 인력으로 운영, 규정 준수</td><td>설치·PIN, 데이터 폴더·조회 화면 바로가기 등록, AI 키·월 한도, 방문 예약 준비, 반출 접수(자동 점검 참고)</td></tr>
+    <tr><td>반출 심사자</td><td>규정에 맞는 결과만 반출</td><td>신청 문구의 출처·기간·사유와 응용집계·PNG 여부 확인</td></tr>
+  </table>
+  </section>
+
+<section class="pg apx">
+  <span class="kicker">부록 A · 심사 항목별 상세(데이터·모델·도구)</span>
+  <h2>A-1. 데이터 활용 개요</h2>
+  <table>
+    <tr><th style="width:18%">구분</th><th style="width:33%">데이터</th><th>이 서비스에서 하는 일</th></tr>
+    <tr><td><span class="badge b-center">필수 · 센터</span></td><td>카드 이용 현황 1-08(읍면동, 관광객·도민 구분), 1-12(요일별), 1-14(시간대), 명세서 v12 표 71종</td><td>동네×업종의 관광객 몫, 월별 흐름(성수기·비수기), 동네 매출 순위, 요일·시간대 분포 — <b>결론의 중심</b></td></tr>
+    <tr><td><span class="badge b-real">필수 · 데이터허브</span></td><td>597 내국인 관광객 카드 이용(2016.09~2018.12), 관광지 및 상업지구 카드(요일·시간대·이용자 유형, 2016.09~2017.11)</td><td>센터 결과의 <b>방향 교차 확인</b>, 시·도심/읍면 4그룹 비교, 지구 유형별 요일·시간대·손님 구성</td></tr>
+    <tr><td><span class="badge b-real">보조 · 공공데이터포털</span></td><td>상가(상권)정보(2026.09), 관광공사 지역별 방문자 수(2025.10~2026.09), 행안부 법정동 인구(2026.10), K-Startup·기업마당 공고</td><td>카드 데이터에 없는 <b>경쟁(가게 수)</b>, 최근 방문객 흐름, 도민 1,000명당 가게 수, 신청할 지원사업</td></tr>
+  </table>
+  <h2>A-2. 필수 데이터 — 데이터명·출처·활용 항목·수집·전처리·이용조건</h2>
+  <table class="dense">
+    <tr><th style="width:21%">데이터명</th><th style="width:12%">출처</th><th style="width:25%">활용 항목</th><th>수집·전처리</th><th style="width:16%">이용조건</th></tr>
+    <tr><td>카드 이용 현황(읍면동)_v02 <b>1-08</b></td><td>제주빅데이터센터</td><td>법정동·업종·이용자 구분(도민/개별/단체 관광객)·월·이용금액·건수·이용자 수</td><td rowspan="3">센터 조회 화면에서 표·기간(월)·조건 선택 → CSV(UTF-8, 영문 컬럼) → 내려받기 폴더 자동 인식, 컬럼 일치도로 표 판별, 'NA'는 실제 값으로 유지. 1-12는 공휴일이 원래 요일에도 집계돼(운영진 답변) 공휴일 행 제외, 1-14는 시간대 길이(점심 3시간·밤 9시간)를 감안한 1시간당 비중</td><td rowspan="3">센터 PC 안에서 분석. 반출은 응용집계(비중·순위·지수)와 PNG만, 단순집계 10 미만 불가, 원본·조회 결과 외부 LLM 전송 안 함. 퇴실 시 삭제</td></tr>
+    <tr><td>카드 이용 현황(요일별)_v02 <b>1-12</b></td><td>센터</td><td>법정동·업종·요일·이용자 구분</td></tr>
+    <tr><td>카드 이용 현황(시간대)_v02 <b>1-14</b></td><td>센터</td><td>법정동·업종·시간대 5구간</td></tr>
+    <tr><td>데이터 명세서 v12(표 71종)</td><td>센터</td><td>표 이름·컬럼·코드표(법정동 73, 업종 42 등)</td><td>xlsx → 카탈로그 JSON(표 추천·컬럼 판별·지명 사전)</td><td>센터 제공 문서</td></tr>
+    <tr><td><b>597</b> 내국인 관광객 지역·업종·성별·연령대별 카드 이용</td><td>제주데이터허브</td><td>시군구·도심/읍면·업종 9종·관광객/도민·연령·성별·월·이용금액</td><td>Open API 전체 기간(2016.09~2018.12, 19,573행) 동봉. 값 앞뒤 공백 제거, 연령대 표기 통일('20 미만'·'20대미만' → '20대 미만'), '전체' 합계 행 제외(이중 집계 방지)</td><td>제한 없음·무료(포털 15094857), 제출물 포함 가능(운영진)</td></tr>
+    <tr><td><b>관광지 및 상업지구</b> 요일별·시간대별·이용자 유형별 카드 데이터</td><td>제주데이터허브</td><td>지구 5종(상업지·내국인/중국인 주요 관광지·제주시/서귀포시 구도심) × 요일·시간대·이용자 유형 × 월</td><td>Open API(PC에서 받음, 2016.09~2017.11) 동봉. 세 표를 한 표로 합쳐 지구 유형 비교. 질문 동네 → 가장 가까운 지구 유형(읍면 → 관광지 등) 대응은 추정으로 표시. 같은 계열 업종별·연령성별·테마별 3종도 받아 동봉(화면 연결은 다음 단계)</td><td>제한 없음·무료(포털 15094889 등)</td></tr>
+  </table>
+  <h2>A-3. 보조 공개 데이터</h2>
+  <table class="dense">
+    <tr><th style="width:27%">데이터</th><th style="width:30%">활용</th><th>수집·전처리</th><th style="width:16%">이용조건</th></tr>
+    <tr><td>소상공인시장진흥공단 상가(상권)정보(2026.09)</td><td>경쟁(같은 업종 가게 수·순위), 가게 하나당 매출 지수</td><td>공공데이터포털 파일(키 불필요). 제주 59,101곳 → 법정동×업종 가게 수 7,486행(상호·주소·좌표 제외). 법정동 73곳이 센터 1-08과 일치. 카드 업종 대응표(카페 → 비알콜 음료점업 등)</td><td>제한 없음(15083033)</td></tr>
+    <tr><td>한국관광공사 지역별 방문자 수</td><td>최근 1년 외지인 방문자 월별·요일 흐름</td><td>Open API(인증키). 제주시·서귀포시 일별 현지인·외지인·외국인(2025.10~2026.09). 매출 아님을 표시</td><td>제한 없음(15101972)</td></tr>
+    <tr><td>행정안전부 법정동 주민등록 인구</td><td>도민 1,000명당 같은 업종 가게 수</td><td>Open API. 리 단위를 법정동 73곳으로 합산(2026.10)</td><td>제한 없음(15108071)</td></tr>
+    <tr><td>K-Startup 사업공고, 기업마당 지원사업</td><td>신청할 지원사업 찾기·근거팩 부록</td><td>Open API 실시간(30분 캐시, 실패 시 마지막 저장본). 지역·창업 단계·나이·업종으로 거름</td><td>K-Startup 제한 없음, 기업마당 공공누리 3유형</td></tr>
+  </table>
+</section>
+<section class="pg apx">
+  <span class="kicker">부록 A · 심사 항목별 상세(모델·Tool/API·개발·탑재)</span>
+  <h2>A-4. 사용 모델</h2>
+  <table>
+    <tr><th style="width:22%">항목</th><th>내용</th></tr>
+    <tr><td>모델</td><td><b>OpenAI gpt-6-luna</b>(입력 $0.10 / 출력 $0.50, 100만 토큰당) 하나만 사용. OpenAI 호환 API 주소로 바꿔 쓸 수 있음(운영자 설정)</td></tr>
+    <tr><td>쓰는 곳</td><td>① 자유 문장 질문에서 장소·업종 표현 추출(구조화 출력, 허용 목록 검증) ② 지원사업 공고문과 입력 조건의 자격 대조(버튼을 누를 때만)</td></tr>
+    <tr><td>안 쓰는 곳</td><td>결론 판정, 수치 계산·생성, 센터 데이터 해석(모두 규칙 코드). AI 답의 지명은 내장 제주 지명 사전으로 다시 확인</td></tr>
+    <tr><td>선택 근거(실측 2026-11-03)</td><td>질문 15문항 완전 정답: 규칙만 10, luna 13, 상위 모델 sol 13(비용 20배) / 지원사업 자격 36건 중 30건 일치(갈린 6건 중 5건은 sol이 더 보수적일 뿐)</td></tr>
+    <tr><td>비용</td><td>질문 해석 1회 약 $0.0001, 자격 대조 1회 약 $0.0008 → 시나리오 1회 방문 약 $0.0009. 월 한도 기본 $10(운영자 변경), 한도 도달 시 AI 끄고 화면에 알림. 공급자 쪽 프로젝트 예산 한도 병행 권장</td></tr>
+    <tr><td>로컬 LLM</td><td>센터 PC GTX 1060(VRAM 3GB)으로는 실용 속도가 어려워 쓰지 않음. 키가 없으면 규칙 해석·규칙 판정으로 전 과정 동작</td></tr>
+  </table>
+  <h2>A-5. Tool(분석 도구)</h2>
+  <table>
+    <tr><th style="width:20%">분석 도구(코드)</th><th>하는 일</th><th style="width:22%">데이터</th></tr>
+    <tr><td>compare_share</td><td>관심 대상(관광객·외국인 등) 비중 vs 제주 전체 같은 업종</td><td>1-08, 597</td></tr>
+    <tr><td>trend</td><td>월별 흐름, 평소=100 지수, 성수기·비수기, 최고/최저 배율, 기간 누락 검사</td><td>1-08, 597, 방문자 수</td></tr>
+    <tr><td>top_n</td><td>같은 업종 매출의 동네 순위·몫(관심 동네가 순위 밖이어도 표시)</td><td>1-08</td></tr>
+    <tr><td>region_compare</td><td>후보 동네 2곳 이상을 나란히: 관심 대상 비중·매출 순위·몫·성수기÷비수기</td><td>1-08</td></tr>
+    <tr><td>pattern</td><td>요일·시간대 분포(공휴일 중복 제외, 시간대 길이 보정한 1시간당 비중)</td><td>1-12, 1-14, 방문자 수</td></tr>
+    <tr><td>share_by · group_share · season_by</td><td>연령대 비중, 시·도심/읍면 4그룹 비교, 관광객·도민 계절 차이</td><td>597</td></tr>
+    <tr><td>store_rank</td><td>같은 업종 가게 수 순위·몫(+ 인구 대비)</td><td>상가정보, 인구</td></tr>
+    <tr><td>district_profile</td><td>지구 유형별 요일·시간대·손님 구성</td><td>관광지 및 상업지구</td></tr>
+  </table>
+<p class="small muted" style="margin:0 0 4pt">외부 API(데이터허브·공공데이터포털·OpenAI)와 없을 때의 동작은 11쪽 표.</p>
+  <h2>A-6. 구현 범위</h2>
+  <table>
+    <tr><th style="width:22%">구분</th><th>내용</th></tr>
+    <tr><td>구현 완료(제출물)</td><td>화면 4단계, 질문 해석(규칙+AI), 데이터 안내·자동 인식, 분석 도구 10종·검산, 판정 규칙 6종, 결론·근거 카드·그림, 보고서·근거팩·반출 묶음·신청 문구, 지원사업 찾기·자격 판정, 공개 데이터 6종 연동, 운영자 페이지(PIN), 퇴실 정리, Windows 설치·실행 스크립트, 체험 모드</td></tr>
+    <tr><td>센터 탑재 후 확인</td><td>실제 센터 CSV로 컬럼·코드값 검증(명세서·가상 데이터·실제 공개 데이터로는 검증 완료), 판정 기준점 재점검, 센터 조회 화면 바로가기 등록</td></tr>
+    <tr><td>확장 제안</td><td>유동인구·POS 표 연결(행정동–법정동 대응표), 방문 전 집에서 공개 데이터로 미리 준비, 배우는 모드(분석 단계 보기)</td></tr>
+  </table>
+  <h2>A-7. 센터 PC 사전 설치 목록(기술 환경 요약은 11쪽)</h2>
+  <div class="box orange">
+    <h4 style="margin-top:0">사전 설치 요청 목록(설치 프로그램·패키지)</h4>
+    <table style="margin:2pt 0 4pt">
+      <tr><th style="width:30%">항목</th><th>내용</th></tr>
+      <tr><td>Python 3.11.x 64비트</td><td>python.org Windows 설치 파일(설치 첫 화면 'Add python.exe to PATH' 체크). 없으면 설치 스크립트가 winget 설치를 제안</td></tr>
+      <tr><td>pip 패키지 6종</td><td>위 5-2의 버전 고정 목록(requirements.txt). install.bat이 앱 폴더의 가상환경(.venv)에만 설치 — PC 전체에 영향 없음</td></tr>
+      <tr><td>브라우저</td><td>Edge 또는 Chrome(기본 설치된 것)</td></tr>
+      <tr><td>그 밖</td><td>GPU·DB·서버 프로그램·관리자 권한 상시 실행 없음. 디스크 약 1GB(.venv 포함)</td></tr>
+    </table>
+    <p class="small" style="margin:0">설치 순서: Python 설치 → 앱 폴더의 <b>install.bat</b>(3~10분, 운영자 PIN 설정, 바탕화면 바로가기) → <b>run.bat</b>. 센터 모드에서는 운영자 페이지에서 내려받기 폴더와 조회 화면 바로가기만 한 번 등록.</p>
+  </div>
+
+</section>
+<section class="pg apx">
+  <span class="kicker">부록 B · 판정 규칙·한계·AI 활용</span>
+  <h2>A-0. 판단 및 자율 수행 범위</h2>
+  <table class="dense">
+    <tr><th style="width:15%">영역</th><th style="width:31%">Agent가 스스로</th><th style="width:27%">사람이 확인·결정</th><th>하지 않는 것</th></tr>
+    <tr><td>질문 해석</td><td>동네·업종·대상·관점 추출, 사전 검증, 알려 줄 순서 결정</td><td>"이렇게 이해했어요" 확인, [고치기]</td><td>사전에 없는 지명 추측(모르는 말로 표시)</td></tr>
+    <tr><td>데이터</td><td>필요한 표·기간·조건 결정, 받은 파일 판별, 모두 준비되면 결과로 진행</td><td>센터 조회 화면에서 내려받기, [바꾸기]</td><td>센터 시스템 직접 접속·쿼리, 앱이 읽지 않은 파일 수정·삭제</td></tr>
+    <tr><td>분석·판정</td><td>계획한 도구 실행, 검산, 규칙 판정, 할 일 제안</td><td>[판정 기준 보기]로 근거 확인</td><td>AI 판정, 근거 없는 수치·경쟁 판단(데이터 없으면 '판정 안 함')</td></tr>
+    <tr><td>지원사업</td><td>조건 거르기·규칙 판정, (버튼 시) AI 자격 대조</td><td>근거팩에 넣을 공고, 활용 사유</td><td>신청 대행, 공고문에 없는 조건 지어내기</td></tr>
+    <tr><td>반출</td><td>응용집계·PNG만으로 묶음, 신청 문구, 자동 점검</td><td>방문자 신청, 직원 승인</td><td>원본·데이터 미리보기 반출, 결과 외부 전송</td></tr>
+    <tr><td>비용·보안</td><td>월 한도 도달 시 AI 끄고 알림, 퇴실 정리</td><td>운영자 PIN으로 키·한도·폴더 설정</td><td>센터 데이터를 외부 LLM으로 전송</td></tr>
+  </table>
+  <h2>A-8. 센터 PC에서 확인한 것 · 외부 서비스(모두 선택)</h2>
+  <table class="dense">
+        <tr><th style="width:34%">항목</th><th>내용</th></tr>
+        <tr><td>최소 사양</td><td>i7-8700 / GTX 1060 / RAM 32GB — GPU 미사용, 메모리 약 0.5GB</td></tr>
+        <tr><td>OS·브라우저</td><td>Windows 11, Edge 또는 Chrome</td></tr>
+        <tr><td>사전 설치 요청</td><td>Python 3.11 64비트, pip 패키지 6개(버전 고정)</td></tr>
+        <tr><td>기술 환경</td><td>Streamlit 1.66 · pandas 3.1 · numpy 2.4 · matplotlib 3.11 · openpyxl · python-docx</td></tr>
+        <tr><td>UI 구성</td><td>방문자 4단계 화면 + 숨은 운영자 페이지(/admin, PIN) + 체험/센터 모드</td></tr>
+        <tr><td>윈도우 실측</td><td>집 PC에서 설치→예시 결과→반출 묶음까지 확인(11/15)</td></tr>
+      </table>
+  <table class="dense">
+        <tr><th style="width:36%">서비스</th><th>없을 때</th></tr>
+        <tr><td>OpenAI(질문 해석·자격 대조)</td><td>규칙 해석·규칙 판정, 화면에 쉬운 말로 알림</td></tr>
+        <tr><td>제주데이터허브 API</td><td>동봉 공개 데이터 사용</td></tr>
+        <tr><td>공공데이터포털 API</td><td>지원사업 저장본, 동봉 파일</td></tr>
+        <tr><td>pypi.org</td><td>설치 때만 필요</td></tr>
+      </table>
+<h2>B-1. 판정 규칙표(화면 [판정 기준 보기]와 동일)</h2>
+  <table>
+    <tr><th style="width:15%">판정</th><th>규칙</th><th style="width:25%">기준점·비고</th></tr>
+    <tr><td>손님 구성</td><td>관광객(개별+단체) 매출 비중 65% 이상 '뚜렷한 관광객 장사', 55~65 '관광객 장사', 45~55 '반반', 35~45 '도민 단골 장사', 35 미만 '뚜렷한 도민 단골 장사'. 제주 같은 업종과의 차이 3%p 미만 '평균 수준'. 30행 미만 판정 보류</td><td>597: 읍면 식당·카페 64.6~65.0%, 제주시 도심 29.3%</td></tr>
+    <tr><td>계절</td><td>가장 많은 달 ÷ 가장 적은 달 2.0배 이상 '계절 영향 큼', 1.5~2.0 '있음', 미만 '고른 편'. 평소 달=100일 때 120 이상 성수기, 80 미만 비수기. 12개월 미만 판정 안 함</td><td>597: 관광객 2.3배, 도민 1.5배</td></tr>
+    <tr><td>시장 크기</td><td>같은 업종 매출의 동네 순위 3위 안 '손꼽히는 큰 시장', 10위 안 '큰 시장', 절반 안 '중간', 그 밖 '작은 시장'</td><td>센터 1-08</td></tr>
+    <tr><td>경쟁(가게 수)</td><td>같은 업종 가게 수 순위 3위 안 '손꼽히게 많음', 10위 안 '많음'. 매출 몫 ÷ 가게 몫 1.2 이상 '손님 넉넉', 0.8 미만 '가게가 많은 편'</td><td>상가정보(실제)</td></tr>
+    <tr><td>요일</td><td>토+일 비중 33% 이상 '주말형', 25% 이하 '평일형'(고르게 나뉘면 28.6%). 공휴일은 원래 요일에 포함돼 뺌</td><td>운영진 답변(11/2)</td></tr>
+    <tr><td>시간대</td><td>시간대 길이가 달라 1시간당 비중으로 비교, 1위가 2위의 1.2배 이상이면 '집중형'</td><td>명세서 [참고4]</td></tr>
+  </table>
+
+  <h2 style="margin-top:12pt">B-2. 한계와 확인 필요 사항</h2>
+  <ul>
+    <li>실제 센터 CSV로는 아직 검증하지 못함(명세서 기반 가상 데이터와 실제 공개 데이터로 검증). 컬럼이 다르면 화면이 안내하고, 탑재 시 함께 확인.</li>
+    <li>판정 기준점은 공개 데이터 597(2016~2018)로 잡은 잠정치. 센터 실데이터로 재점검 예정.</li>
+    <li>카드 데이터는 비씨카드 결제 기준이라 매출 전체가 아님 → 비율·순위로 해석하도록 화면과 보고서에 명시.</li>
+    <li>공개 데이터는 시·지구 단위이고 기간이 과거(597·관광지 및 상업지구)이거나 매출이 아님(방문자 수) → 각 카드에 단위·기간·성격을 적음. 질문 동네와 지구 유형의 대응은 추정.</li>
+    <li>지원사업 자격 판정(규칙·AI)과 신청 방법 분류는 추정 → 공고문 확인 안내.</li>
+    <li>센터 조회 사이트 주소가 공개되지 않아, 표별 바로가기는 운영자가 한 번 등록.</li>
+  </ul>
+
+  <h2 style="margin-top:12pt">B-3. AI 활용 명시</h2>
+  <ul>
+    <li>실행 중: OpenAI gpt-6-luna(선택) — 질문 해석, 지원사업 자격 대조. 센터 데이터·분석 결과는 보내지 않음.</li>
+    <li>개발 과정: AI 코딩 에이전트(Anthropic Claude Code)로 조사·설계·코드 작성을 보조받았고, 참가팀이 검토·결정함.</li>
+    <li>외부 데이터·오픈소스: 부록 A-1~3 데이터 표와 A-7·A-8 패키지 목록(라이선스는 README). 타 참가팀 코드는 참조하지 않음.</li>
+  </ul>
+</section>
+</body>
+</html>

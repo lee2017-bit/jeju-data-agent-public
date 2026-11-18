@@ -1,0 +1,6 @@
+{
+  "_설명": "센터 운영자가 한 번 채워 두는 설정. tables의 url/path/query에 {from_ym} {to_ym} {from_year} {to_year} {bjd} {biz_nm}를 쓰면 질문에 맞게 채워진다. 비워 두면 표 번호와 기간 안내만 나온다.",
+  "preload_dir": "",
+  "watch_dir": "~/Downloads",
+  "tables": {}
+}

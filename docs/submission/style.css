@@ -1,0 +1,60 @@
+@page { size: A4; margin: 15mm 15mm 16mm 15mm; }
+  :root { --ink:#0F172A; --muted:#55606F; --line:#D9DFE7; --blue:#1D4ED8; --blue-soft:#EEF3FE; --orange:#C2410C;
+          --orange-soft:#FDF0E7; --green:#047857; --green-soft:#E8F6EF; --bg:#F6F7F9; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+         color: var(--ink); font-size: 10pt; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+  h1, h2, h3, h4 { margin: 0; line-height: 1.3; break-after: avoid; }
+  p { margin: 0 0 5pt; }
+  .page { break-after: page; }
+  .page:last-child { break-after: auto; }
+  section.chapter { break-before: page; }
+  .kicker { font-size: 8.5pt; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  h2 { font-size: 17pt; font-weight: 800; letter-spacing: -0.01em; margin: 2pt 0 8pt; padding-bottom: 5pt; border-bottom: 2px solid var(--ink); }
+  h2 .num { color: var(--blue); margin-right: 6pt; }
+  h3 { font-size: 12pt; font-weight: 700; margin: 11pt 0 5pt; }
+  h3 .tag { font-size: 8pt; font-weight: 600; color: var(--muted); margin-left: 6pt; }
+  h4 { font-size: 10.5pt; font-weight: 700; margin: 8pt 0 3pt; }
+  ul, ol { margin: 0 0 5pt; padding-left: 14pt; }
+  li { margin: 1.5pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 8pt; font-size: 8.8pt; line-height: 1.45; break-inside: auto; }
+  th, td { border: 1px solid var(--line); padding: 3pt 5pt; text-align: left; vertical-align: top; }
+  th { background: var(--bg); font-weight: 700; }
+  tr { break-inside: avoid; }
+  table.dense { font-size: 8.2pt; line-height: 1.38; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.5pt; }
+  .box { border: 1px solid var(--line); border-radius: 6pt; padding: 7pt 9pt; margin: 5pt 0 8pt; break-inside: avoid; }
+  .box.blue { background: var(--blue-soft); border-color: #C9D7FB; }
+  .box.orange { background: var(--orange-soft); border-color: #F6CDB1; }
+  .box.green { background: var(--green-soft); border-color: #BFE6D2; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 9pt; }
+  .two > * { min-width: 0; }
+  .three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7pt; }
+  figure { margin: 4pt 0 8pt; break-inside: avoid; }
+  figure img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 4pt; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 2pt; }
+  .kpi { border: 1px solid var(--line); border-radius: 6pt; padding: 6pt 8pt; background: #fff; }
+  .kpi b { display: block; font-size: 15pt; font-weight: 800; color: var(--blue); }
+  .kpi span { font-size: 8.3pt; color: var(--muted); }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 6pt 0 8pt; }
+  .flow > div { border: 1px solid var(--line); padding: 6pt 7pt; position: relative; background: #fff; min-height: 70pt; }
+  .flow > div + div { border-left: none; }
+  .flow b { display: block; color: var(--blue); font-size: 10pt; }
+  .flow .who { font-size: 7.8pt; color: var(--orange); font-weight: 600; }
+  .pipe { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4pt; margin: 6pt 0 4pt; }
+  .pipe > div { background: var(--blue-soft); border-radius: 5pt; padding: 5pt 6pt; font-size: 8.3pt; line-height: 1.4; }
+  .pipe > div b { display: block; font-size: 9pt; color: var(--blue); }
+  .badge { display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 0 5pt; border-radius: 8pt; }
+  .b-real { background: var(--green-soft); color: var(--green); }
+  .b-center { background: var(--blue-soft); color: var(--blue); }
+  .b-demo { background: #FEF3C7; color: #8A4B0B; }
+  /* 표지 */
+  .cover { display: flex; flex-direction: column; gap: 9pt; }
+  .cover .kicker { margin-top: 4pt; }
+  .cover h1 { font-size: 26pt; font-weight: 800; letter-spacing: -0.02em; }
+  .cover .sub { font-size: 12.5pt; color: var(--muted); font-weight: 500; }
+  .cover .meta { font-size: 9pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6pt; }
+  .toc { columns: 2; font-size: 9pt; margin: 2pt 0; }
+  .toc div { break-inside: avoid; }
